@@ -1,5 +1,5 @@
 .app-container {
-  /* min-height: 100vh; */
+  min-height: 100vh;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -11,6 +11,12 @@
   font-size: 2rem;
   font-weight: bold;
   margin-bottom: 1rem;
+}
+
+.question-count {
+  font-size: 1.125rem;
+  margin-bottom: 1rem;
+  color: #333;
 }
 
 .question-section {
@@ -54,7 +60,7 @@
 
 .option-btn.correct {
   background-color: #10b981;
-  color: black;
+  color: white;
   border-color: #10b981;
 }
 
@@ -75,4 +81,13 @@
 
 .result.incorrect {
   color: #ef4444;
+}
+
+.correct-answer {
+  margin-top: 1rem;
+}
+
+.correct-answer p {
+  font-size: 1.125rem;
+  color: #10b981;
 }

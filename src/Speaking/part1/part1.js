@@ -2,93 +2,72 @@ import { useState, useEffect } from "react";
 import "./part1.css";
 import { data } from "../data.js";
 
-function SpeakingPart1({ questions, onComplete }) {
+const topics = data.part1.map((question, index) => ({
+  name: `Topic ${index + 1}`,
+  questions: question.questions.slice(0, 3) // Only use the question text, pad with empty strings if needed
+}));
+
+function SpeakingPart1({ question, onComplete }) {
+  const [currentTopicIndex, setCurrentTopicIndex] = useState(null);
   const [currentQuestionIndex, setCurrentQuestionIndex] = useState(0);
-  const [selectedOption, setSelectedOption] = useState("");
-  const [result, setResult] = useState(null);
-  const [showCorrect, setShowCorrect] = useState(false);
-  const [shuffledQuestions, setShuffledQuestions] = useState([]);
+  const [timeLeft, setTimeLeft] = useState(30);
+  const [displayTime, setDisplayTime] = useState(5);
+  const [shuffledTopics, setShuffledTopics] = useState([]);
 
   useEffect(() => {
-    shuffleQuestions();
+    const topic = question && question.length > 0 ? question : topics;
+    const shuffled = [...topic].sort(() => Math.random() - 0.5);
+    setShuffledTopics(shuffled);
+    setCurrentTopicIndex(0);
+    setCurrentQuestionIndex(0);
+    setTimeLeft(30);
+    setDisplayTime(5);
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
-  const shuffleQuestions = () => {
-    const dataQuestions =
-      questions && questions.length > 0 ? questions : data.part1;
-    const shuffled = [...dataQuestions].sort(() => Math.random() - 0.5);
-    setShuffledQuestions(shuffled);
-    setCurrentQuestionIndex(0);
-    setSelectedOption("");
-    setResult(null);
-    setShowCorrect(false);
-  };
-
-  const handleOptionClick = (option) => {
-    setSelectedOption(option);
-    const currentQuestion = shuffledQuestions[currentQuestionIndex];
-    if (option === currentQuestion.answer) {
-      setTimeout(() => {
-        if (currentQuestionIndex < shuffledQuestions.length - 1) {
-          setCurrentQuestionIndex(currentQuestionIndex + 1);
-          setSelectedOption("");
-          setResult(null);
-          setShowCorrect(false);
-        } else {
-          setResult("Congratulations! You completed all questions!");
-          onComplete();
-        }
-      }, 1000);
+  useEffect(() => {
+    let displayTimer;
+    if (displayTime > 0) {
+      displayTimer = setTimeout(() => setDisplayTime(displayTime - 1), 1000);
+    } else if (timeLeft > 0) {
+      const timer = setInterval(() => setTimeLeft(timeLeft - 1), 1000);
+      return () => clearInterval(timer);
     } else {
-      setResult("Incorrect, try again or show correct answer.");
-      setShowCorrect(true);
+      if (currentQuestionIndex < 2) {
+        setCurrentQuestionIndex(currentQuestionIndex + 1);
+        setTimeLeft(30);
+        setDisplayTime(5);
+      } else if (currentTopicIndex < shuffledTopics.length - 1) {
+        setCurrentTopicIndex(currentTopicIndex + 1);
+        setCurrentQuestionIndex(0);
+        setTimeLeft(30);
+        setDisplayTime(5);
+      } else {
+        onComplete();
+      }
     }
-  };
+    return () => clearTimeout(displayTimer);
+  }, [displayTime, timeLeft, currentQuestionIndex, currentTopicIndex, onComplete, shuffledTopics.length]);
 
-  const currentQuestion = shuffledQuestions[currentQuestionIndex] || null;
+  const currentTopic = shuffledTopics[currentTopicIndex];
 
-  if (!currentQuestion) return <div>Loading...</div>;
+  if (!currentTopic || currentTopicIndex === null) return <div>Loading...</div>;
 
   return (
     <div className="app-container">
-      <h1 className="game-title">Multiple Choice Game - Part 1</h1>
-      <p className="question-count">
-        {currentQuestionIndex + 1}/{shuffledQuestions.length}
-      </p>
+      <h1 className="game-title">Speaking Practice - Part 5</h1>
+      <p className="question-count">{currentTopicIndex + 1}/{shuffledTopics.length}</p>
       <div className="question-section">
-        <p className="question-text">{currentQuestion.text}</p>
-        <div className="options">
-          {currentQuestion.options.map((option, index) => (
-            <button
-              key={index}
-              className={`option-btn ${
-                selectedOption === option
-                  ? option === currentQuestion.answer
-                    ? "correct"
-                    : "incorrect"
-                  : ""
-              }`}
-              onClick={() => handleOptionClick(option)}
-              // disabled={selectedOption !== ''}
-            >
-              {String.fromCharCode(65 + index)}. {option}
-            </button>
-          ))}
-        </div>
-        {result && (
-          <p
-            className={`result ${
-              result.includes("Congratulations") ? "correct" : "incorrect"
-            }`}
-          >
-            {result}
-          </p>
-        )}
-        {showCorrect && (
-          <div className="correct-answer">
-            <p>Correct answer: {currentQuestion.answer}</p>
-          </div>
+        <h2>{currentTopic.name}</h2>
+        {displayTime > 0 ? (
+          <p className="display-text">Chuẩn bị: {displayTime} seconds</p>
+        ) : (
+          <>
+            <p className="question-text">
+              Question {currentQuestionIndex + 1}: {currentTopic.questions[currentQuestionIndex] || "No question available"}
+            </p>
+            <p className="timer">Thời gian nói: {timeLeft} seconds</p>
+          </>
         )}
       </div>
     </div>

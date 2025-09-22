@@ -13,6 +13,8 @@ import SpeakingPart1 from "./Speaking/part1/part1";
 import ListeningPart1 from "./Listening/part1/part1";
 import ListeningPart4 from "./Listening/part4/part4";
 import ListeningTest from "./Listening/test/test";
+import HomeSpeaking from "./Speaking/homeSpeaking";
+import SpeakingPart2 from "./Speaking/part2/part2";
 
 const root = ReactDOM.createRoot(document.getElementById("root"));
 root.render(
@@ -29,7 +31,9 @@ root.render(
       <Route path="/listening/part1" element={<ListeningPart1 />} />
       <Route path="/listening/part4" element={<ListeningPart4 />} />
       <Route path="/listening/test" element={<ListeningTest />} />
-      <Route path="/speaking" element={<HomeReading />} />
+      <Route path="/speaking" element={<HomeSpeaking />} />
+      <Route path="/speaking/part1" element={<SpeakingPart1 />} />
+      <Route path="/speaking/part2" element={<SpeakingPart2 />} />
     </Routes>
   </BrowserRouter>
 );
