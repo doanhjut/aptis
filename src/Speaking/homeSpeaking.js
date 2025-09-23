@@ -4,26 +4,31 @@ import "./homeSpeaking.css";
 function HomeSpeaking() {
   return (
     <div className="app-container">
-      <h1 className="game-title">Word Order Game</h1>
+      <h1 className="game-title">Aptis Speaking</h1>
+      <div className="back-button-container">
+        <Link to="/" className="back-button">
+          Back to Home
+        </Link>
+      </div>
       <div className="card-container">
         <Link to="/speaking/part1" className="card">
-          <h2>Part 1: Chọn đáp án đúng</h2>
-          <p>Chọn đáp án đúng để hoàn thành 13 câu.</p>
+          <h2>Part 1: Thông tin cá nhân</h2>
+          <p>Trả lời 3 câu hỏi thông tin cá nhân, mỗi câu trong vòng 30s.</p>
           <button className="start-button">Start Part 1</button>
         </Link>
         <Link to="/speaking/part2" className="card">
-          <h2>Part 2: Sắp xếp</h2>
-          <p>Sắp xếp các câu thành 1 đoạn văn.</p>
-          <button className="start-button" >Start Part 2</button>
+          <h2>Part 2: Miêu tả tranh</h2>
+          <p>Mô tả 1 bức tranh và trả lời 2 câu hỏi liên quan.</p>
+          <button className="start-button">Start Part 2</button>
         </Link>
-        <Link to="/speaking/part3" className="card"> 
-          <h2>Part 3: Chọn câu hỏi</h2>
-          <p>Có 4 người và 7 câu hỏi. Chọn câu hỏi về người nào</p>
+        <Link to="/speaking/part3" className="card">
+          <h2>Part 3: So sánh 2 bức tranh</h2>
+          <p>So sánh 2 bức tranh và trả lời 2 câu hỏi liên quan.</p>
           <button className="start-button">Start Part 3</button>
         </Link>
         <Link to="/speaking/part4" className="card">
-          <h2>Part 4: Chọn tiêu đề cho đoạn văn</h2>
-          <p>Có 7 đoạn văn và 8 tiêu đề cần chọn tiêu đề cho đoạn văn.</p>
+          <h2>Part 4: Thảo luận kinh nghiệm, quan điểm</h2>
+          <p>Trả lời câu hỏi về các chủ đề trừu tượng.</p>
           <button className="start-button">Start Part 4</button>
         </Link>
         <Link to="/speaking/test" className="card">

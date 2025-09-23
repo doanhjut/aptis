@@ -1,3 +1,4 @@
+/* eslint-disable jsx-a11y/img-redundant-alt */
 import { useState, useEffect } from "react";
 import "./part2.css";
 import { data } from "../data.js";
@@ -9,15 +10,18 @@ import img5 from "../image/part2/5.png";
 import img6 from "../image/part2/6.png";
 import img7 from "../image/part2/7.png";
 import img8 from "../image/part2/8.png";
+import { Link } from "react-router-dom";
 
-function SpeakingPart2({ onComplete }) {
+function SpeakingPart2({ questions, onComplete }) {
   const [currentImageIndex, setCurrentImageIndex] = useState(null);
   const [timeLeft, setTimeLeft] = useState(45);
   const [displayTime, setDisplayTime] = useState(5);
   const [shuffledImages, setShuffledImages] = useState([]);
 
   useEffect(() => {
-    const shuffled = [...data.part2].sort(() => Math.random() - 0.5);
+    const dataQuestions =
+      questions && questions.length > 0 ? questions : data.part2;
+    const shuffled = [...dataQuestions].sort(() => Math.random() - 0.5);
     setShuffledImages(shuffled);
     setCurrentImageIndex(0);
     setTimeLeft(45);
@@ -51,8 +55,6 @@ function SpeakingPart2({ onComplete }) {
   ]);
 
   const currentImage = () => {
-    console.log(shuffledImages[currentImageIndex] === 1);
-    
     switch (shuffledImages[currentImageIndex]) {
       case 1:
         return img1;
@@ -82,6 +84,13 @@ function SpeakingPart2({ onComplete }) {
   return (
     <div className="app-container">
       <h1 className="game-title">Image Practice - Part 2</h1>
+      {(!questions || questions.length == 0) && (
+        <div className="back-button-container">
+          <Link to="/listening" className="back-button">
+            Back to Home
+          </Link>
+        </div>
+      )}
       <p className="question-count">
         {currentImageIndex + 1}/{shuffledImages.length}
       </p>

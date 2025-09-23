@@ -1,6 +1,7 @@
 import { useState, useEffect } from "react";
 import "./part2.css";
 import { data } from "../data";
+import { Link } from "react-router-dom";
 
 const shuffleArray = (array) => {
   const shuffled = [...array];
@@ -68,7 +69,10 @@ function ReadingPart2({ questions, onComplete }) {
 
   const checkAnswer = () => {
     const userAnswer = inputValues.map((val) => val.trim()).filter(Boolean);
-    const correctAnswer = dataSentences[sentenceIndices[currentIndex]].slice(0, 5);
+    const correctAnswer = dataSentences[sentenceIndices[currentIndex]].slice(
+      0,
+      5
+    );
     const isCorrect = userAnswer.every(
       (word, index) => word === correctAnswer[index]
     );
@@ -116,8 +120,15 @@ function ReadingPart2({ questions, onComplete }) {
 
   return (
     <div className="app-container">
-      <h1 className="game-title">Word Order Game</h1>
+      <h1 className="game-title">Reading aptis</h1>
       {/* Chỉ hiển thị dropdown khi questions là null */}
+      {(!questions || questions.length == 0) && (
+        <div className="back-button-container">
+          <Link to="/listening" className="back-button">
+            Back to Home
+          </Link>
+        </div>
+      )}
       {!questions && (
         <div className="data-selector">
           <label htmlFor="data-select">Choose data set: </label>

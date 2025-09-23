@@ -1,6 +1,7 @@
 import { useState, useEffect } from "react";
 import "./part4.css";
 import { data } from "../data.js";
+import { Link } from "react-router-dom";
 
 function Part4({ onComplete }) {
   const [currentTopicIndex, setCurrentTopicIndex] = useState(0);
@@ -43,14 +44,21 @@ function Part4({ onComplete }) {
     const updatedSelected = [...selectedAnswers, subQuestion.text];
 
     if (isCorrect) {
-      if (updatedSelected.filter((text) => currentTopic.subQuestions.find((q) => q.text === text).answer).length === 2) {
+      if (
+        updatedSelected.filter(
+          (text) =>
+            currentTopic.subQuestions.find((q) => q.text === text).answer
+        ).length === 2
+      ) {
         setTimeout(() => {
           if (currentTopicIndex < shuffledTopics.length - 1) {
             setCurrentTopicIndex(currentTopicIndex + 1);
             setSelectedAnswers([]);
             setResult(null);
             setShowCorrect(false);
-            shuffleSubQuestions(shuffledTopics[currentTopicIndex + 1].subQuestions);
+            shuffleSubQuestions(
+              shuffledTopics[currentTopicIndex + 1].subQuestions
+            );
           } else {
             setResult("Congratulations! You completed all topics!");
             onComplete();
@@ -71,7 +79,14 @@ function Part4({ onComplete }) {
   return (
     <div className="app-container">
       <h1 className="game-title">Multiple Choice Game - Part 4</h1>
-      <p className="question-count">{currentTopicIndex + 1}/{shuffledTopics.length}</p>
+      <div className="back-button-container">
+        <Link to="/listening" className="back-button">
+          Back to Home
+        </Link>
+      </div>
+      <p className="question-count">
+        {currentTopicIndex + 1}/{shuffledTopics.length}
+      </p>
       <div className="question-section">
         <h2>Topic: {currentTopic.name}</h2>
         <p>Chọn 2 câu đúng:</p>
@@ -87,18 +102,33 @@ function Part4({ onComplete }) {
                   : ""
               }`}
               onClick={() => handleOptionClick(subQuestion)}
-              disabled={selectedAnswers.length === 2 && !selectedAnswers.includes(subQuestion.text)}
+              disabled={
+                selectedAnswers.length === 2 &&
+                !selectedAnswers.includes(subQuestion.text)
+              }
             >
               {String.fromCharCode(65 + index)}. {subQuestion.text}
             </button>
           ))}
         </div>
         {result && (
-          <p className={`result ${result.includes("Congratulations") ? "correct" : "incorrect"}`}>{result}</p>
+          <p
+            className={`result ${
+              result.includes("Congratulations") ? "correct" : "incorrect"
+            }`}
+          >
+            {result}
+          </p>
         )}
         {showCorrect && (
           <div className="correct-answer">
-            <p>Correct answers: {currentTopic.subQuestions.filter((q) => q.answer).map((q) => q.text).join(", ")}</p>
+            <p>
+              Correct answers:{" "}
+              {currentTopic.subQuestions
+                .filter((q) => q.answer)
+                .map((q) => q.text)
+                .join(", ")}
+            </p>
           </div>
         )}
       </div>

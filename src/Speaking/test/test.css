@@ -1,0 +1,42 @@
+.test-container {
+  padding: 20px;
+  /* min-height: 100vh; */
+  margin: 0 auto;
+  text-align: center;
+}
+
+.part-section {
+  margin-bottom: 30px;
+}
+
+.part-section h2 {
+  font-size: 1.5rem;
+  margin-bottom: 10px;
+}
+
+.question {
+  margin-bottom: 20px;
+}
+
+.question p {
+  font-size: 1.1rem;
+  margin-bottom: 10px;
+}
+
+.options {
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+}
+
+.options button {
+  padding: 8px 12px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  background-color: #fff;
+  cursor: pointer;
+}
+
+.options button:hover {
+  background-color: #f0f0f0;
+}

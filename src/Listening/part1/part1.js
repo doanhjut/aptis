@@ -1,6 +1,7 @@
 import { useState, useEffect } from "react";
 import "./part1.css";
 import { data } from "../data.js";
+import { Link } from "react-router-dom";
 
 function ListeningPart1({ questions, onComplete }) {
   const [currentQuestionIndex, setCurrentQuestionIndex] = useState(0);
@@ -59,6 +60,13 @@ function ListeningPart1({ questions, onComplete }) {
   return (
     <div className="app-container">
       <h1 className="game-title">Multiple Choice Game - Part 1</h1>
+      {(!questions || questions.length == 0) && (
+        <div className="back-button-container">
+          <Link to="/listening" className="back-button">
+            Back to Home
+          </Link>
+        </div>
+      )}
       <p className="question-count">
         {currentQuestionIndex + 1}/{shuffledQuestions.length}
       </p>

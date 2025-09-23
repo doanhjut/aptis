@@ -1,6 +1,7 @@
 import { useState, useEffect } from "react";
 import "./part4.css";
 import { data } from "../data";
+import { Link } from "react-router-dom";
 
 function ReadingPart4({ questions, onComplete }) {
   const [currentQuestionIndex, setCurrentQuestionIndex] = useState(0);
@@ -103,7 +104,14 @@ function ReadingPart4({ questions, onComplete }) {
 
   return (
     <div className="app-container4">
-      <h1 className="game-title">Word Order Game - Part 4</h1>
+      <h1 className="game-title">Reading aptis - Part 4</h1>
+      {(!questions || questions.length == 0) && (
+        <div className="back-button-container">
+          <Link to="/listening" className="back-button">
+            Back to Home
+          </Link>
+        </div>
+      )}
       <p className="sentence-info">
         Topic {currentQuestionIndex + 1} of {dataSentences.length}
       </p>

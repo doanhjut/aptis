@@ -1,6 +1,7 @@
 import { useState, useEffect } from "react";
 import "./part3.css";
 import { data } from "../data";
+import { Link } from "react-router-dom";
 
 function ReadingPart3({ questions, onComplete }) {
   const [currentQuestionIndex, setCurrentQuestionIndex] = useState(0);
@@ -16,7 +17,6 @@ function ReadingPart3({ questions, onComplete }) {
       Array.isArray(questions) && questions.length > 0 ? questions : data.part3;
     setDataSentences(dataSentences);
   }, [questions]);
-
 
   useEffect(() => {
     resetQuestion();
@@ -110,6 +110,13 @@ function ReadingPart3({ questions, onComplete }) {
   return (
     <div className="app-container3">
       <h1 className="game-title">Trò chơi sắp xếp từ - Phần 3</h1>
+      {(!questions || questions.length == 0) && (
+        <div className="back-button-container">
+          <Link to="/listening" className="back-button">
+            Back to Home
+          </Link>
+        </div>
+      )}
       <p className="sentence-info">
         Câu hỏi {currentQuestionIndex + 1} / {dataSentences.length}
       </p>

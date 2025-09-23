@@ -4,7 +4,12 @@ import "./home.css";
 function HomeReading() {
   return (
     <div className="app-container">
-      <h1 className="game-title">Word Order Game</h1>
+      <h1 className="game-title">Aptis Reading</h1>
+      <div className="back-button-container">
+        <Link to="/" className="back-button">
+          Back to Home
+        </Link>
+      </div>
       <div className="card-container">
         <Link to="/reading/part1" className="card">
           <h2>Part 1: Chọn đáp án đúng</h2>

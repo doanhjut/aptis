@@ -1,0 +1,148 @@
+.app-container4 {
+  max-width: 1000px;
+  margin: 0 auto;
+  padding: 24px;
+  background-color: #f5f5f5;
+  border-radius: 8px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+/* Tiêu đề game */
+.game-title {
+  font-size: 28px;
+  font-weight: bold;
+  text-align: center;
+  margin-bottom: 16px;
+  color: #333;
+}
+
+/* Thông tin câu hỏi */
+.question-info {
+  font-size: 18px;
+  text-align: center;
+  margin-bottom: 16px;
+  color: #555;
+}
+
+/* Phần câu hỏi */
+.question-section {
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+}
+
+/* Phần chủ đề */
+.topic-section {
+  margin-bottom: 16px;
+}
+
+.topic-section h2 {
+  font-size: 20px;
+  font-weight: 600;
+  color: #333;
+}
+
+/* Phần email (thân mật và trang trọng) */
+.email-section {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.email-section h3 {
+  font-size: 18px;
+  font-weight: 500;
+  color: #333;
+  margin-bottom: 8px;
+}
+
+.email-section p {
+  font-size: 16px;
+  color: #444;
+  margin-bottom: 8px;
+}
+
+.email-section textarea {
+  width: 97%;
+  padding: 12px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  font-size: 16px;
+  resize: vertical;
+  min-height: 100px; /* Cho email thân mật */
+}
+
+.email-section textarea:focus {
+  outline: none;
+  border-color: #3b82f6;
+  box-shadow: 0 0 0 2px rgba(59, 130, 246, 0.3);
+}
+
+.email-section textarea:nth-child(2) {
+  min-height: 200px; /* Cho email trang trọng */
+}
+
+.email-section .word-count {
+  font-size: 14px;
+  color: #666;
+  margin-top: 4px;
+}
+
+/* Thông báo kết quả */
+.result {
+  margin-top: 16px;
+  padding: 12px;
+  border-radius: 4px;
+  text-align: center;
+  font-size: 16px;
+}
+
+.result.correct {
+  background-color: #d1fae5;
+  color: #065f46;
+}
+
+.result.incorrect {
+  background-color: #fee2e2;
+  color: #991b1b;
+}
+
+/* Container cho các nút bấm */
+.button-container {
+  display: flex;
+  justify-content: center;
+  gap: 16px;
+  margin-top: 24px;
+}
+
+/* Nút Check Answer */
+.check-button {
+  background-color: #3b82f6;
+  color: white;
+  padding: 10px 24px;
+  border: none;
+  border-radius: 4px;
+  font-size: 16px;
+  cursor: pointer;
+  transition: background-color 0.2s;
+}
+
+.check-button:hover {
+  background-color: #2563eb;
+}
+
+/* Nút Try Again */
+.try-again-button {
+  background-color: #6b7280;
+  color: white;
+  padding: 10px 24px;
+  border: none;
+  border-radius: 4px;
+  font-size: 16px;
+  cursor: pointer;
+  transition: background-color 0.2s;
+}
+
+.try-again-button:hover {
+  background-color: #4b5563;
+}

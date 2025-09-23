@@ -1,6 +1,7 @@
 import { useState, useEffect } from "react";
 import "./part1.css";
 import { data } from "../data.js";
+import { Link } from "react-router-dom";
 
 function ReadingPart1({ questions, onComplete }) {
   const [currentQuestionIndex, setCurrentQuestionIndex] = useState(0);
@@ -17,9 +18,6 @@ function ReadingPart1({ questions, onComplete }) {
   const shuffleQuestions = () => {
     const dataQuestions =
       questions && questions.length > 0 ? questions : data.part1;
-    console.log("====================================");
-    console.log(questions);
-    console.log("====================================");
     const shuffled = [...dataQuestions].sort(() => Math.random() - 0.5);
     setShuffledQuestions(shuffled);
     setCurrentQuestionIndex(0);
@@ -56,6 +54,13 @@ function ReadingPart1({ questions, onComplete }) {
   return (
     <div className="app-container">
       <h1 className="game-title">Multiple Choice Game - Part 1</h1>
+      {(!questions || questions.length == 0) && (
+        <div className="back-button-container">
+          <Link to="/listening" className="back-button">
+            Back to Home
+          </Link>
+        </div>
+      )}
       <p className="question-count">
         {currentQuestionIndex + 1}/{shuffledQuestions.length}
       </p>
