@@ -1,304 +1,364 @@
 export const data = {
   part1: [
     {
-      text: "I saw some shows in the ________ of one store.",
-      options: ["market", "window", "shoe"],
-      answer: "window",
+      name: "Topic 1",
+      questions: [
+        {
+          text: "I saw some shows in the ________ of one store.",
+          options: ["market", "window", "shoe"],
+          answer: "window",
+        },
+        {
+          text: "I didn't________ it.",
+          options: ["eat", "drink", "buy"],
+          answer: "buy",
+        },
+        {
+          text: "I buy some food at the________",
+          options: ["classroom", "park", "market"],
+          answer: "market",
+        },
+        {
+          text: "I ate ________",
+          options: ["watch", "door", "cake"],
+          answer: "cake",
+        },
+        {
+          text: "I ________ a program on TV.",
+          options: ["ate", "saw", "watched"],
+          answer: "watched",
+        },
+      ],
     },
     {
-      text: "I didn't________  it.",
-      options: ["eat", "drink", "buy"],
-      answer: "buy",
+      name: "Topic 2",
+      questions: [
+        {
+          text: "I ________ in a flat.",
+          options: ["go", "live", "walk"],
+          answer: "live",
+        },
+        {
+          text: "I ________ it with my friend.",
+          options: ["share", "drink", "hold"],
+          answer: "share",
+        },
+        {
+          text: "We are in the same ________",
+          options: ["door", "class", "chair"],
+          answer: "class",
+        },
+        {
+          text: "We ________ to work.",
+          options: ["drive", "smile", "say"],
+          answer: "drive",
+        },
+        {
+          text: "We like to ________ dinner.",
+          options: ["hold", "cook", "melt"],
+          answer: "cook",
+        },
+      ],
     },
     {
-      text: "I buy some food at the________ ",
-      options: ["classroom", "park", "market"],
-      answer: "market",
+      name: "Topic 3",
+      questions: [
+        {
+          text: "I am living with a family ________ the city.",
+          options: ["next", "near", "under"],
+          answer: "near",
+        },
+        {
+          text: "The children are ________ to me.",
+          options: ["cruel", "noisy", "friendly"],
+          answer: "friendly",
+        },
+        {
+          text: "Seamus and Agnes ________ speaking English with me.",
+          options: ["read", "hold", "practise"],
+          answer: "practise",
+        },
+        {
+          text: "Sometimes, I ________ to Seamus and Agnes.",
+          options: ["see", "read", "say"],
+          answer: "read",
+        },
+        {
+          text: "I hate the food, ________ yesterday I ate out.",
+          options: ["then", "so", "also"],
+          answer: "so",
+        },
+      ],
     },
     {
-      text: "I ate ________ ",
-      options: ["watch", "door", "cake"],
-      answer: "cake",
+      name: "Topic 4",
+      questions: [
+        {
+          text: "Everyone is ________.",
+          options: ["friendly", "melty", "noisy"],
+          answer: "friendly",
+        },
+        {
+          text: "I can ________ to my class.",
+          options: ["train", "sleep", "walk"],
+          answer: "walk",
+        },
+        {
+          text: "I met her for the ________ time.",
+          options: ["very", "first", "one"],
+          answer: "first",
+        },
+        {
+          text: "She can ________ 5 languages.",
+          options: ["talk", "say", "speak"],
+          answer: "speak",
+        },
+        {
+          text: "We eat dinner ________.",
+          options: ["toward", "together", "another"],
+          answer: "together",
+        },
+      ],
     },
     {
-      text: "I ________  a program on TV.",
-      options: ["ate", "saw", "watched"],
-      answer: "watched",
+      name: "Topic 5",
+      questions: [
+        {
+          text: "I start ________ in the morning.",
+          options: ["sleep", "early", "angry"],
+          answer: "early",
+        },
+        {
+          text: "I have ________.",
+          options: ["lunch", "bed", "tutor"],
+          answer: "lunch",
+        },
+        {
+          text: "I ________ the office.",
+          options: ["go", "leave", "return"],
+          answer: "leave",
+        },
+        {
+          text: "I go home in my new ________.",
+          options: ["bag", "jeans", "car"],
+          answer: "car",
+        },
+        {
+          text: "I go to bed when I feel ________.",
+          options: ["sleepy", "angry", "alert"],
+          answer: "sleepy",
+        },
+      ],
     },
     {
-      text: "I ________  in a flat.",
-      options: ["go", "live", "walk"],
-      answer: "live",
+      name: "Topic 6",
+      questions: [
+        {
+          text: "The water is ________.",
+          options: ["sour", "clear", "see"],
+          answer: "clear",
+        },
+        {
+          text: "The ________ is out.",
+          options: ["wind", "dust", "sun"],
+          answer: "sun",
+        },
+        {
+          text: "I have an ________ holiday.",
+          options: ["tired", "enjoyable", "good"],
+          answer: "enjoyable",
+        },
+        {
+          text: "After ________ so hard.",
+          options: ["working", "sleeping", "eating"],
+          answer: "working",
+        },
+        {
+          text: "I hope to ________ your letter.",
+          options: ["tell", "read", "forward"],
+          answer: "read",
+        },
+      ],
     },
     {
-      text: "I ________  it with my friend.",
-      options: ["share", "drink", "hold"],
-      answer: "share",
+      name: "Topic 7",
+      questions: [
+        {
+          text: "I imagine you don't want to ________ this.",
+          options: ["love", "remember", "miss"],
+          answer: "miss",
+        },
+        {
+          text: "I ________ you earlier but you were not home.",
+          options: ["called", "told", "said"],
+          answer: "called",
+        },
+        {
+          text: "Can you be ________ before 7pm?",
+          options: ["early", "sleepy", "ready"],
+          answer: "ready",
+        },
+        {
+          text: "I can ________ you at your place then.",
+          options: ["hold", "meet", "miss"],
+          answer: "meet",
+        },
+        {
+          text: "Don't have too much ________ because we're going to eat cake.",
+          options: ["talk", "pencil", "dinner"],
+          answer: "dinner",
+        },
+      ],
     },
     {
-      text: "We are in the same ________ ",
-      options: ["door", "class", "chair"],
-      answer: "class",
+      name: "Topic 8",
+      questions: [
+        {
+          text: "The budget doesn't ________.",
+          options: ["work", "count", "balance"],
+          answer: "balance",
+        },
+        {
+          text: "Could you get the financial ________?",
+          options: ["department", "statement", "accountant"],
+          answer: "statement",
+        },
+        {
+          text: "I ________ it will help.",
+          options: ["sure", "assure", "think"],
+          answer: "think",
+        },
+        {
+          text: "Read the information ________ not quickly.",
+          options: ["beautifully", "fluently", "slowly"],
+          answer: "slowly",
+        },
+        {
+          text: "Send me the results ________ you go home, not after.",
+          options: ["when", "before", "between"],
+          answer: "before",
+        },
+      ],
     },
     {
-      text: "We ________  to work.",
-      options: ["drive", "smile", "say"],
-      answer: "drive",
+      name: "Topic 9",
+      questions: [
+        {
+          text: "It is ________ what I like.",
+          options: ["yet", "not", "just"],
+          answer: "just",
+        },
+        {
+          text: "And it is the perfect color, ________.",
+          options: ["so", "too", "to"],
+          answer: "too",
+        },
+        {
+          text: "I am going to wear it ________ my birthday party.",
+          options: ["to", "on", "at"],
+          answer: "at",
+        },
+        {
+          text: "I will save you ________ cake.",
+          options: ["many", "none", "some"],
+          answer: "some",
+        },
+        {
+          text: "________ my love to everyone.",
+          options: ["Give", "Hold", "Receive"],
+          answer: "Give",
+        },
+      ],
     },
     {
-      text: "We like to ________  dinner.",
-      options: ["hold", "cook", "melt"],
-      answer: "cook",
+      name: "Topic 10",
+      questions: [
+        {
+          text: "I am never ________.",
+          options: ["late", "soon", "early"],
+          answer: "late",
+        },
+        {
+          text: "In the mornings, I attend ________.",
+          options: ["meetings", "dinner", "breakfast"],
+          answer: "meetings",
+        },
+        {
+          text: "I eat lunch in the ________.",
+          options: ["park", "city", "village"],
+          answer: "park",
+        },
+        {
+          text: "I buy food from the ________.",
+          options: ["shop", "window", "car"],
+          answer: "shop",
+        },
+        {
+          text: "I always ________ dinner for myself.",
+          options: ["cook", "drink", "breathe"],
+          answer: "cook",
+        },
+      ],
     },
     {
-      text: "I am living with a family ________  the city.",
-      options: ["next", "near", "under"],
-      answer: "near",
+      name: "Topic 11",
+      questions: [
+        {
+          text: "The weather is ________.",
+          options: ["cheap", "expensive", "great"],
+          answer: "great",
+        },
+        {
+          text: "We are on the ________.",
+          options: ["city", "countryside", "boat"],
+          answer: "boat",
+        },
+        {
+          text: "We eat dinner ________ we go to church.",
+          options: ["after", "then", "before"],
+          answer: "then",
+        },
+        {
+          text: "We are going to ________ around.",
+          options: ["drive", "see", "talk"],
+          answer: "drive",
+        },
+        {
+          text: "I hope the weather isn't ________ hot.",
+          options: ["too", "to", "on"],
+          answer: "too",
+        },
+      ],
     },
     {
-      text: "The children are ________  to me.",
-      options: ["cruel", "noisy", "friendly"],
-      answer: "friendly",
-    },
-    {
-      text: "Seamus and Agnes ________  speaking English with me.",
-      options: ["read", "hold", "practise"],
-      answer: "practise",
-    },
-    {
-      text: "Sometimes, I ________  to Seamus and Agnes.",
-      options: ["see", "read", "say"],
-      answer: "read",
-    },
-    {
-      text: "I hate the food, ________  yesterday I ate out.",
-      options: ["then", "so", "also"],
-      answer: "so",
-    },
-    {
-      text: "Everyone is  _____ .",
-      options: ["friendly", "melty", "noisy"],
-      answer: "friendly",
-    },
-    {
-      text: "I can  _____ ) to my class.",
-      options: ["train", "sleep", "walk"],
-      answer: "walk",
-    },
-    {
-      text: "I met her for the  _____  time.",
-      options: ["very", "first", "one"],
-      answer: "first",
-    },
-    {
-      text: "She can  _____  5 languages.",
-      options: ["talk", "say", "speak"],
-      answer: "speak",
-    },
-    {
-      text: "We eat dinner  _____ ",
-      options: ["toward", "together", "another"],
-      answer: "together",
-    },
-    {
-      text: "I start  _____ ) in the morning.",
-      options: ["sleep", "early", "angry"],
-      answer: "early",
-    },
-    {
-      text: "I have  _____ .",
-      options: ["lunch", "bed", "tutor"],
-      answer: "lunch",
-    },
-    {
-      text: "I _____  the office.",
-      options: ["go", "leave", "return"],
-      answer: "leave",
-    },
-    {
-      text: "I go home in my new  _____ .",
-      options: ["bag", "jeans", "car"],
-      answer: "car",
-    },
-    {
-      text: "I go to bed when I feel  _____ .",
-      options: ["sleepy", "angry", "alert"],
-      answer: "sleepy",
-    },
-    {
-      text: "The water is  _____ ).",
-      options: ["sour", "clear", "see"],
-      answer: "clear",
-    },
-    {
-      text: "The  _____  is out.",
-      options: ["wind", "dust", "sun"],
-      answer: "sun",
-    },
-    {
-      text: "I have an  _____  holiday.",
-      options: ["tired", "enjoyable", "good"],
-      answer: "enjoyable",
-    },
-    {
-      text: "After  _____  so hard.",
-      options: ["working", "sleeping", "eating"],
-      answer: "working",
-    },
-    {
-      text: "I hope to  _____  your letter",
-      options: ["tell", "read", "forward"],
-      answer: "read",
-    },
-    {
-      text: "I imagine you don't want to  _____  this.",
-      options: ["love", "remember", "miss"],
-      answer: "miss",
-    },
-    {
-      text: "I  _____  you earlier but you were not home.",
-      options: ["called", "told", "said"],
-      answer: "called",
-    },
-    {
-      text: "Can you be  _____  before 7pm?",
-      options: ["early", "sleepy", "ready"],
-      answer: "ready",
-    },
-    {
-      text: "I can  _____  you at your place then.",
-      options: ["hold", "meet", "miss"],
-      answer: "meet",
-    },
-    {
-      text: "Don't have too much  _____  because we're going to eat cake.",
-      options: ["talk", "pencil", "dinner"],
-      answer: "dinner",
-    },
-    {
-      text: "The budget doesn't  _____ .",
-      options: ["work", "count", "balance"],
-      answer: "balance",
-    },
-    {
-      text: "Could you get the financial  _____ ?",
-      options: ["department", "statement", "accountant"],
-      answer: "statement",
-    },
-    {
-      text: "I  _____  it will help.",
-      options: ["sure", "assure", "think"],
-      answer: "think",
-    },
-    {
-      text: "Read the information  _____  not quickly.",
-      options: ["beautifully", "fluently", "slowly"],
-      answer: "slowly",
-    },
-    {
-      text: "Send me the results  _____  you go home, not after.",
-      options: ["when", "before", "between"],
-      answer: "before",
-    },
-    {
-      text: "It is  _____  what I like.",
-      options: ["yet", "not", "just"],
-      answer: "just",
-    },
-    {
-      text: "And it is the perfect color,  _____ .",
-      options: ["so", "too", "to"],
-      answer: "too",
-    },
-    {
-      text: "I am going to wear it _____  my birthday party.",
-      options: ["to", "on", "at"],
-      answer: "at",
-    },
-    {
-      text: "I will save you  _____  cake.",
-      options: ["many", "none", "some"],
-      answer: "some",
-    },
-    {
-      text: "  _____  my love to everyone.",
-      options: ["Give", "Hold", "Receive"],
-      answer: "Give",
-    },
-    {
-      text: "I am never  _____ .",
-      options: ["late", "soon", "early"],
-      answer: "late",
-    },
-    {
-      text: "In the mornings, I attend  _____ .",
-      options: ["meetings", "dinner", "breakfast"],
-      answer: "meetings",
-    },
-    {
-      text: "I eat lunch in the  _____ .",
-      options: ["park", "city", "village"],
-      answer: "park",
-    },
-    {
-      text: "I buy food from the _____ .",
-      options: ["shop", "window", "car"],
-      answer: "shop",
-    },
-    {
-      text: "I always  _____  dinner for myself.",
-      options: ["cook", "drink", "breathe"],
-      answer: "cook",
-    },
-    {
-      text: "The weather is  _____ .",
-      options: ["cheap", "expensive", "great"],
-      answer: "great",
-    },
-    {
-      text: "We are on the  _____ .",
-      options: ["city", "countryside", "boat"],
-      answer: "boat",
-    },
-    {
-      text: "We eat dinner _____ we go to church.",
-      options: ["after", "then", "before"],
-      answer: "then",
-    },
-    {
-      text: "We are going to  _____  around.",
-      options: ["drive", "see", "talk"],
-      answer: "drive",
-    },
-    {
-      text: "I hope the weather isn't  _____  hot.",
-      options: ["too", "to", "on"],
-      answer: "too",
-    },
-    {
-      text: "It is a _____ day.",
-      options: ["long", "red", "tall"],
-      answer: "long",
-    },
-    {
-      text: "I need the _____ of the report.",
-      options: ["work", "job", "detail"],
-      answer: "detail",
-    },
-    {
-      text: "Can you print a _____ for me?",
-      options: ["information", "copy", "paper"],
-      answer: "copy",
-    },
-    {
-      text: "I am _____ with my work.",
-      options: ["busy", "table", "round"],
-      answer: "busy",
-    },
-    {
-      text: "I will have meetings with my _____ .",
-      options: ["neighbor", "wife", "client"],
-      answer: "client",
+      name: "Topic 12",
+      questions: [
+        {
+          text: "It is a ________ day.",
+          options: ["long", "red", "tall"],
+          answer: "long",
+        },
+        {
+          text: "I need the ________ of the report.",
+          options: ["work", "job", "detail"],
+          answer: "detail",
+        },
+        {
+          text: "Can you print a ________ for me?",
+          options: ["information", "copy", "paper"],
+          answer: "copy",
+        },
+        {
+          text: "I am ________ with my work.",
+          options: ["busy", "table", "round"],
+          answer: "busy",
+        },
+        {
+          text: "I will have meetings with my ________.",
+          options: ["neighbor", "wife", "client"],
+          answer: "client",
+        },
+      ],
     },
   ],
   part2shorten: [
@@ -501,10 +561,22 @@ export const data = {
     {
       main: "Opinions on flying",
       subQuestions: [
-        { text: "I have a", expectedAnswers: 2 },
-        { text: "My family", expectedAnswers: 2 },
-        { text: "I was a businessman", expectedAnswers: 1 },
-        { text: "If I have", expectedAnswers: 2 },
+        {
+          text: "I have a strong opinion that we should suggest making flights more expensive to reduce carbon emissions. Also, I want to work in other countries, so flying is necessary for me.",
+          expectedAnswers: 2,
+        },
+        {
+          text: "My family visits relatives regularly, so we need affordable flights. We also try to protect the environment by offsetting our carbon footprint.",
+          expectedAnswers: 2,
+        },
+        {
+          text: "I was a businessman and I like relaxing while they travel.",
+          expectedAnswers: 1,
+        },
+        {
+          text: "If I have to fly, I find flying tiring, but I need to fly for my work.",
+          expectedAnswers: 2,
+        },
       ],
       options:
         "suggest making flights more expensive/want to work in other countries/visit relatives regularly/try to protect the environment/like relaxing while they travel/find flying tiring/need to fly for their work",
@@ -521,10 +593,22 @@ export const data = {
     {
       main: "a new restaurant",
       subQuestions: [
-        { text: "This is my first", expectedAnswers: 2 },
-        { text: "This is a very famous", expectedAnswers: 2 },
-        { text: "I'm not sure", expectedAnswers: 2 },
-        { text: "I don't understand", expectedAnswers: 1 },
+        {
+          text: "This is my first time visiting this restaurant, and I was impressed by the range of appetizers. However, I thought the music was too quiet.",
+          expectedAnswers: 2,
+        },
+        {
+          text: "This is a very famous restaurant, but I didn't eat anything at the restaurant. I enjoyed the atmosphere.",
+          expectedAnswers: 2,
+        },
+        {
+          text: "I'm not sure about this restaurant. I thought his bad experience was probably unusual, and the food was of average quality.",
+          expectedAnswers: 2,
+        },
+        {
+          text: "I don't understand why people like this restaurant. I will definitely not return to the restaurant.",
+          expectedAnswers: 1,
+        },
       ],
       options:
         "was impressed by the range of appetizers/thought the music was too quiet/didn't eat anything at the restaurant/enjoyed the atmosphere/thought his bad experience was probably unusual/the food was of average quality/will definitely not return to the restaurant",
@@ -544,10 +628,22 @@ export const data = {
     {
       main: "reading books",
       subQuestions: [
-        { text: "My wife", expectedAnswers: 2 },
-        { text: "I used", expectedAnswers: 2 },
-        { text: "I often keep", expectedAnswers: 1 },
-        { text: "My job", expectedAnswers: 2 },
+        {
+          text: "My wife plans their reading schedule. She reads more than another family member.",
+          expectedAnswers: 2,
+        },
+        {
+          text: "I used to read many books at once. I want to read a lot of books.",
+          expectedAnswers: 2,
+        },
+        {
+          text: "I often keep is having difficulty in finishing a book.",
+          expectedAnswers: 1,
+        },
+        {
+          text: "My job thinks that factual books are boring. I have limited time to read books.",
+          expectedAnswers: 2,
+        },
       ],
       options:
         "plans their reading schedule/reads more than another family member/reads many books at once/wants to read a lot of books/is having difficulty in finishing a book/thinks that factual books are boring/has limited time to read books",
@@ -567,10 +663,22 @@ export const data = {
     {
       main: "visit a city",
       subQuestions: [
-        { text: "When I first", expectedAnswers: 2 },
-        { text: "I don't like big", expectedAnswers: 2 },
-        { text: "I went to this", expectedAnswers: 2 },
-        { text: "When I go out", expectedAnswers: 1 },
+        {
+          text: "When I first came to the city, I thought public transport system was good. Walking too much causes a problem.",
+          expectedAnswers: 2,
+        },
+        {
+          text: "I don't like big cities, but I like the natural resort here. I visit one part of the city.",
+          expectedAnswers: 2,
+        },
+        {
+          text: "I went to this city and I like the public theatre that the city puts on. I usually spend a lot of money on shopping.",
+          expectedAnswers: 2,
+        },
+        {
+          text: "When I go out, I pay a lot for their meal.",
+          expectedAnswers: 1,
+        },
       ],
       options:
         "thought public transport system was good/walking too much causes a problem/like the natural resort here/visit one part of the city/like the public theatre that the city puts on/usually spend a lot of money on shopping/pay a lot for their meal",
@@ -590,10 +698,22 @@ export const data = {
     {
       main: "plans for a new station",
       subQuestions: [
-        { text: "I see too many", expectedAnswers: 1 },
-        { text: "Buses are often full", expectedAnswers: 2 },
-        { text: "In my opinion", expectedAnswers: 2 },
-        { text: "Building a new public", expectedAnswers: 2 },
+        {
+          text: "I see too many people should plan their journeys better.",
+          expectedAnswers: 1,
+        },
+        {
+          text: "Buses are often full the bus is too busy. The new station will improve train travel.",
+          expectedAnswers: 2,
+        },
+        {
+          text: "In my opinion the bus service is good. Transport system doesn't need improving.",
+          expectedAnswers: 2,
+        },
+        {
+          text: "Building a new public better medical facilities are needed. The new station will cost too much to build.",
+          expectedAnswers: 2,
+        },
       ],
       options:
         "people should plan their journeys better/the bus is too busy/the new station will improve train travel/the bus service is good/transport system doesn't need improving/better medical facilities are needed/the new station will cost too much to build",
@@ -610,10 +730,22 @@ export const data = {
     {
       main: "art",
       subQuestions: [
-        { text: "I know", expectedAnswers: 2 },
-        { text: "I find going to", expectedAnswers: 2 },
-        { text: "I find polite art", expectedAnswers: 1 },
-        { text: "My parents", expectedAnswers: 2 },
+        {
+          text: "I know has some artistic skills. Seeing exhibitions is a boring activity.",
+          expectedAnswers: 2,
+        },
+        {
+          text: "I find going to prefers seeing exhibitions by themselves. Visitors should focus on the art.",
+          expectedAnswers: 2,
+        },
+        {
+          text: "I find polite art has a good knowledge of art.",
+          expectedAnswers: 1,
+        },
+        {
+          text: "My parents prefers going to art exhibitions with other people. Has been going to art exhibitions all their life.",
+          expectedAnswers: 2,
+        },
       ],
       options:
         "has some artistic skills/seeing exhibitions is a boring activity/prefers seeing exhibitions by themselves/visitors should focus on the art/has a good knowledge of art/prefers going to art exhibitions with other people/has been going to art exhibitions all their life",
@@ -633,10 +765,22 @@ export const data = {
     {
       main: "volunteering to clean a local park",
       subQuestions: [
-        { text: "I feel very lucky", expectedAnswers: 2 },
-        { text: "I'm a very busy", expectedAnswers: 2 },
-        { text: "I think this volunteering", expectedAnswers: 2 },
-        { text: "My family and I often", expectedAnswers: 1 },
+        {
+          text: "I feel very lucky the park is a beautiful place to relax. Ask for others to help.",
+          expectedAnswers: 2,
+        },
+        {
+          text: "I'm a very busy can't clean the park because of their busy work. Volunteering will help with future employment.",
+          expectedAnswers: 2,
+        },
+        {
+          text: "I think this volunteering local areas need cleaning. The cleaning needs to be done regularly.",
+          expectedAnswers: 2,
+        },
+        {
+          text: "My family and I often volunteering is important for students.",
+          expectedAnswers: 1,
+        },
       ],
       options:
         "the park is a beautiful place to relax/ask for others to help/can't clean the park because of their busy work/volunteering will help with future employment/local areas need cleaning/the cleaning needs to be done regularly/volunteering is important for students",
@@ -656,10 +800,22 @@ export const data = {
     {
       main: "Going on holiday",
       subQuestions: [
-        { text: "Last year", expectedAnswers: 2 },
-        { text: "When I travel somewhere", expectedAnswers: 2 },
-        { text: "My family and I often", expectedAnswers: 2 },
-        { text: "Next month's trip will", expectedAnswers: 1 },
+        {
+          text: "Last year prefer to stay at home. Like going walking.",
+          expectedAnswers: 2,
+        },
+        {
+          text: "When I travel somewhere like seeing tourist attractions. Going to the beach is boring.",
+          expectedAnswers: 2,
+        },
+        {
+          text: "My family and I often holiday requires good weather. Want to go mountaineering trip.",
+          expectedAnswers: 2,
+        },
+        {
+          text: "Next month's trip will have never been abroad.",
+          expectedAnswers: 1,
+        },
       ],
       options:
         "prefer to stay at home/like going walking/like seeing tourist attractions/going to the beach is boring/holiday requires good weather/want to go mountaineering trip/have never been abroad",
@@ -673,10 +829,22 @@ export const data = {
     {
       main: "sports",
       subQuestions: [
-        { text: "Exercising with", expectedAnswers: 2 },
-        { text: "Establishing a consistent", expectedAnswers: 1 },
-        { text: "Age is just a number", expectedAnswers: 2 },
-        { text: "Experiencing pain", expectedAnswers: 2 },
+        {
+          text: "Exercising with friends can make workouts more enjoyable and motivating. It's a great way to stay accountable and push each other to do better. Plus, it's a fun social activity that strengthens bonds while improving physical health.",
+          expectedAnswers: 2,
+        },
+        {
+          text: "Establishing a consistent workout routine has really helped me stay on track with my fitness goals. It's amazing how much more I can accomplish when I have a structured plan in place. Plus, it keeps me accountable and ensures I make time for physical activity every day.",
+          expectedAnswers: 1,
+        },
+        {
+          text: "Age is just a number when it comes to exercise. Whether you're young or old, staying active is crucial for maintaining overall health and vitality. While competitions can be motivating for some, they're not necessarily suitable for everyone. It's important to find activities that are enjoyable and sustainable for each individual.",
+          expectedAnswers: 2,
+        },
+        {
+          text: "Experiencing pain during exercise isn't necessary and it's a sign that something may be wrong. It's important to listen to our bodies and seek expert advice when needed, whether it's from a trainer, physical therapist, or medical professional. Taking care of ourselves properly ensures we can continue to enjoy physical activity without risking injury.",
+          expectedAnswers: 2,
+        },
       ],
       options:
         "work out with friends is a good idea/a proper meal is important/a routine can help us do more sport/exercise is for both the young and the elderly/competitions are not useful for everybody/experience pain is not necessary/at times we seek expert advice",
@@ -693,10 +861,22 @@ export const data = {
     {
       main: "visit an island",
       subQuestions: [
-        { text: "I like traveling", expectedAnswers: 2 },
-        { text: "As an architect", expectedAnswers: 1 },
-        { text: "The sharp bends", expectedAnswers: 2 },
-        { text: "There's a lot", expectedAnswers: 2 },
+        {
+          text: "I like traveling with my family, but I didn't like the boat trip at all. It was too long and I forgot to bring food and drinks. I was hungry for the entire trip. I like being alone, so I often go for walks in the forest. I think this island is very suitable for those who want to relax in nature.",
+          expectedAnswers: 2,
+        },
+        {
+          text: "As an architect, I always pay attention to how buildings are constructed. So when I travel, I never spend time lying on the beach or buying souvenirs. I will go around the area to see the architecture of the houses. I choose to go around by taxi, it feels great. However, it cost quite a lot of money because I went alone and had no one to share the cost with. But for me, this is still a great experience because I got to see many old houses.",
+          expectedAnswers: 1,
+        },
+        {
+          text: "The sharp bends of the island made me abandon the idea of renting a car, because it was very dangerous. I decided to take the bus, it was also much cheaper. However, the bus routes are quite few and there are many time constraints. We toured the neighborhoods on foot. I loved this experience because I could see many beautiful sights.",
+          expectedAnswers: 2,
+        },
+        {
+          text: "There's a lot of food here and I spend most of my time eating. I can't recommend any of the dishes because they are all very impressive. If you want to cook for yourself, you will have to take the bus to the market. Don't forget to visit the street market because they sell a lot of cool local products. I have a lot of good bargains there.",
+          expectedAnswers: 2,
+        },
       ],
       options:
         "forgot to bring something/liked to be alone/spent a lot of money on transport/thought public transport could be improved/liked to walk/loved eating food here/liked buying things on the island",
@@ -710,10 +890,22 @@ export const data = {
     {
       main: "watching television",
       subQuestions: [
-        { text: "I know I have", expectedAnswers: 2 },
-        { text: "I often spend", expectedAnswers: 2 },
-        { text: "I wasn't good", expectedAnswers: 1 },
-        { text: "My husband", expectedAnswers: 2 },
+        {
+          text: "I know I have watch TV instead of studying. I like TV programs which continue over several weeks.",
+          expectedAnswers: 2,
+        },
+        {
+          text: "I often spend avoid watching reality TV programs. I lost interest in watching football on TV.",
+          expectedAnswers: 2,
+        },
+        {
+          text: "I wasn't good get a lot of knowledge by watching TV.",
+          expectedAnswers: 1,
+        },
+        {
+          text: "My husband isn't a very selective viewer. Keep up to date on cinema and music.",
+          expectedAnswers: 2,
+        },
       ],
       options:
         "watch TV instead of studying/like TV programs which continue over several weeks/avoid watching reality TV programs/lost interest in watching football on TV/get a lot of knowledge by watching TV/isn't a very selective viewer/keep up to date on cinema and music",
@@ -736,10 +928,22 @@ export const data = {
     {
       main: "eating and cooking",
       subQuestions: [
-        { text: "When I was a kid", expectedAnswers: 1 },
-        { text: "I used to often", expectedAnswers: 2 },
-        { text: "Going to a restaurant", expectedAnswers: 2 },
-        { text: "I don't understand", expectedAnswers: 2 },
+        {
+          text: "When I was a kid like to eat with friends.",
+          expectedAnswers: 1,
+        },
+        {
+          text: "I used to often prefer to eat alone. Need to save money.",
+          expectedAnswers: 2,
+        },
+        {
+          text: "Going to a restaurant like to eat a wide range of dishes. Take a cookery course.",
+          expectedAnswers: 2,
+        },
+        {
+          text: "I don't understand only want to eat a few range of food. Like home cooked food.",
+          expectedAnswers: 2,
+        },
       ],
       options:
         "like to eat with friends/prefer to eat alone/need to save money/like to eat a wide range of dishes/take a cookery course/only want to eat a few range of food/like home cooked food",
