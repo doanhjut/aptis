@@ -107,7 +107,7 @@ function ReadingPart4({ questions, onComplete }) {
       <h1 className="game-title">Reading aptis - Part 4</h1>
       {(!questions || questions.length == 0) && (
         <div className="back-button-container">
-          <Link to="/listening" className="back-button">
+          <Link to="/reading" className="back-button">
             Back to Home
           </Link>
         </div>

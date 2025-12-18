@@ -64,7 +64,7 @@ function SpeakingPart4({ questions, onComplete }) {
       <h1 className="game-title">Speaking Practice - Part 6</h1>
       {(!questions || questions.length == 0) && (
         <div className="back-button-container">
-          <Link to="/listening" className="back-button">
+          <Link to="/speaking" className="back-button">
             Back to Home
           </Link>
         </div>

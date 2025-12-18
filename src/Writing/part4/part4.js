@@ -90,7 +90,7 @@ function WritingPart4({ questions, onComplete }) {
     <div className="app-container4 max-w-3xl mx-auto p-6 bg-gray-100 rounded-lg shadow-md">
       {(!questions || questions.length == 0) && (
         <div className="back-button-container">
-          <Link to="/listening" className="back-button">
+          <Link to="/writing" className="back-button">
             Back to Home
           </Link>
         </div>

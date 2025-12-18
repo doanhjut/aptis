@@ -112,7 +112,7 @@ function ReadingPart3({ questions, onComplete }) {
       <h1 className="game-title">Trò chơi sắp xếp từ - Phần 3</h1>
       {(!questions || questions.length == 0) && (
         <div className="back-button-container">
-          <Link to="/listening" className="back-button">
+          <Link to="/reading" className="back-button">
             Back to Home
           </Link>
         </div>
