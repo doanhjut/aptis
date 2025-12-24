@@ -42,7 +42,7 @@ function WritingPart1({ questions, onComplete }) {
       <h1 className="game-title">Writing Practice - Part 1</h1>
       {(!questions || questions.length == 0) && (
         <div className="back-button-container">
-          <Link to="/listening" className="back-button">
+          <Link to="/writing" className="back-button">
             Back to Home
           </Link>
         </div>

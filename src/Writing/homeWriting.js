@@ -4,7 +4,7 @@ import "./homeWriting.css";
 function HomeWriting() {
   return (
     <div className="app-container">
-      <h1 className="game-title">Aptis Speaking</h1>
+      <h1 className="game-title">Aptis Writing</h1>
       <div className="back-button-container">
         <Link to="/" className="back-button">
           Back to Home

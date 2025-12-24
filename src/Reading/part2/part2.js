@@ -19,25 +19,29 @@ function ReadingPart2({ questions, onComplete }) {
   const [inputValues, setInputValues] = useState(["", "", "", "", ""]);
   const [result, setResult] = useState(null);
   const [showCorrect, setShowCorrect] = useState(false);
-  const [dataSentences, setDataSentences] = useState([]);
-  const [selectedData, setSelectedData] = useState("part2"); // Trạng thái để chọn dữ liệu
+  const [dataSentences, setDataSentences] = useState([]); // Mảng các object {topic, questions}
+  const [selectedData, setSelectedData] = useState("part2");
 
   useEffect(() => {
-    // Nếu questions không null, sử dụng questions; nếu null, sử dụng data dựa trên selectedData
+    // Chọn nguồn dữ liệu
     const dataSource = questions
       ? questions
       : selectedData === "part2"
       ? data.part2
       : data.part2shorten;
+
     setDataSentences(dataSource);
 
-    // Tạo mảng chỉ số ngẫu nhiên khi component mount hoặc khi dataSource thay đổi
+    // Tạo mảng chỉ số ngẫu nhiên
     const indices = shuffleArray(
       Array.from({ length: dataSource.length }, (_, i) => i)
     );
     setSentenceIndices(indices);
     setCurrentIndex(0);
-    setWords(shuffleArray(dataSource[indices[0]]));
+
+    // Lấy đoạn hiện tại và shuffle 5 từ đầu tiên của questions
+    const currentItem = dataSource[indices[0]];
+    setWords(shuffleArray(currentItem.questions.slice(0, 5)));
     setInputValues(["", "", "", "", ""]);
     setResult(null);
     setShowCorrect(false);
@@ -69,23 +73,23 @@ function ReadingPart2({ questions, onComplete }) {
 
   const checkAnswer = () => {
     const userAnswer = inputValues.map((val) => val.trim()).filter(Boolean);
-    const correctAnswer = dataSentences[sentenceIndices[currentIndex]].slice(
-      0,
-      5
-    );
+    const currentItem = dataSentences[sentenceIndices[currentIndex]];
+    const correctAnswer = currentItem.questions.slice(0, 5);
+
     const isCorrect = userAnswer.every(
       (word, index) => word === correctAnswer[index]
     );
+
     setResult(
       isCorrect ? "Correct!" : "Incorrect, try again or show correct answer."
     );
+
     if (isCorrect) {
       setTimeout(() => {
         if (currentIndex < sentenceIndices.length - 1) {
           setCurrentIndex(currentIndex + 1);
-          setWords(
-            shuffleArray(dataSentences[sentenceIndices[currentIndex + 1]])
-          );
+          const nextItem = dataSentences[sentenceIndices[currentIndex + 1]];
+          setWords(shuffleArray(nextItem.questions.slice(0, 5)));
           setInputValues(["", "", "", "", ""]);
           setResult(null);
           setShowCorrect(false);
@@ -96,7 +100,8 @@ function ReadingPart2({ questions, onComplete }) {
           );
           setSentenceIndices(newIndices);
           setCurrentIndex(0);
-          setWords(shuffleArray(dataSentences[newIndices[0]]));
+          const firstItem = dataSentences[newIndices[0]];
+          setWords(shuffleArray(firstItem.questions.slice(0, 5)));
           setInputValues(["", "", "", "", ""]);
           setResult("New round started!");
           setShowCorrect(false);
@@ -108,7 +113,8 @@ function ReadingPart2({ questions, onComplete }) {
   };
 
   const resetSentence = () => {
-    setWords(shuffleArray(dataSentences[sentenceIndices[currentIndex]]));
+    const currentItem = dataSentences[sentenceIndices[currentIndex]];
+    setWords(shuffleArray(currentItem.questions.slice(0, 5)));
     setInputValues(["", "", "", "", ""]);
     setResult(null);
     setShowCorrect(false);
@@ -118,17 +124,23 @@ function ReadingPart2({ questions, onComplete }) {
     setSelectedData(e.target.value);
   };
 
+  // Lấy topic hiện tại để hiển thị
+  const currentTopic = dataSentences.length > 0
+    ? dataSentences[sentenceIndices[currentIndex]]?.topic || "No topic"
+    : "";
+
   return (
     <div className="app-container">
-      <h1 className="game-title">Reading aptis</h1>
-      {/* Chỉ hiển thị dropdown khi questions là null */}
-      {(!questions || questions.length == 0) && (
+      <h1 className="game-title">Reading Aptis - Part 2</h1>
+
+      {(!questions || questions.length === 0) && (
         <div className="back-button-container">
-          <Link to="/listening" className="back-button">
+          <Link to="/reading" className="back-button">
             Back to Home
           </Link>
         </div>
       )}
+
       {!questions && (
         <div className="data-selector">
           <label htmlFor="data-select">Choose data set: </label>
@@ -143,9 +155,15 @@ function ReadingPart2({ questions, onComplete }) {
           </select>
         </div>
       )}
+
+      <div className="topic-display">
+        <strong>{currentTopic}</strong>
+      </div>
+
       <p className="sentence-info">
         Sentence {currentIndex + 1} of {dataSentences.length}
       </p>
+
       <div className="word-section">
         <div className="word-list">
           {words.slice(0, 5).map((word) => (
@@ -158,6 +176,7 @@ function ReadingPart2({ questions, onComplete }) {
             </span>
           ))}
         </div>
+
         <div className="input-grid">
           {inputValues.map((value, index) => (
             <span
@@ -170,6 +189,7 @@ function ReadingPart2({ questions, onComplete }) {
           ))}
         </div>
       </div>
+
       {result && (
         <div
           className={`result ${
@@ -179,16 +199,18 @@ function ReadingPart2({ questions, onComplete }) {
           {result}
         </div>
       )}
+
       {showCorrect && (
         <div className="correct-answer">
           <p>
             Correct answer:{" "}
-            {dataSentences[sentenceIndices[currentIndex]]
+            {dataSentences[sentenceIndices[currentIndex]]?.questions
               .slice(0, 5)
               .join(" - ")}
           </p>
         </div>
       )}
+
       <div className="button-container">
         <button onClick={checkAnswer} className="check-button">
           Check Answer
