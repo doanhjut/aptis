@@ -3,7 +3,7 @@ import "./part4.css";
 import { data } from "../data";
 import { Link } from "react-router-dom";
 
-function ReadingPart4({ questions, onComplete }) {
+function ReadingPart4({ questions }) {
   const [currentQuestionIndex, setCurrentQuestionIndex] = useState(0);
   const [inputValues, setInputValues] = useState(Array(7).fill(""));
   const [disabledOptions, setDisabledOptions] = useState(new Set());
@@ -56,6 +56,10 @@ function ReadingPart4({ questions, onComplete }) {
   const checkAnswer = () => {
     const userAnswers = inputValues.map((val) => val.trim()).filter(Boolean);
     const correctAnswer = dataSentences[currentQuestionIndex].answers;
+    console.log(userAnswers);
+    console.log(correctAnswer);
+    
+    
     const isCorrect = userAnswers.every(
       (answer, index) => answer === correctAnswer[index]
     );
@@ -67,7 +71,6 @@ function ReadingPart4({ questions, onComplete }) {
         if (currentQuestionIndex < dataSentences.length - 1) {
           setCurrentQuestionIndex(currentQuestionIndex + 1);
         } else {
-          onComplete();
           setResult("Congratulations! You completed all questions!");
         }
       }, 1000);
