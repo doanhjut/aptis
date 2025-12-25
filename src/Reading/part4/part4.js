@@ -4,36 +4,79 @@ import { data } from "../data";
 import { Link } from "react-router-dom";
 
 function ReadingPart4({ questions }) {
-  const [currentQuestionIndex, setCurrentQuestionIndex] = useState(0);
   const [inputValues, setInputValues] = useState(Array(7).fill(""));
   const [disabledOptions, setDisabledOptions] = useState(new Set());
   const [result, setResult] = useState(null);
   const [showCorrect, setShowCorrect] = useState(false);
-  const [currentSubIndex, setCurrentSubIndex] = useState(0); // Theo dõi đoạn văn hiện tại
-  const [dataSentences, setDataSentences] = useState([]);
+  const [currentSubIndex, setCurrentSubIndex] = useState(0);
 
+  // Quản lý thứ tự câu hỏi
+  const [dataSentences, setDataSentences] = useState([]);
+  const [shuffledIndices, setShuffledIndices] = useState([]);
+  const [currentQuestionIdxInShuffle, setCurrentQuestionIdxInShuffle] = useState(0);
+
+  // Tính năng review câu sai
+  const [wrongQuestionIndices, setWrongQuestionIndices] = useState([]);
+  const [isReviewMode, setIsReviewMode] = useState(false);
+  const [shuffledWrongIndices, setShuffledWrongIndices] = useState([]);
+  const [currentWrongIdxInShuffle, setCurrentWrongIdxInShuffle] = useState(0);
+
+  // NEW: Lưu thứ tự options đã shuffle cho câu hỏi hiện tại
+  const [shuffledOptions, setShuffledOptions] = useState([]);
+
+  // Khởi tạo dữ liệu
   useEffect(() => {
-    const dataSentences =
-      Array.isArray(questions) && questions.length > 0 ? questions : data.part4;
-    setDataSentences(dataSentences);
+    const sourceData = Array.isArray(questions) && questions.length > 0 ? questions : data.part4;
+    setDataSentences(sourceData);
+
+    const indices = Array.from({ length: sourceData.length }, (_, i) => i);
+    const shuffled = [...indices].sort(() => Math.random() - 0.5);
+    setShuffledIndices(shuffled);
+    setCurrentQuestionIdxInShuffle(0);
+
+    // Reset mọi thứ khi load lại
+    setWrongQuestionIndices([]);
+    setIsReviewMode(false);
+    setShuffledWrongIndices([]);
+    setCurrentWrongIdxInShuffle(0);
+    setShuffledOptions([]); // reset options shuffle
   }, [questions]);
 
+  // Khi chuyển câu hỏi (chính hoặc review) → shuffle options một lần duy nhất
   useEffect(() => {
+    const currentIndex = isReviewMode 
+      ? shuffledWrongIndices[currentWrongIdxInShuffle]
+      : shuffledIndices[currentQuestionIdxInShuffle];
+    
+    const currentQuestion = dataSentences[currentIndex];
+    
+    if (currentQuestion && Array.isArray(currentQuestion.options)) {
+      // Shuffle chỉ một lần và lưu vào state
+      const newShuffled = [...currentQuestion.options].sort(() => Math.random() - 0.5);
+      setShuffledOptions(newShuffled);
+    }
+
+    // Reset các state khác
     setInputValues(Array(7).fill(""));
     setDisabledOptions(new Set());
     setResult(null);
     setShowCorrect(false);
-    setCurrentSubIndex(0); // Reset về đoạn đầu tiên
-  }, [currentQuestionIndex]);
+    setCurrentSubIndex(0);
+  }, [currentQuestionIdxInShuffle, currentWrongIdxInShuffle, isReviewMode, dataSentences]);
+
+  // Xác định câu hỏi hiện tại
+  const currentIndex = isReviewMode 
+    ? shuffledWrongIndices[currentWrongIdxInShuffle]
+    : shuffledIndices[currentQuestionIdxInShuffle];
+  const currentQuestion = dataSentences[currentIndex];
 
   const handleOptionClick = (option) => {
     if (inputValues[currentSubIndex] === "" && !disabledOptions.has(option)) {
       const newInputValues = [...inputValues];
       newInputValues[currentSubIndex] = option;
       setInputValues(newInputValues);
-      setDisabledOptions(new Set(disabledOptions).add(option));
+      setDisabledOptions(new Set([...disabledOptions, option]));
 
-      // Chuyển sang đoạn văn tiếp theo nếu đã chọn
       if (currentSubIndex < 6) {
         setCurrentSubIndex(currentSubIndex + 1);
       }
@@ -41,41 +84,62 @@ function ReadingPart4({ questions }) {
   };
 
   const handleInputClick = (index) => {
-    const newInputValues = [...inputValues];
-    const removedOption = newInputValues[index];
-    newInputValues[index] = "";
-    setInputValues(newInputValues);
+    if (inputValues[index] !== "") {
+      const removedOption = inputValues[index];
+      const newInputValues = [...inputValues];
+      newInputValues[index] = "";
+      setInputValues(newInputValues);
 
-    if (removedOption) {
-      setDisabledOptions(new Set(disabledOptions).delete(removedOption));
-      // Reset currentSubIndex nếu xóa tiêu đề của đoạn hiện tại
-      setCurrentSubIndex(Math.max(0, index));
+      const newDisabled = new Set(disabledOptions);
+      newDisabled.delete(removedOption);
+      setDisabledOptions(newDisabled);
+
+      if (index <= currentSubIndex) {
+        setCurrentSubIndex(index);
+      }
     }
   };
 
   const checkAnswer = () => {
-    const userAnswers = inputValues.map((val) => val.trim()).filter(Boolean);
-    const correctAnswer = dataSentences[currentQuestionIndex].answers;
-    console.log(userAnswers);
-    console.log(correctAnswer);
-    
-    
-    const isCorrect = userAnswers.every(
-      (answer, index) => answer === correctAnswer[index]
-    );
-    setResult(
-      isCorrect ? "Correct!" : "Incorrect, try again or show correct answer."
-    );
+    const userAnswers = inputValues.map((val) => val.trim());
+    const correctAnswer = currentQuestion.answers;
+
+    const isCorrect = userAnswers.every((answer, idx) => answer === correctAnswer[idx]);
+
     if (isCorrect) {
+      setResult("Correct!");
+
       setTimeout(() => {
-        if (currentQuestionIndex < dataSentences.length - 1) {
-          setCurrentQuestionIndex(currentQuestionIndex + 1);
+        if (isReviewMode) {
+          if (currentWrongIdxInShuffle < shuffledWrongIndices.length - 1) {
+            setCurrentWrongIdxInShuffle(currentWrongIdxInShuffle + 1);
+          } else {
+            setResult("Congratulations! You completed reviewing wrong questions!");
+            setIsReviewMode(false);
+          }
         } else {
-          setResult("Congratulations! You completed all questions!");
+          if (currentQuestionIdxInShuffle < dataSentences.length - 1) {
+            setCurrentQuestionIdxInShuffle(currentQuestionIdxInShuffle + 1);
+          } else {
+            if (wrongQuestionIndices.length > 0) {
+              const shuffledWrong = [...wrongQuestionIndices].sort(() => Math.random() - 0.5);
+              setShuffledWrongIndices(shuffledWrong);
+              setCurrentWrongIdxInShuffle(0);
+              setIsReviewMode(true);
+              setResult("Now reviewing wrong questions...");
+            } else {
+              setResult("Congratulations! You completed all questions with no mistakes!");
+            }
+          }
         }
       }, 1000);
     } else {
+      setResult("Incorrect, try again or show correct answer.");
       setShowCorrect(true);
+
+      if (!isReviewMode && !wrongQuestionIndices.includes(currentIndex)) {
+        setWrongQuestionIndices([...wrongQuestionIndices, currentIndex]);
+      }
     }
   };
 
@@ -87,28 +151,24 @@ function ReadingPart4({ questions }) {
     setCurrentSubIndex(0);
   };
 
-  const shuffleArray = (arr) => {
-    for (let i = arr.length - 1; i > 0; i--) {
-      const j = Math.floor(Math.random() * (i + 1));
-      [arr[i], arr[j]] = [arr[j], arr[i]];
+  const startReview = () => {
+    if (wrongQuestionIndices.length > 0) {
+      const shuffledWrong = [...wrongQuestionIndices].sort(() => Math.random() - 0.5);
+      setShuffledWrongIndices(shuffledWrong);
+      setCurrentWrongIdxInShuffle(0);
+      setIsReviewMode(true);
+      setResult(null);
+    } else {
+      setResult("No wrong questions to review!");
     }
-    return arr;
   };
 
-  const listOptionRender = (currentQuestion) => {
-    if (!currentQuestion || !Array.isArray(currentQuestion.options)) {
-      console.error("Invalid currentQuestion or options");
-      return [];
-    }
-    return shuffleArray([...currentQuestion.options]);
-  };
-
-  const currentQuestion = dataSentences[currentQuestionIndex];
+  if (!currentQuestion) return null;
 
   return (
     <div className="app-container4">
-      <h1 className="game-title">Reading aptis - Part 4</h1>
-      {(!questions || questions.length == 0) && (
+      <h1 className="game-title">Reading Aptis - Part 4</h1>
+      {(!questions || questions.length === 0) && (
         <div className="back-button-container">
           <Link to="/reading" className="back-button">
             Back to Home
@@ -116,52 +176,54 @@ function ReadingPart4({ questions }) {
         </div>
       )}
       <p className="sentence-info">
-        Topic {currentQuestionIndex + 1} of {dataSentences.length}
+        {isReviewMode 
+          ? `Review Question ${currentWrongIdxInShuffle + 1} of ${shuffledWrongIndices.length}`
+          : `Question ${currentQuestionIdxInShuffle + 1} of ${dataSentences.length}`
+        }
       </p>
+
+      {/* Options giờ giữ nguyên thứ tự cố định trong suốt câu hỏi */}
       <div className="option-list4">
-        {listOptionRender(currentQuestion).map((option, index) => (
+        {shuffledOptions.map((option, index) => (
           <span
             key={index}
-            className={`word-item ${
-              disabledOptions.has(option) ? "disabled" : ""
-            }`}
+            className={`word-item ${disabledOptions.has(option) ? "disabled" : ""}`}
             onClick={() => handleOptionClick(option)}
           >
             {option}
           </span>
         ))}
       </div>
+
       <div className="word-section4">
         <h2 className="question-title">{currentQuestion?.main}</h2>
         <div className="sub-questions">
           {currentQuestion?.subQuestions.map((sub, index) => (
             <div key={index} className="sub-question">
               <span
-                className="input-field"
+                className={`input-field ${index === currentSubIndex ? "active" : ""}`}
                 onClick={() => handleInputClick(index)}
               >
-                {inputValues[index] ||
-                  (index === currentSubIndex ? " (Select title)" : " ")}
+                {inputValues[index] || (index === currentSubIndex ? "(Click to select title)" : "__________")}
               </span>
               <p>{sub.text}</p>
             </div>
           ))}
         </div>
       </div>
+
       {result && (
-        <div
-          className={`result ${
-            result.includes("Correct") ? "correct" : "incorrect"
-          }`}
-        >
+        <div className={`result ${result.includes("Correct") || result.includes("Congratulations") ? "correct" : "incorrect"}`}>
           {result}
         </div>
       )}
-      {showCorrect && (
+
+      {showCorrect && !result.includes("Correct") && !result.includes("Congratulations") && (
         <div className="correct-answer">
           <p>Correct answer: {currentQuestion.answers.join(" / ")}</p>
         </div>
       )}
+
       <div className="button-container">
         <button onClick={checkAnswer} className="check-button">
           Check Answer
@@ -169,6 +231,11 @@ function ReadingPart4({ questions }) {
         <button onClick={resetQuestion} className="try-again-button">
           Try Again
         </button>
+        {!isReviewMode && wrongQuestionIndices.length > 0 && (
+          <button onClick={startReview} className="review-button">
+            Review Wrong Questions ({wrongQuestionIndices.length})
+          </button>
+        )}
       </div>
     </div>
   );
