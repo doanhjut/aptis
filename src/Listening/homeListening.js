@@ -21,14 +21,14 @@ function HomeListening() {
           <p>Sắp xếp các câu thành 1 đoạn văn.</p>
           <button className="start-button" disabled={true}>Start Part 2</button>
         </Link>
-        <Link to="/listening/part3" className="card" style={{ background: '#b3b3b3', opacity: '0.5' }}>
+        <Link to="/listening/part3" className="card">
           <h2>Part 3: Chọn câu hỏi</h2>
-          <p>Có 4 người và 7 câu hỏi. Chọn câu hỏi về người nào</p>
-          <button className="start-button" disabled={true}>Start Part 3</button>
+          <p>Có 2 người nói chuyện. Chọn câu phát biểu đó thuộc về người nào</p>
+          <button className="start-button" >Start Part 3</button>
         </Link>
         <Link to="/listening/part4" className="card">
           <h2>Part 4: Chọn tiêu đề cho đoạn văn</h2>
-          <p>Có 7 đoạn văn và 8 tiêu đề cần chọn tiêu đề cho đoạn văn.</p>
+          <p>Có 2 bài nói. Mỗi bài sẽ có 2 câu trắc ngiệm</p>
           <button className="start-button">Start Part 4</button>
         </Link>
         <Link to="/listening/test" className="card">

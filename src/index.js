@@ -16,6 +16,7 @@ import ReadingTest from "./Reading/test/test";
 // Listening Components
 import HomeListening from "./Listening/homeListening";
 import ListeningPart1 from "./Listening/part1/part1";
+import ListeningPart3 from "./Listening/part3/part3";
 import ListeningPart4 from "./Listening/part4/part4";
 import ListeningTest from "./Listening/test/test";
 
@@ -53,6 +54,7 @@ root.render(
       {/* Listening Routes */}
       <Route path="/listening" element={<HomeListening />} />
       <Route path="/listening/part1" element={<ListeningPart1 />} />
+      <Route path="/listening/part3" element={<ListeningPart3 />} />
       <Route path="/listening/part4" element={<ListeningPart4 />} />
       <Route path="/listening/test" element={<ListeningTest />} />
 

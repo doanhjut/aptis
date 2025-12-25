@@ -13,17 +13,25 @@ const shuffleArray = (array) => {
 };
 
 function ReadingPart2({ questions, onComplete }) {
-  const [sentenceIndices, setSentenceIndices] = useState([]);
+  const [dataSentences, setDataSentences] = useState([]);
+  const [sentenceIndices, setSentenceIndices] = useState([]); // Thứ tự random câu hỏi chính
   const [currentIndex, setCurrentIndex] = useState(0);
-  const [words, setWords] = useState([]);
+
+  const [words, setWords] = useState([]); // 5 từ đang hiển thị để chọn
   const [inputValues, setInputValues] = useState(["", "", "", "", ""]);
   const [result, setResult] = useState(null);
   const [showCorrect, setShowCorrect] = useState(false);
-  const [dataSentences, setDataSentences] = useState([]); // Mảng các object {topic, questions}
+
   const [selectedData, setSelectedData] = useState("part2");
 
+  // Tính năng ôn câu sai
+  const [wrongIndices, setWrongIndices] = useState([]); // Lưu index gốc của câu sai
+  const [isReviewMode, setIsReviewMode] = useState(false);
+  const [reviewIndices, setReviewIndices] = useState([]); // Thứ tự random cho ôn lại
+  const [currentReviewIndex, setCurrentReviewIndex] = useState(0);
+
+  // Khởi tạo dữ liệu khi component mount hoặc thay đổi nguồn
   useEffect(() => {
-    // Chọn nguồn dữ liệu
     const dataSource = questions
       ? questions
       : selectedData === "part2"
@@ -32,20 +40,42 @@ function ReadingPart2({ questions, onComplete }) {
 
     setDataSentences(dataSource);
 
-    // Tạo mảng chỉ số ngẫu nhiên
+    // Random thứ tự câu hỏi chính
     const indices = shuffleArray(
       Array.from({ length: dataSource.length }, (_, i) => i)
     );
     setSentenceIndices(indices);
     setCurrentIndex(0);
 
-    // Lấy đoạn hiện tại và shuffle 5 từ đầu tiên của questions
-    const currentItem = dataSource[indices[0]];
-    setWords(shuffleArray(currentItem.questions.slice(0, 5)));
-    setInputValues(["", "", "", "", ""]);
-    setResult(null);
-    setShowCorrect(false);
+    // Reset ôn tập
+    setWrongIndices([]);
+    setIsReviewMode(false);
+    setReviewIndices([]);
+    setCurrentReviewIndex(0);
+
+    // Load câu đầu tiên
+    loadQuestion(indices[0]);
   }, [questions, selectedData]);
+
+  // Load một câu hỏi theo index gốc
+  const loadQuestion = (originalIndex) => {
+    const item = dataSentences[originalIndex];
+    if (item) {
+      setWords(shuffleArray(item.questions.slice(0, 5)));
+      setInputValues(["", "", "", "", ""]);
+      setResult(null);
+      setShowCorrect(false);
+    }
+  };
+
+  // Xác định index hiện tại (chính hoặc review)
+  const currentOriginalIndex = isReviewMode
+    ? reviewIndices[currentReviewIndex]
+    : sentenceIndices[currentIndex];
+
+  const currentTopic = dataSentences.length > 0 && currentOriginalIndex !== undefined
+    ? dataSentences[currentOriginalIndex]?.topic || "No topic"
+    : "";
 
   const handleWordClick = (word) => {
     const firstEmptyIndex = inputValues.indexOf("");
@@ -57,77 +87,108 @@ function ReadingPart2({ questions, onComplete }) {
     }
   };
 
+  // Sửa lỗi: khi xóa từ ở giữa → dịch chuyển các từ sau lên
   const handleInputClick = (index) => {
+    if (inputValues[index] === "") return;
+
+    const removedWord = inputValues[index];
     const newInputValues = [...inputValues];
-    const removedWord = newInputValues[index];
-    newInputValues[index] = "";
-    for (let i = index + 1; i < newInputValues.length; i++) {
-      newInputValues[i - 1] = newInputValues[i];
-      newInputValues[i] = "";
+
+    // Dịch chuyển các từ phía sau lên
+    for (let i = index; i < newInputValues.length - 1; i++) {
+      newInputValues[i] = newInputValues[i + 1];
     }
+    newInputValues[newInputValues.length - 1] = "";
+
     setInputValues(newInputValues);
-    if (removedWord) {
-      setWords([...words, removedWord]);
-    }
+    setWords([...words, removedWord]);
   };
 
   const checkAnswer = () => {
-    const userAnswer = inputValues.map((val) => val.trim()).filter(Boolean);
-    const currentItem = dataSentences[sentenceIndices[currentIndex]];
-    const correctAnswer = currentItem.questions.slice(0, 5);
+    const userAnswer = inputValues.map((val) => val.trim());
+    const correctAnswer = dataSentences[currentOriginalIndex].questions.slice(0, 5);
 
-    const isCorrect = userAnswer.every(
-      (word, index) => word === correctAnswer[index]
-    );
-
-    setResult(
-      isCorrect ? "Correct!" : "Incorrect, try again or show correct answer."
-    );
+    const isCorrect = userAnswer.every((word, i) => word === correctAnswer[i]);
 
     if (isCorrect) {
+      setResult("Correct!");
+
       setTimeout(() => {
-        if (currentIndex < sentenceIndices.length - 1) {
-          setCurrentIndex(currentIndex + 1);
-          const nextItem = dataSentences[sentenceIndices[currentIndex + 1]];
-          setWords(shuffleArray(nextItem.questions.slice(0, 5)));
-          setInputValues(["", "", "", "", ""]);
-          setResult(null);
-          setShowCorrect(false);
+        if (isReviewMode) {
+          // Trong chế độ ôn lại
+          if (currentReviewIndex < reviewIndices.length - 1) {
+            setCurrentReviewIndex(currentReviewIndex + 1);
+            loadQuestion(reviewIndices[currentReviewIndex + 1]);
+          } else {
+            setResult("Congratulations! You mastered all wrong questions!");
+            setIsReviewMode(false);
+          }
         } else {
-          onComplete();
-          const newIndices = shuffleArray(
-            Array.from({ length: dataSentences.length }, (_, i) => i)
-          );
-          setSentenceIndices(newIndices);
-          setCurrentIndex(0);
-          const firstItem = dataSentences[newIndices[0]];
-          setWords(shuffleArray(firstItem.questions.slice(0, 5)));
-          setInputValues(["", "", "", "", ""]);
-          setResult("New round started!");
-          setShowCorrect(false);
+          // Chế độ chính
+          if (currentIndex < sentenceIndices.length - 1) {
+            setCurrentIndex(currentIndex + 1);
+            loadQuestion(sentenceIndices[currentIndex + 1]);
+          } else {
+            // Hoàn thành vòng chính
+            if (wrongIndices.length > 0) {
+              // Tự động vào chế độ ôn lại
+              const shuffledWrong = shuffleArray([...wrongIndices]);
+              setReviewIndices(shuffledWrong);
+              setCurrentReviewIndex(0);
+              setIsReviewMode(true);
+              loadQuestion(shuffledWrong[0]);
+              setResult("Now reviewing the questions you got wrong...");
+            } else {
+              setResult("Perfect! You got everything correct!");
+              // Bắt đầu vòng mới
+              startNewRound();
+            }
+          }
         }
       }, 1000);
     } else {
+      setResult("Incorrect, try again or show correct answer.");
       setShowCorrect(true);
+
+      // Chỉ ghi nhận câu sai ở chế độ chính
+      if (!isReviewMode && !wrongIndices.includes(currentOriginalIndex)) {
+        setWrongIndices([...wrongIndices, currentOriginalIndex]);
+      }
     }
   };
 
   const resetSentence = () => {
-    const currentItem = dataSentences[sentenceIndices[currentIndex]];
-    setWords(shuffleArray(currentItem.questions.slice(0, 5)));
-    setInputValues(["", "", "", "", ""]);
+    loadQuestion(currentOriginalIndex);
+  };
+
+  const startNewRound = () => {
+    const indices = shuffleArray(
+      Array.from({ length: dataSentences.length }, (_, i) => i)
+    );
+    setSentenceIndices(indices);
+    setCurrentIndex(0);
+    setWrongIndices([]);
+    setIsReviewMode(false);
+    loadQuestion(indices[0]);
+    setResult("New round started!");
+  };
+
+  const startReviewManually = () => {
+    if (wrongIndices.length === 0) {
+      setResult("No wrong questions to review yet!");
+      return;
+    }
+    const shuffledWrong = shuffleArray([...wrongIndices]);
+    setReviewIndices(shuffledWrong);
+    setCurrentReviewIndex(0);
+    setIsReviewMode(true);
+    loadQuestion(shuffledWrong[0]);
     setResult(null);
-    setShowCorrect(false);
   };
 
   const handleDataChange = (e) => {
     setSelectedData(e.target.value);
   };
-
-  // Lấy topic hiện tại để hiển thị
-  const currentTopic = dataSentences.length > 0
-    ? dataSentences[sentenceIndices[currentIndex]]?.topic || "No topic"
-    : "";
 
   return (
     <div className="app-container">
@@ -161,14 +222,16 @@ function ReadingPart2({ questions, onComplete }) {
       </div>
 
       <p className="sentence-info">
-        Sentence {currentIndex + 1} of {dataSentences.length}
+        {isReviewMode
+          ? `Review ${currentReviewIndex + 1} of ${reviewIndices.length} wrong questions`
+          : `Question ${currentIndex + 1} of ${dataSentences.length}`}
       </p>
 
       <div className="word-section">
         <div className="word-list">
-          {words.slice(0, 5).map((word) => (
+          {words.map((word, i) => (
             <span
-              key={word}
+              key={i}
               className="word-item"
               onClick={() => handleWordClick(word)}
             >
@@ -193,7 +256,12 @@ function ReadingPart2({ questions, onComplete }) {
       {result && (
         <div
           className={`result ${
-            result.includes("Correct") ? "correct" : "incorrect"
+            result.includes("Correct") ||
+            result.includes("Congratulations") ||
+            result.includes("Perfect") ||
+            result.includes("New round")
+              ? "correct"
+              : "incorrect"
           }`}
         >
           {result}
@@ -204,7 +272,7 @@ function ReadingPart2({ questions, onComplete }) {
         <div className="correct-answer">
           <p>
             Correct answer:{" "}
-            {dataSentences[sentenceIndices[currentIndex]]?.questions
+            {dataSentences[currentOriginalIndex]?.questions
               .slice(0, 5)
               .join(" - ")}
           </p>
@@ -218,6 +286,12 @@ function ReadingPart2({ questions, onComplete }) {
         <button onClick={resetSentence} className="try-again-button">
           Try Again
         </button>
+
+        {!isReviewMode && wrongIndices.length > 0 && (
+          <button onClick={startReviewManually} className="review-button">
+            Review Wrong Questions ({wrongIndices.length})
+          </button>
+        )}
       </div>
     </div>
   );

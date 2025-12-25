@@ -1,0 +1,215 @@
+/* Styles cho app container */
+.app-container3 {
+  max-width: 800px;
+  margin: 0 auto;
+  padding: 20px;
+  font-family: Arial, sans-serif;
+  text-align: center;
+}
+
+/* Title */
+.game-title {
+  font-size: 24px;
+  margin-bottom: 20px;
+}
+
+/* Back button */
+.back-button-container {
+  margin-bottom: 20px;
+}
+
+.back-button {
+  text-decoration: none;
+  color: blue;
+}
+
+/* Info câu hỏi */
+.sentence-info {
+  font-size: 16px;
+  margin-bottom: 10px;
+}
+
+/* Section chính */
+.word-section {
+  margin-bottom: 20px;
+}
+
+.question-title {
+  font-size: 20px;
+  margin-bottom: 15px;
+}
+
+/* Hội thoại (mới thêm) */
+.dialogue {
+  white-space: pre-line; /* Giữ line breaks */
+  text-align: left;
+  margin-bottom: 20px;
+  padding: 10px;
+  background-color: #f9f9f9;
+  border: 1px solid #ddd;
+  border-radius: 5px;
+  font-size: 14px;
+  line-height: 1.5;
+}
+
+/* Sub-questions */
+.sub-questions {
+  margin-bottom: 20px;
+}
+
+.sub-question {
+  margin-bottom: 15px;
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+}
+
+.sub-question.active {
+  border-color: blue;
+}
+
+.sub-question.completed {
+  background-color: #e0ffe0;
+}
+
+.sub-question-text {
+  font-weight: bold;
+  margin-bottom: 5px;
+}
+
+.answer-boxes {
+  display: flex;
+  gap: 10px;
+}
+
+.answer-box {
+  width: 50px;
+  height: 30px;
+  border: 1px solid #ccc;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+}
+
+.answer-box.filled {
+  background-color: #d0eaff;
+}
+
+.answer-box.empty {
+  background-color: #f0f0f0;
+}
+
+/* Indicator */
+.current-question-indicator {
+  margin-bottom: 10px;
+}
+
+/* Option list */
+.option-list {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  justify-content: center;
+}
+
+.word-item {
+  padding: 5px 10px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.word-item.disabled {
+  background-color: #ccc;
+  cursor: not-allowed;
+}
+
+/* Result */
+.result {
+  font-size: 18px;
+  margin-bottom: 10px;
+}
+
+.correct {
+  color: green;
+}
+
+.incorrect {
+  color: red;
+}
+
+/* Correct answer */
+.correct-answer {
+  margin-bottom: 20px;
+  text-align: left;
+}
+
+/* Button container */
+.button-container {
+  display: flex;
+  gap: 10px;
+  justify-content: center;
+}
+
+.check-button,
+.try-again-button,
+.review-button {
+  padding: 10px 20px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.check-button {
+  background-color: green;
+  color: white;
+}
+
+.try-again-button {
+  background-color: orange;
+  color: white;
+}
+
+.review-button {
+  background-color: blue;
+  color: white;
+}
+
+.dialogue-section {
+  margin-bottom: 20px;
+}
+
+.dialogue-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 10px;
+}
+
+.dialogue-header h3 {
+  margin: 0;
+  font-size: 18px;
+}
+
+.speak-button, .stop-button {
+  padding: 8px 15px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  font-size: 14px;
+}
+
+.speak-button {
+  background-color: #4CAF50;
+  color: white;
+}
+
+.speak-button:disabled {
+  background-color: #aaaaaa;
+}
+
+.stop-button {
+  background-color: #f44336;
+  color: white;
+}

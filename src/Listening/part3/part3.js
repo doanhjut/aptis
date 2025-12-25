@@ -3,7 +3,7 @@ import "./part3.css";
 import { data } from "../data";
 import { Link } from "react-router-dom";
 
-function ReadingPart3({ questions, onComplete }) {
+function ListeningPart3({ questions, onComplete }) {
   const [dataSentences, setDataSentences] = useState([]);
 
   // Quản lý thứ tự câu hỏi random
@@ -23,10 +23,11 @@ function ReadingPart3({ questions, onComplete }) {
   const [shuffledOptions, setShuffledOptions] = useState([]); // Cố định thứ tự options
   const [result, setResult] = useState(null);
   const [showCorrect, setShowCorrect] = useState(false);
-
+  const [isSpeaking, setIsSpeaking] = useState(false);
   // Khởi tạo dữ liệu và random câu hỏi
   useEffect(() => {
-    const sourceData = Array.isArray(questions) && questions.length > 0 ? questions : data.part3;
+    const sourceData =
+      Array.isArray(questions) && questions.length > 0 ? questions : data.part3;
     setDataSentences(sourceData);
 
     const indices = Array.from({ length: sourceData.length }, (_, i) => i);
@@ -41,13 +42,17 @@ function ReadingPart3({ questions, onComplete }) {
     setCurrentReviewIdx(0);
   }, [questions]);
 
-  // Khi chuyển câu hỏi (chính hoặc ôn lại) → load và shuffle options một lần
+  // Khi chuyển câu hỏi → load và shuffle options một lần
   useEffect(() => {
     const currentOriginalIndex = isReviewMode
       ? reviewIndices[currentReviewIdx]
       : shuffledIndices[currentIdxInShuffle];
 
-    if (currentOriginalIndex === undefined || !dataSentences[currentOriginalIndex]) return;
+    if (
+      currentOriginalIndex === undefined ||
+      !dataSentences[currentOriginalIndex]
+    )
+      return;
 
     const currentQuestion = dataSentences[currentOriginalIndex];
 
@@ -73,19 +78,24 @@ function ReadingPart3({ questions, onComplete }) {
   if (!currentQuestion) return null;
 
   const handleOptionClick = (option) => {
-    if (usedOptions.has(option)) return;
-
-    const maxAnswers = currentQuestion.subQuestions[currentSubQuestion].expectedAnswers;
+    const maxAnswers =
+      currentQuestion.subQuestions[currentSubQuestion].expectedAnswers;
 
     if (userAnswers[currentSubQuestion].length < maxAnswers) {
       const newUserAnswers = [...userAnswers];
-      newUserAnswers[currentSubQuestion] = [...newUserAnswers[currentSubQuestion], option];
+      newUserAnswers[currentSubQuestion] = [
+        ...newUserAnswers[currentSubQuestion],
+        option,
+      ];
       setUserAnswers(newUserAnswers);
 
       setUsedOptions(new Set([...usedOptions, option]));
 
-      // Chuyển sang câu con tiếp theo nếu đủ đáp án
-      if (newUserAnswers[currentSubQuestion].length === maxAnswers && currentSubQuestion < 3) {
+      // Chuyển sang câu con tiếp theo nếu đủ
+      if (
+        newUserAnswers[currentSubQuestion].length === maxAnswers &&
+        currentSubQuestion < 3
+      ) {
         setCurrentSubQuestion(currentSubQuestion + 1);
       }
     }
@@ -128,7 +138,6 @@ function ReadingPart3({ questions, onComplete }) {
 
       setTimeout(() => {
         if (isReviewMode) {
-          // Ôn lại: chuyển câu tiếp
           if (currentReviewIdx < reviewIndices.length - 1) {
             setCurrentReviewIdx(currentReviewIdx + 1);
           } else {
@@ -136,20 +145,19 @@ function ReadingPart3({ questions, onComplete }) {
             setIsReviewMode(false);
           }
         } else {
-          // Chế độ chính: chuyển câu tiếp
           if (currentIdxInShuffle < dataSentences.length - 1) {
             setCurrentIdxInShuffle(currentIdxInShuffle + 1);
           } else {
-            // Hoàn thành vòng chính
             if (wrongIndices.length > 0) {
-              const shuffledWrong = [...wrongIndices].sort(() => Math.random() - 0.5);
+              const shuffledWrong = [...wrongIndices].sort(
+                () => Math.random() - 0.5
+              );
               setReviewIndices(shuffledWrong);
               setCurrentReviewIdx(0);
               setIsReviewMode(true);
               setResult("Bây giờ ôn lại các câu bạn làm sai...");
             } else {
               setResult("Hoàn hảo! Bạn làm đúng hết mà không sai câu nào!");
-              // Có thể thêm vòng mới nếu muốn
             }
           }
         }
@@ -158,10 +166,40 @@ function ReadingPart3({ questions, onComplete }) {
       setResult("Sai rồi, hãy thử lại hoặc xem đáp án đúng.");
       setShowCorrect(true);
 
-      // Chỉ ghi nhận sai ở chế độ chính
       if (!isReviewMode && !wrongIndices.includes(currentOriginalIndex)) {
         setWrongIndices([...wrongIndices, currentOriginalIndex]);
       }
+    }
+  };
+
+  const speakDialogue = () => {
+    if ("speechSynthesis" in window) {
+      // Dừng nếu đang nói
+      window.speechSynthesis.cancel();
+
+      const text = currentQuestion?.dialogue || "";
+      const utterance = new SpeechSynthesisUtterance(text);
+
+      // Tùy chỉnh giọng nói (tùy browser và hệ điều hành)
+      utterance.lang = "en-US"; // hoặc 'en-GB' cho giọng Anh Anh
+      utterance.rate = 0.9; // Tốc độ nói (0.8 - 1.0 là tự nhiên)
+      utterance.pitch = 1; // Độ cao giọng
+      utterance.volume = 1;
+
+      utterance.onstart = () => setIsSpeaking(true);
+      utterance.onend = () => setIsSpeaking(false);
+      utterance.onerror = () => setIsSpeaking(false);
+
+      window.speechSynthesis.speak(utterance);
+    } else {
+      alert("Trình duyệt của bạn không hỗ trợ Text-to-Speech!");
+    }
+  };
+
+  const stopSpeaking = () => {
+    if ("speechSynthesis" in window) {
+      window.speechSynthesis.cancel();
+      setIsSpeaking(false);
     }
   };
 
@@ -187,11 +225,11 @@ function ReadingPart3({ questions, onComplete }) {
 
   return (
     <div className="app-container3">
-      <h1 className="game-title">Reading Aptis - Part 3</h1>
+      <h1 className="game-title">Listening Aptis - Part 3</h1>
 
       {(!questions || questions.length === 0) && (
         <div className="back-button-container">
-          <Link to="/reading" className="back-button">
+          <Link to="/listening" className="back-button">
             Back to Home
           </Link>
         </div>
@@ -205,6 +243,24 @@ function ReadingPart3({ questions, onComplete }) {
 
       <div className="word-section">
         <h2 className="question-title">{currentQuestion?.main}</h2>
+        <div className="dialogue-section">
+          <div className="dialogue-header">
+            <h3>Hội thoại</h3>
+            <button
+              onClick={speakDialogue}
+              className="speak-button"
+              disabled={isSpeaking}
+            >
+              {isSpeaking ? "Đang đọc..." : "🔊 Nghe hội thoại"}
+            </button>
+            {isSpeaking && (
+              <button onClick={stopSpeaking} className="stop-button">
+                Dừng
+              </button>
+            )}
+          </div>
+          {/* <pre className="dialogue">{currentQuestion?.dialogue}</pre> */}
+        </div>
 
         <div className="sub-questions">
           {currentQuestion?.subQuestions.map((sub, index) => (
@@ -212,7 +268,11 @@ function ReadingPart3({ questions, onComplete }) {
               key={index}
               className={`sub-question ${
                 index === currentSubQuestion ? "active" : ""
-              } ${userAnswers[index].length === sub.expectedAnswers ? "completed" : ""}`}
+              } ${
+                userAnswers[index].length === sub.expectedAnswers
+                  ? "completed"
+                  : ""
+              }`}
             >
               <div className="sub-question-text">{sub.text}</div>
               <div className="answer-boxes">
@@ -222,6 +282,7 @@ function ReadingPart3({ questions, onComplete }) {
                     className={`answer-box ${
                       userAnswers[index][boxIndex] ? "filled" : "empty"
                     }`}
+                    style={{color:'black', fontWeight:'bold'}}
                     onClick={() =>
                       userAnswers[index][boxIndex] &&
                       handleAnswerClick(index, boxIndex)
@@ -251,7 +312,7 @@ function ReadingPart3({ questions, onComplete }) {
           {shuffledOptions.map((option, index) => (
             <span
               key={index}
-              className={`word-item ${usedOptions.has(option) ? "disabled" : ""}`}
+              className={`word-item`}
               onClick={() => handleOptionClick(option)}
             >
               {option}
@@ -261,7 +322,15 @@ function ReadingPart3({ questions, onComplete }) {
       </div>
 
       {result && (
-        <div className={`result ${result.includes("Đúng") || result.includes("Tuyệt vời") || result.includes("Hoàn hảo") ? "correct" : "incorrect"}`}>
+        <div
+          className={`result ${
+            result.includes("Đúng") ||
+            result.includes("Tuyệt vời") ||
+            result.includes("Hoàn hảo")
+              ? "correct"
+              : "incorrect"
+          }`}
+        >
           {result}
         </div>
       )}
@@ -296,4 +365,4 @@ function ReadingPart3({ questions, onComplete }) {
   );
 }
 
-export default ReadingPart3;
+export default ListeningPart3;

@@ -1092,256 +1092,256 @@ export const data = {
   ],
   part3: [
     {
-      main: "Opinions on flying",
+      main: "Do exercise",
+      dialogue: `What course are you taking these days?`,
       subQuestions: [
-        { text: "I have a", expectedAnswers: 2 },
-        { text: "My family", expectedAnswers: 2 },
-        { text: "I was a businessman", expectedAnswers: 1 },
-        { text: "If I have", expectedAnswers: 2 },
+        {
+          text: "Technology helps make education more accessible",
+          expectedAnswers: 1,
+        },
+        { text: "Social interaction is important", expectedAnswers: 1 },
+        {
+          text: "The diverse curriculum is not an advantage",
+          expectedAnswers: 1,
+        },
+        {
+          text: "University competition should be encouraged",
+          expectedAnswers: 1,
+        },
       ],
-      options:
-        "suggest making flights more expensive/want to work in other countries/visit relatives regularly/try to protect the environment/like relaxing while they travel/find flying tiring/need to fly for their work",
-      answers: [
-        [
-          "suggest making flights more expensive",
-          "want to work in other countries",
-        ],
-        ["visit relatives regularly", "try to protect the environment"],
-        ["like relaxing while they travel"],
-        ["find flying tiring", "need to fly for their work"],
-      ],
+      answers: [["B"], ["2"], ["1"], ["2"]],
+      options: "1/2/B",
     },
     {
-      main: "a new restaurant",
+      main: "internet",
+      dialogue: `These days, there's so much information on the internet that I feel overwhelmed.`,
       subQuestions: [
-        { text: "This is my first", expectedAnswers: 2 },
-        { text: "This is a very famous", expectedAnswers: 2 },
-        { text: "I'm not sure", expectedAnswers: 2 },
-        { text: "I don't understand", expectedAnswers: 1 },
+        {
+          text: "There is too much information on the internet",
+          expectedAnswers: 1,
+        },
+        { text: "Using internet requires skills", expectedAnswers: 1 },
+        {
+          text: "The internet is changing the way we think",
+          expectedAnswers: 1,
+        },
+        { text: "Internet has made people less patient", expectedAnswers: 1 },
       ],
-      options:
-        "was impressed by the range of appetizers/thought the music was too quiet/didn't eat anything at the restaurant/enjoyed the atmosphere/thought his bad experience was probably unusual/the food was of average quality/will definitely not return to the restaurant",
-      answers: [
-        [
-          "was impressed by the range of appetizers",
-          "thought the music was too quiet",
-        ],
-        ["didn't eat anything at the restaurant", "enjoyed the atmosphere"],
-        [
-          "thought his bad experience was probably unusual",
-          "the food was of average quality",
-        ],
-        ["will definitely not return to the restaurant"],
-      ],
+      answers: [["B"], ["1"], ["1"], ["B"]],
+      options: "1/2/B",
     },
     {
-      main: "reading books",
+      main: "music and singers",
+      dialogue: `Did you hear about the concert last night? A lot of young people attended.`,
       subQuestions: [
-        { text: "My wife", expectedAnswers: 2 },
-        { text: "I used", expectedAnswers: 2 },
-        { text: "I often keep", expectedAnswers: 1 },
-        { text: "My job", expectedAnswers: 2 },
+        {
+          text: "singers play a good role for young people",
+          expectedAnswers: 1,
+        },
+        {
+          text: "taste in music is a highly personal thing",
+          expectedAnswers: 1,
+        },
+        { text: "Music is a universal language", expectedAnswers: 1 },
+        { text: "Music can manipulate people's feelings", expectedAnswers: 1 },
       ],
-      options:
-        "plans their reading schedule/reads more than another family member/reads many books at once/wants to read a lot of books/is having difficulty in finishing a book/thinks that factual books are boring/has limited time to read books",
-      answers: [
-        [
-          "plans their reading schedule",
-          "reads more than another family member",
-        ],
-        ["reads many books at once", "wants to read a lot of books"],
-        ["is having difficulty in finishing a book"],
-        [
-          "thinks that factual books are boring",
-          "has limited time to read books",
-        ],
-      ],
+      answers: [["1"], ["B"], ["2"], ["B"]],
+      options: "1/2/B",
     },
     {
-      main: "visit a city",
+      main: "The subject of beauty",
+      dialogue: `Hi, what are you reading?`,
       subQuestions: [
-        { text: "When I first", expectedAnswers: 2 },
-        { text: "I don't like big", expectedAnswers: 2 },
-        { text: "I went to this", expectedAnswers: 2 },
-        { text: "When I go out", expectedAnswers: 1 },
+        {
+          text: "People share the very similar ideas about beauty",
+          expectedAnswers: 1,
+        },
+        { text: "Views of beauty change over time", expectedAnswers: 1 },
+        { text: "Beauty can be found in unlikely places", expectedAnswers: 1 },
+        {
+          text: "Traditional ideas of beauty are going to change",
+          expectedAnswers: 1,
+        },
       ],
-      options:
-        "thought public transport system was good/walking too much causes a problem/like the natural resort here/visit one part of the city/like the public theatre that the city puts on/usually spend a lot of money on shopping/pay a lot for their meal",
-      answers: [
-        [
-          "thought public transport system was good",
-          "walking too much causes a problem",
-        ],
-        ["like the natural resort here", "visit one part of the city"],
-        [
-          "like the public theatre that the city puts on",
-          "usually spend a lot of money on shopping",
-        ],
-        ["pay a lot for their meal"],
-      ],
+      answers: [["2"], ["1"], ["B"], ["1"]],
+      options: "1/2/B",
     },
     {
-      main: "plans for a new station",
+      main: "actors",
+      dialogue: `What do you think about casting actors before casting them?`,
       subQuestions: [
-        { text: "I see too many", expectedAnswers: 1 },
-        { text: "Buses are often full", expectedAnswers: 2 },
-        { text: "In my opinion", expectedAnswers: 2 },
-        { text: "Building a new public", expectedAnswers: 2 },
+        {
+          text: "Auditions are the most important of casting",
+          expectedAnswers: 1,
+        },
+        { text: "Actors respond best to a strong script", expectedAnswers: 1 },
+        {
+          text: "Theatre acting and movie acting require different skills",
+          expectedAnswers: 1,
+        },
+        { text: "Actors need to be praised", expectedAnswers: 1 },
       ],
-      options:
-        "people should plan their journeys better/the bus is too busy/the new station will improve train travel/the bus service is good/transport system doesn't need improving/better medical facilities are needed/the new station will cost too much to build",
-      answers: [
-        ["people should plan their journeys better"],
-        ["the bus is too busy", "the new station will improve train travel"],
-        ["the bus service is good", "transport system doesn't need improving"],
-        [
-          "better medical facilities are needed",
-          "the new station will cost too much to build",
-        ],
-      ],
+      answers: [["2"], ["1"], ["B"], ["B"]],
+      options: "1/2/B",
     },
     {
-      main: "art",
+      main: "Arts",
+      dialogue: `What magazine are you reading?`,
       subQuestions: [
-        { text: "I know", expectedAnswers: 2 },
-        { text: "I find going to", expectedAnswers: 2 },
-        { text: "I find polite art", expectedAnswers: 1 },
-        { text: "My parents", expectedAnswers: 2 },
+        {
+          text: "Art is only suitable for the privileged few",
+          expectedAnswers: 1,
+        },
+        {
+          text: "The government should invest more in arts",
+          expectedAnswers: 1,
+        },
+        { text: "Children should be exposed to art early", expectedAnswers: 1 },
+        {
+          text: "In the future, art will become more accessible",
+          expectedAnswers: 1,
+        },
       ],
-      options:
-        "has some artistic skills/seeing exhibitions is a boring activity/prefers seeing exhibitions by themselves/visitors should focus on the art/has a good knowledge of art/prefers going to art exhibitions with other people/has been going to art exhibitions all their life",
-      answers: [
-        ["has some artistic skills", "seeing exhibitions is a boring activity"],
-        [
-          "prefers seeing exhibitions by themselves",
-          "visitors should focus on the art",
-        ],
-        ["has a good knowledge of art"],
-        [
-          "prefers going to art exhibitions with other people",
-          "has been going to art exhibitions all their life",
-        ],
-      ],
+      answers: [["1"], ["2"], ["B"], ["2"]],
+      options: "1/2/B",
     },
     {
-      main: "volunteering to clean a local park",
+      main: "urban farming",
+      dialogue: `The government is discussing adding more farming space to big cities. What do you think about this?`,
       subQuestions: [
-        { text: "I feel very lucky", expectedAnswers: 2 },
-        { text: "I'm a very busy", expectedAnswers: 2 },
-        { text: "I think this volunteering", expectedAnswers: 2 },
-        { text: "My family and I often", expectedAnswers: 1 },
+        {
+          text: "Living space is more important than farming space",
+          expectedAnswers: 1,
+        },
+        {
+          text: "Urban farming sites can be visually appealing",
+          expectedAnswers: 1,
+        },
+        {
+          text: "Urban farming can benefit local economics",
+          expectedAnswers: 1,
+        },
+        { text: "Urban farming cannot meet food needs", expectedAnswers: 1 },
       ],
-      options:
-        "the park is a beautiful place to relax/ask for others to help/can't clean the park because of their busy work/volunteering will help with future employment/local areas need cleaning/the cleaning needs to be done regularly/volunteering is important for students",
-      answers: [
-        ["the park is a beautiful place to relax", "ask for others to help"],
-        [
-          "can't clean the park because of their busy work",
-          "volunteering will help with future employment",
-        ],
-        [
-          "local areas need cleaning",
-          "the cleaning needs to be done regularly",
-        ],
-        ["volunteering is important for students"],
-      ],
+      answers: [["2"], ["B"], ["1"], ["B"]],
+      options: "1/2/B",
     },
     {
-      main: "Going on holiday",
+      main: "politics",
+      dialogue: `Have you heard about the upcoming presidential election? A lot of young people have already voted, which shows that they're becoming more interested in politics.`,
       subQuestions: [
-        { text: "Last year", expectedAnswers: 2 },
-        { text: "When I travel somewhere", expectedAnswers: 2 },
-        { text: "My family and I often", expectedAnswers: 2 },
-        { text: "Next month's trip will", expectedAnswers: 1 },
+        {
+          text: "Young people are becoming more interested in politics",
+          expectedAnswers: 1,
+        },
+        {
+          text: "Social media has changed political activism",
+          expectedAnswers: 1,
+        },
+        {
+          text: "People are better informed about political issues",
+          expectedAnswers: 1,
+        },
+        {
+          text: "More women are likely to participate in politics",
+          expectedAnswers: 1,
+        },
       ],
-      options:
-        "prefer to stay at home/like going walking/like seeing tourist attractions/going to the beach is boring/holiday requires good weather/want to go mountaineering trip/have never been abroad",
-      answers: [
-        ["prefer to stay at home", "like going walking"],
-        ["like seeing tourist attractions", "going to the beach is boring"],
-        ["holiday requires good weather", "want to go mountaineering trip"],
-        ["have never been abroad"],
-      ],
+      answers: [["B"], ["1"], ["2"], ["B"]],
+      options: "1/2/B",
     },
     {
-      main: "sports",
+      main: "changes in the work place",
+      dialogue: `I'm thinking about switching to another job.`,
       subQuestions: [
-        { text: "Exercising with", expectedAnswers: 2 },
-        { text: "Establishing a consistent", expectedAnswers: 1 },
-        { text: "Age is just a number", expectedAnswers: 2 },
-        { text: "Experiencing pain", expectedAnswers: 2 },
+        {
+          text: "Continuity is important when planning a career",
+          expectedAnswers: 1,
+        },
+        { text: "Job security cannot be guaranteed", expectedAnswers: 1 },
+        {
+          text: "Job satisfaction is important for motivator",
+          expectedAnswers: 1,
+        },
+        {
+          text: "Technological improvement is good for the economy",
+          expectedAnswers: 1,
+        },
       ],
-      options:
-        "work out with friends is a good idea/a proper meal is important/a routine can help us do more sport/exercise is for both the young and the elderly/competitions are not useful for everybody/experience pain is not necessary/at times we seek expert advice",
-      answers: [
-        ["work out with friends is a good idea", "a proper meal is important"],
-        ["a routine can help us do more sport"],
-        [
-          "exercise is for both the young and the elderly",
-          "competitions are not useful for everybody",
-        ],
-        ["experience pain is not necessary", "at times we seek expert advice"],
-      ],
+      answers: [["2"], ["1"], ["B"], ["2"]],
+      options: "1/2/B",
     },
     {
-      main: "visit an island",
+      main: "politics",
+      dialogue: `Have you heard about the upcoming presidential election? A lot of young people have already voted, which shows that they're becoming more interested in politics.`,
       subQuestions: [
-        { text: "I like traveling", expectedAnswers: 2 },
-        { text: "As an architect", expectedAnswers: 1 },
-        { text: "The sharp bends", expectedAnswers: 2 },
-        { text: "There's a lot", expectedAnswers: 2 },
+        {
+          text: "Young people are becoming more interested in politics",
+          expectedAnswers: 1,
+        },
+        {
+          text: "Social media has changed political activism",
+          expectedAnswers: 1,
+        },
+        {
+          text: "People are better informed on political issues",
+          expectedAnswers: 1,
+        },
+        {
+          text: "More women are likely to participate in politics",
+          expectedAnswers: 1,
+        },
       ],
-      options:
-        "forgot to bring something/liked to be alone/spent a lot of money on transport/thought public transport could be improved/liked to walk/loved eating food here/liked buying things on the island",
-      answers: [
-        ["forgot to bring something", "liked to be alone"],
-        ["spent a lot of money on transport"],
-        ["thought public transport could be improved", "liked to walk"],
-        ["loved eating food here", "liked buying things on the island"],
-      ],
+      answers: [["B"], ["1"], ["2"], ["B"]],
+      options: "1/2/B",
     },
     {
-      main: "watching television",
+      main: "information and technology",
+      dialogue: `Hi, what have you been studying lately?`,
       subQuestions: [
-        { text: "I know I have", expectedAnswers: 2 },
-        { text: "I often spend", expectedAnswers: 2 },
-        { text: "I wasn't good", expectedAnswers: 1 },
-        { text: "My husband", expectedAnswers: 2 },
+        {
+          text: "The future generation will fail to cope with new information",
+          expectedAnswers: 1,
+        },
+        {
+          text: "The information revolution will be good for the economy",
+          expectedAnswers: 1,
+        },
+        {
+          text: "No computer is superior to the human brain",
+          expectedAnswers: 1,
+        },
+        {
+          text: "More should be done to protect individual privacy",
+          expectedAnswers: 1,
+        },
       ],
-      options:
-        "watch TV instead of studying/like TV programs which continue over several weeks/avoid watching reality TV programs/lost interest in watching football on TV/get a lot of knowledge by watching TV/isn't a very selective viewer/keep up to date on cinema and music",
-      answers: [
-        [
-          "watch TV instead of studying",
-          "like TV programs which continue over several weeks",
-        ],
-        [
-          "avoid watching reality TV programs",
-          "lost interest in watching football on TV",
-        ],
-        ["get a lot of knowledge by watching TV"],
-        [
-          "isn't a very selective viewer",
-          "keep up to date on cinema and music",
-        ],
-      ],
+      answers: [["1"], ["2"], ["2"], ["B"]],
+      options: "1/2/B",
     },
     {
-      main: "eating and cooking",
+      main: "politics",
+      dialogue: `Have you heard about the upcoming presidential election? A lot of young people have already voted, which shows that they're becoming more interested in politics.`,
       subQuestions: [
-        { text: "When I was a kid", expectedAnswers: 1 },
-        { text: "I used to often", expectedAnswers: 2 },
-        { text: "Going to a restaurant", expectedAnswers: 2 },
-        { text: "I don't understand", expectedAnswers: 2 },
+        {
+          text: "Young people are becoming more interested in politics",
+          expectedAnswers: 1,
+        },
+        {
+          text: "Social media has changed political activism",
+          expectedAnswers: 1,
+        },
+        {
+          text: "People are better informed about political issues",
+          expectedAnswers: 1,
+        },
+        {
+          text: "More women are likely to participate in politics",
+          expectedAnswers: 1,
+        },
       ],
-      options:
-        "like to eat with friends/prefer to eat alone/need to save money/like to eat a wide range of dishes/take a cookery course/only want to eat a few range of food/like home cooked food",
-      answers: [
-        ["like to eat with friends"],
-        ["prefer to eat alone", "need to save money"],
-        ["like to eat a wide range of dishes", "take a cookery course"],
-        ["only want to eat a few range of food", "like home cooked food"],
-      ],
+      answers: [["B"], ["1"], ["2"], ["B"]],
+      options: "1/2/B",
     },
   ],
   part4: [
