@@ -26,7 +26,7 @@ function Test() {
   useEffect(() => {
     // Part 1: Randomly select 5 questions
     const shuffledPart1 = [...data.part1].sort(() => Math.random() - 0.5);
-    setPart1QuestionsSelected(shuffledPart1.slice(0, 5));
+    setPart1QuestionsSelected(shuffledPart1.slice(0, 1));
 
     const part2Data = [...data.part2];
     const shuffledPart2 = [...part2Data].sort(() => Math.random() - 0.5);
@@ -34,11 +34,12 @@ function Test() {
 
     // Part 3: Randomly select 1 topic (assuming a simple topic selection)
     const part3Topics = [...data.part3];
-    setPart3Topic(part3Topics[Math.floor(Math.random() * part3Topics.length)]);
+    const shuffledPart3 = [...part3Topics].sort(() => Math.random() - 0.5);
+    setPart3Topic(shuffledPart3.slice(0, 1));
 
     // Part 4: Randomly select 1 topic from part4Questions
     const shuffledPart4 = [...data.part4].sort(() => Math.random() - 0.5);
-    setPart4Topic(shuffledPart4[0].main);
+    setPart4Topic(shuffledPart4.slice(0, 1));
   }, []);
 
   return (

@@ -21,6 +21,7 @@ function ReadingPart3({ questions, onComplete }) {
   const [currentSubQuestion, setCurrentSubQuestion] = useState(0);
   const [usedOptions, setUsedOptions] = useState(new Set());
   const [shuffledOptions, setShuffledOptions] = useState([]); // Cố định thứ tự options
+  const [shuffledSubQuestions, setShuffledSubQuestions] = useState([]); // Thứ tự câu hỏi con đã trộn
   const [result, setResult] = useState(null);
   const [showCorrect, setShowCorrect] = useState(false);
 
@@ -56,6 +57,14 @@ function ReadingPart3({ questions, onComplete }) {
     const shuffledOpts = [...optionsArray].sort(() => Math.random() - 0.5);
     setShuffledOptions(shuffledOpts);
 
+    // Shuffle sub-questions một lần và giữ nguyên
+    const subQuestionsWithIndex = currentQuestion.subQuestions.map((sq, idx) => ({
+      ...sq,
+      originalIndex: idx
+    }));
+    const shuffledSubs = [...subQuestionsWithIndex].sort(() => Math.random() - 0.5);
+    setShuffledSubQuestions(shuffledSubs);
+
     // Reset trạng thái câu hỏi
     setUserAnswers([[], [], [], []]);
     setCurrentSubQuestion(0);
@@ -75,36 +84,36 @@ function ReadingPart3({ questions, onComplete }) {
   const handleOptionClick = (option) => {
     if (usedOptions.has(option)) return;
 
-    const maxAnswers = currentQuestion.subQuestions[currentSubQuestion].expectedAnswers;
+    const currentShuffledSub = shuffledSubQuestions[currentSubQuestion];
+    if (!currentShuffledSub) return;
 
-    if (userAnswers[currentSubQuestion].length < maxAnswers) {
+    const originalIndex = currentShuffledSub.originalIndex;
+    const maxAnswers = 2; // Luôn cho phép chọn tối đa 2 đáp án
+
+    if (userAnswers[originalIndex].length < maxAnswers) {
       const newUserAnswers = [...userAnswers];
-      newUserAnswers[currentSubQuestion] = [...newUserAnswers[currentSubQuestion], option];
+      newUserAnswers[originalIndex] = [...newUserAnswers[originalIndex], option];
       setUserAnswers(newUserAnswers);
 
       setUsedOptions(new Set([...usedOptions, option]));
 
-      // Chuyển sang câu con tiếp theo nếu đủ đáp án
-      if (newUserAnswers[currentSubQuestion].length === maxAnswers && currentSubQuestion < 3) {
-        setCurrentSubQuestion(currentSubQuestion + 1);
-      }
+      // Không tự động chuyển câu, người dùng sẽ click vào câu khác để chọn
     }
   };
 
-  const handleAnswerClick = (subIndex, answerIndex) => {
+  const handleAnswerClick = (originalIndex, answerIndex) => {
     const newUserAnswers = [...userAnswers];
-    const removedAnswer = newUserAnswers[subIndex][answerIndex];
-    newUserAnswers[subIndex].splice(answerIndex, 1);
+    const removedAnswer = newUserAnswers[originalIndex][answerIndex];
+    newUserAnswers[originalIndex].splice(answerIndex, 1);
     setUserAnswers(newUserAnswers);
 
     const newUsedOptions = new Set(usedOptions);
     newUsedOptions.delete(removedAnswer);
     setUsedOptions(newUsedOptions);
+  };
 
-    // Quay lại câu con bị xóa nếu cần
-    if (subIndex <= currentSubQuestion) {
-      setCurrentSubQuestion(subIndex);
-    }
+  const handleSubQuestionClick = (shuffledIndex) => {
+    setCurrentSubQuestion(shuffledIndex);
   };
 
   const checkAnswer = () => {
@@ -207,40 +216,47 @@ function ReadingPart3({ questions, onComplete }) {
         <h2 className="question-title">{currentQuestion?.main}</h2>
 
         <div className="sub-questions">
-          {currentQuestion?.subQuestions.map((sub, index) => (
-            <div
-              key={index}
-              className={`sub-question ${
-                index === currentSubQuestion ? "active" : ""
-              } ${userAnswers[index].length === sub.expectedAnswers ? "completed" : ""}`}
-            >
-              <div className="sub-question-text">{sub.text}</div>
-              <div className="answer-boxes">
-                {Array.from({ length: sub.expectedAnswers }, (_, boxIndex) => (
-                  <div
-                    key={boxIndex}
-                    className={`answer-box ${
-                      userAnswers[index][boxIndex] ? "filled" : "empty"
-                    }`}
-                    onClick={() =>
-                      userAnswers[index][boxIndex] &&
-                      handleAnswerClick(index, boxIndex)
-                    }
-                  >
-                    {userAnswers[index][boxIndex] || ""}
-                  </div>
-                ))}
+          {shuffledSubQuestions.map((sub, shuffledIndex) => {
+            const originalIndex = sub.originalIndex;
+            return (
+              <div
+                key={shuffledIndex}
+                className={`sub-question ${
+                  shuffledIndex === currentSubQuestion ? "active" : ""
+                } ${userAnswers[originalIndex].length >= 2 ? "completed" : ""}`}
+                onClick={() => handleSubQuestionClick(shuffledIndex)}
+                style={{ cursor: "pointer" }}
+              >
+                <div className="sub-question-text">{sub.text}</div>
+                <div className="answer-boxes">
+                  {Array.from({ length: 2 }, (_, boxIndex) => (
+                    <div
+                      key={boxIndex}
+                      className={`answer-box ${
+                        userAnswers[originalIndex][boxIndex] ? "filled" : "empty"
+                      }`}
+                      onClick={(e) => {
+                        e.stopPropagation();
+                        if (userAnswers[originalIndex][boxIndex]) {
+                          handleAnswerClick(originalIndex, boxIndex);
+                        }
+                      }}
+                    >
+                      {userAnswers[originalIndex][boxIndex] || ""}
+                    </div>
+                  ))}
+                </div>
               </div>
-            </div>
-          ))}
+            );
+          })}
         </div>
 
         <div className="current-question-indicator">
-          {currentSubQuestion < 4 && (
+          {currentSubQuestion < shuffledSubQuestions.length && (
             <p>
               Đang chọn cho:{" "}
               <strong>
-                {currentQuestion?.subQuestions[currentSubQuestion].text}
+                {shuffledSubQuestions[currentSubQuestion]?.text}
               </strong>
             </p>
           )}

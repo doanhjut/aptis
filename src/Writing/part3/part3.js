@@ -64,7 +64,7 @@ function WritingPart3({ questions, onComplete }) {
                 value={answers[index] || ""}
                 onChange={handleAnswerChange(index)}
                 placeholder="Answer (30-50 words)"
-                maxLength="200"
+                maxLength="2000"
                 style={{ width: "90%" }}
               />
               <span className="word-count">{wordCounts[index] || 0} words</span>

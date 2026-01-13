@@ -3,16 +3,8 @@ import "./part1.css";
 import { data } from "../data.js";
 import { Link } from "react-router-dom";
 
-// Group part1 questions into topics, each with 3 questions
-const topics = [];
-const questionsPerTopic = 3;
-const shuffledQuestions = [...data.part1].sort(() => Math.random() - 0.5);
-for (let i = 0; i < shuffledQuestions.length; i += questionsPerTopic) {
-  topics.push({
-    name: `Topic ${topics.length + 1}`,
-    questions: shuffledQuestions.slice(i, i + questionsPerTopic),
-  });
-}
+// Use the topics from data.part1 directly (they already have the correct structure)
+const topics = [...data.part1];
 
 function SpeakingPart1({ questions, onComplete }) {
   const [currentTopicIndex, setCurrentTopicIndex] = useState(0);
@@ -39,20 +31,21 @@ function SpeakingPart1({ questions, onComplete }) {
       const timer = setInterval(() => setTimeLeft(timeLeft - 1), 1000);
       return () => clearInterval(timer);
     } else {
-      if (
-        currentQuestionIndex < 2 &&
-        currentTopicIndex < shuffledTopics.length
-      ) {
+      // Move to next question in current topic
+      if (currentQuestionIndex < currentTopic.questions.length - 1) {
         setCurrentQuestionIndex(currentQuestionIndex + 1);
-        setCurrentTopicIndex(currentTopicIndex + 1);
         setTimeLeft(30);
         setDisplayTime(5);
-      } else if (currentTopicIndex < shuffledTopics.length - 1) {
+      } 
+      // Move to next topic
+      else if (currentTopicIndex < shuffledTopics.length - 1) {
         setCurrentTopicIndex(currentTopicIndex + 1);
         setCurrentQuestionIndex(0);
         setTimeLeft(30);
         setDisplayTime(5);
-      } else {
+      } 
+      // All topics completed
+      else {
         onComplete();
       }
     }

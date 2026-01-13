@@ -122,6 +122,12 @@ function ReadingPart2({ questions, onComplete }) {
           } else {
             setResult("Congratulations! You mastered all wrong questions!");
             setIsReviewMode(false);
+            // Chuyển sang Part 3
+            if (onComplete) {
+              setTimeout(() => {
+                onComplete();
+              }, 1500);
+            }
           }
         } else {
           // Chế độ chính
@@ -140,8 +146,12 @@ function ReadingPart2({ questions, onComplete }) {
               setResult("Now reviewing the questions you got wrong...");
             } else {
               setResult("Perfect! You got everything correct!");
-              // Bắt đầu vòng mới
-              startNewRound();
+              // Chuyển sang Part 3
+              if (onComplete) {
+                setTimeout(() => {
+                  onComplete();
+                }, 1500);
+              }
             }
           }
         }

@@ -58,7 +58,7 @@ function WritingPart1({ questions, onComplete }) {
             value={currentAnswer}
             onChange={handleAnswerChange}
             placeholder="Answer (1-5 words)"
-            maxLength="10"
+            maxLength="1000"
           />
           <span className="word-count">{wordCount} words</span>
         </div>

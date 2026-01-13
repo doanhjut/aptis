@@ -634,101 +634,101 @@ export const data = {
       main: "Opinions on flying",
       subQuestions: [
         {
-          text: "I have a strong opinion that we should suggest making flights more expensive to reduce carbon emissions. Also, I want to work in other countries, so flying is necessary for me.",
+          text: "I have a dream that I work as a tour guide. So I understand that I will have to fly to other countries. In my personal opinion, airplanes are currently too cheap compared to the damage they cause to the environment, so I believe we should add taxes to airline ticket prices to make people choose to use other means of transport before they think about flying. I believe that people are also very happy when they can contribute to protecting the environment.",
           expectedAnswers: 2,
         },
         {
-          text: "My family visits relatives regularly, so we need affordable flights. We also try to protect the environment by offsetting our carbon footprint.",
+          text: "My family and siblings live quite far from me. So I often have to fly to visit them every month when I have time. We really appreciate the time we spend together and we are happy to be able to meet each other and share our new story. I know that traveling by plane too much is not good for the environment so I often shop online or go to work by bike instead of going by car or I reuse plastic bags and paper bags. In addition, I sometimes volunteer to clean up trash in the neighborhood.",
           expectedAnswers: 2,
         },
         {
-          text: "I was a businessman and I like relaxing while they travel.",
+          text: "I was a businessman so I had to fly many times a week. I had to go to other countries to be able to sign wine trading contracts with them. I felt very tired every time I have to fly. Now, my sister and I, whenever we have free time, take the train together and we enjoy that time very much because I can travel while sightseeing and relax without any stress.",
           expectedAnswers: 1,
         },
         {
-          text: "If I have to fly, I find flying tiring, but I need to fly for my work.",
+          text: "If I have to go somewhere I will choose other means of public transport, not the plane. Every time I go on a plane I feel extremely tired and I just hope time passes quickly so I can get off that plane. However, due to the specific nature of my job, I have to film in many different locations, so sometimes I cannot avoid having to take this public transportation.",
           expectedAnswers: 2,
         },
       ],
       options:
-        "suggest making flights more expensive/want to work in other countries/visit relatives regularly/try to protect the environment/like relaxing while they travel/find flying tiring/need to fly for their work",
+        "Who wants to work in other countries?/Who tries to protect the environment?/Who needs to fly for their work?/Who visits relatives regularly?/Who suggests making flights more expensive?/Who likes relaxing while they travel?/Who finds flying tiring?",
       answers: [
         [
-          "suggest making flights more expensive",
-          "want to work in other countries",
+          "Who suggests making flights more expensive?",
+          "Who wants to work in other countries?",
         ],
-        ["visit relatives regularly", "try to protect the environment"],
-        ["like relaxing while they travel"],
-        ["find flying tiring", "need to fly for their work"],
+        ["Who visits relatives regularly?", "Who tries to protect the environment?"],
+        ["Who likes relaxing while they travel?"],
+        ["Who finds flying tiring?", "Who needs to fly for their work?"],
       ],
     },
     {
       main: "a new restaurant",
       subQuestions: [
         {
-          text: "This is my first time visiting this restaurant, and I was impressed by the range of appetizers. However, I thought the music was too quiet.",
+          text: "This is my first time coming to this restaurant. The food is very cheap but the quality is excellent. I was very surprised with the starter because its menu is very diverse. But there is one thing that I want the restaurant to improve. The restaurant band played live music but it was very far away, so the sound was very low and it didn't make the meal atmosphere lively. Next time turn the music louder, please!",
           expectedAnswers: 2,
         },
         {
-          text: "This is a very famous restaurant, but I didn't eat anything at the restaurant. I enjoyed the atmosphere.",
+          text: "This is a very famous restaurant that I saw in the newspaper. Sadly, I arrived later than the rest of the party, so I didn't get to order dinner. However, I ordered orange juice and mango juice and they were both delicious. What about the surroundings? Lively music along with fashionable and appropriate decor makes me feel very comfortable.",
           expectedAnswers: 2,
         },
         {
-          text: "I'm not sure about this restaurant. I thought his bad experience was probably unusual, and the food was of average quality.",
+          text: "I'm not sure if I will return to this restaurant. I think the staff was arguing when I got there, because the atmosphere here was not very comfortable. As for the food, I think there's nothing to write about. I ordered fish and chips, it wasn't bad, but it wasn't good either. But many people say that the food here is fabulous. So, I think I'm an exception.",
           expectedAnswers: 2,
         },
         {
-          text: "I don't understand why people like this restaurant. I will definitely not return to the restaurant.",
+          text: "I don't understand why this restaurant is so famous. When I arrived and saw a menu with lots of different different dishes, I saw this as a bad sign. Furthermore, the menu with traditional dishes contrasting with the modern decoration style made me feel very confused and strange. The waiters here were also not friendly. This was one of my worst experiences eating at a restaurant.",
           expectedAnswers: 1,
         },
       ],
       options:
-        "was impressed by the range of appetizers/thought the music was too quiet/didn't eat anything at the restaurant/enjoyed the atmosphere/thought his bad experience was probably unusual/the food was of average quality/will definitely not return to the restaurant",
+        "Who thought the music was too quiet?/Who will definitely not return to the restaurant?/Who was impressed by the range of appetizers?/Who thinks the food was of average quality?/Who thought his bad experience was probably unusual?/Who enjoyed the atmosphere?/Who didn't eat anything at the restaurant?",
       answers: [
         [
-          "was impressed by the range of appetizers",
-          "thought the music was too quiet",
+          "Who was impressed by the range of appetizers?",
+          "Who thought the music was too quiet?",
         ],
-        ["didn't eat anything at the restaurant", "enjoyed the atmosphere"],
+        ["Who didn't eat anything at the restaurant?", "Who enjoyed the atmosphere?"],
         [
-          "thought his bad experience was probably unusual",
-          "the food was of average quality",
+          "Who thought his bad experience was probably unusual?",
+          "Who thinks the food was of average quality?",
         ],
-        ["will definitely not return to the restaurant"],
+        ["Who will definitely not return to the restaurant?"],
       ],
     },
     {
       main: "reading books",
       subQuestions: [
         {
-          text: "My wife plans their reading schedule. She reads more than another family member.",
+          text: "My wife often complains about not having time to read, and I say we have to make our own time. So, I often calculate my free time on my phone. so I can know in advance whether I should bring a book to read on the train. My wife often laughs at me for doing so, but I don't mind, as long as I can finish reading so many books.",
           expectedAnswers: 2,
         },
         {
-          text: "I used to read many books at once. I want to read a lot of books.",
+          text: "I used to struggle very much to finish reading a book that we were expected to read. However, now that I read for my own pleasure, I don't mind too much. I usually don't limit myself to reading one at a time. There are so many titles I can choose from that get me excited. I have a list of books that I want to read in the future.",
           expectedAnswers: 2,
         },
         {
-          text: "I often keep is having difficulty in finishing a book.",
+          text: "I often keep a book on the bedside table to read before going to bed. The problem is, I get tired after reading only half of a page, and I fall asleep. So, I've been reading that one book for half a year now and have only read chapter 2. However, when I read factual books, I find it very interesting and it keeps me awake for hours.",
           expectedAnswers: 1,
         },
         {
-          text: "My job thinks that factual books are boring. I have limited time to read books.",
+          text: "My job requires reading a lot of books. These books include a lot of facts and figures and they are very boring. When I have free time, I usually want to read light books, like mystery novels or comedy. I often read on the train to work. I have a young child, so when I come home I almost don't have time to read. Therefore, I have to read books when traveling by train. So, a book can last me 1 week.",
           expectedAnswers: 2,
         },
       ],
       options:
-        "plans their reading schedule/reads more than another family member/reads many books at once/wants to read a lot of books/is having difficulty in finishing a book/thinks that factual books are boring/has limited time to read books",
+        "Who wants to read a lot of books?/Who plans their reading schedule?/Who reads many books at once?/Who reads more than another family member?/Who is having difficulty in finishing a book?/Who thinks that factual books are boring?/Who has limited time to read books?",
       answers: [
         [
-          "plans their reading schedule",
-          "reads more than another family member",
+          "Who plans their reading schedule?",
+          "Who reads more than another family member?",
         ],
-        ["reads many books at once", "wants to read a lot of books"],
-        ["is having difficulty in finishing a book"],
+        ["Who reads many books at once?", "Who wants to read a lot of books?"],
+        ["Who is having difficulty in finishing a book?"],
         [
-          "thinks that factual books are boring",
-          "has limited time to read books",
+          "Who thinks that factual books are boring?",
+          "Who has limited time to read books?",
         ],
       ],
     },
@@ -736,66 +736,66 @@ export const data = {
       main: "visit a city",
       subQuestions: [
         {
-          text: "When I first came to the city, I thought public transport system was good. Walking too much causes a problem.",
+          text: "When I first came to this city, I felt very scared because this city is very big. The city has many parts and the shopping part is very far from the green part. However, we already had the bus route and we signed up to take the bus for a full day. Buses are very cheap and very convenient. I feel very lucky to not have to put pressure on my sore feet",
           expectedAnswers: 2,
         },
         {
-          text: "I don't like big cities, but I like the natural resort here. I visit one part of the city.",
+          text: "I don't like big cities and rarely go out to cities. But I go to the StevenSon city very often. I go there about five to seven times a year. There is an area outside the city. In that area, there are many things that I need. There is a lot of water, a natural area, a small forest and a special camping area. I really like coming to this place to rest. It also has a great coffee serving area for visitors",
           expectedAnswers: 2,
         },
         {
-          text: "I went to this city and I like the public theatre that the city puts on. I usually spend a lot of money on shopping.",
+          text: "I went to this city last summer and really liked the atmosphere of this city. The reason I like the atmosphere here is because it has a lot of public performances. These performances often take place in front of department stores. So this prevents me from shopping inside those stores. I was very surprised when I came home with an empty bag and I didn't buy anything.",
           expectedAnswers: 2,
         },
         {
-          text: "When I go out, I pay a lot for their meal.",
+          text: "When I go out, I only care about two things: good food and a good play. I especially liked the lunch I had in this city, it was delicious and I really want to come back here next time. However, I guess it's a bit expensive and I have to walk a long way to get there. However, it didn't matter because I had a wonderful day",
           expectedAnswers: 1,
         },
       ],
       options:
-        "thought public transport system was good/walking too much causes a problem/like the natural resort here/visit one part of the city/like the public theatre that the city puts on/usually spend a lot of money on shopping/pay a lot for their meal",
+        "Who likes the natural resort here?/Who thought public transport system was good?/Who wants to visit one part of the city?/Who likes the public theatre that the city puts on?/Who pays a lot for their meal?/Who usually spends a lot of money on shopping?/Who thinks walking too much causes a problem?",
       answers: [
         [
-          "thought public transport system was good",
-          "walking too much causes a problem",
+          "Who thought public transport system was good?",
+          "Who thinks walking too much causes a problem?",
         ],
-        ["like the natural resort here", "visit one part of the city"],
+        ["Who likes the natural resort here?", "Who wants to visit one part of the city?"],
         [
-          "like the public theatre that the city puts on",
-          "usually spend a lot of money on shopping",
+          "Who likes the public theatre that the city puts on?",
+          "Who usually spends a lot of money on shopping?",
         ],
-        ["pay a lot for their meal"],
+        ["Who pays a lot for their meal?"],
       ],
     },
     {
       main: "plans for a new station",
       subQuestions: [
         {
-          text: "I see too many people should plan their journeys better.",
+          text: "I see too many people who do not arrange a good time to travel to work, they often arrive at work late. I always think in advance about what time I will get to work tomorrow and what means of transport I will use.",
           expectedAnswers: 1,
         },
         {
-          text: "Buses are often full the bus is too busy. The new station will improve train travel.",
+          text: "Buses are often full of people, especially during rush hour. This makes me very uncomfortable when I have to travel to work by bus. The public transportation improvement plan proposed by the city is very reasonable and it will improve the above situation a lot.",
           expectedAnswers: 2,
         },
         {
-          text: "In my opinion the bus service is good. Transport system doesn't need improving.",
+          text: "In my opinion, the bus is very clean and comfortable to travel. I find it has a lot of space for everyone, and the bus system is also very large. Therefore, I think improving the public transport system is unnecessary, while the old system is still good.",
           expectedAnswers: 2,
         },
         {
-          text: "Building a new public better medical facilities are needed. The new station will cost too much to build.",
+          text: "Building a new public transportation system will be very costly. And we all know it's at the expense of residents. I think we should use that money for something more beneficial, which is building more hospitals. Hospitals in this living area are very few.",
           expectedAnswers: 2,
         },
       ],
       options:
-        "people should plan their journeys better/the bus is too busy/the new station will improve train travel/the bus service is good/transport system doesn't need improving/better medical facilities are needed/the new station will cost too much to build",
+        "Who thinks the new station will cost too much to build?/Who thinks the bus is too busy?/Who thinks transport system doesn't need improving?/Who thinks people should plan their journeys better?/Who thinks the bus service is good?/Who thinks better medical facilities are needed?/Who thinks the new station will improve train travel?",
       answers: [
-        ["people should plan their journeys better"],
-        ["the bus is too busy", "the new station will improve train travel"],
-        ["the bus service is good", "transport system doesn't need improving"],
+        ["Who thinks people should plan their journeys better?"],
+        ["Who thinks the bus is too busy?", "Who thinks the new station will improve train travel?"],
+        ["Who thinks the bus service is good?", "Who thinks transport system doesn't need improving?"],
         [
-          "better medical facilities are needed",
-          "the new station will cost too much to build",
+          "Who thinks better medical facilities are needed?",
+          "Who thinks the new station will cost too much to build?",
         ],
       ],
     },
@@ -803,34 +803,34 @@ export const data = {
       main: "art",
       subQuestions: [
         {
-          text: "I know has some artistic skills. Seeing exhibitions is a boring activity.",
+          text: "I know a little about famous painters and their works. But I don't like going to art exhibitions unless my friend invites me. I like extracurricular activities more, painting exhibitions seem too quiet to me. I like to draw, and I have been drawing ever since I can remember. My forte in drawing is animals, especially big and ferocious animals.",
           expectedAnswers: 2,
         },
         {
-          text: "I find going to prefers seeing exhibitions by themselves. Visitors should focus on the art.",
+          text: "I find going to see paintings similar to reading books. You must look and read before discussing. When I go to exhibitions with my friends, they often talk before seeing the painting, and what they talk about isn't even about the painting, that's annoy me.",
           expectedAnswers: 2,
         },
         {
-          text: "I find polite art has a good knowledge of art.",
+          text: "I find polite art very fascinating. I often go to talks about arts and I have gone to many foreign art exhibitions and artists' houses. It's great to see their works and where they worked.",
           expectedAnswers: 1,
         },
         {
-          text: "My parents prefers going to art exhibitions with other people. Has been going to art exhibitions all their life.",
+          text: "My parents often took me to see art exhibitions when I was a child. and I think that habit remains. Currently, I often take my children to the exhibition, which is a lovely activity for me. I often ask my children to do other activities while looking at pictures, for example, think of a story for that picture, so they don't get bored.",
           expectedAnswers: 2,
         },
       ],
       options:
-        "has some artistic skills/seeing exhibitions is a boring activity/prefers seeing exhibitions by themselves/visitors should focus on the art/has a good knowledge of art/prefers going to art exhibitions with other people/has been going to art exhibitions all their life",
+        "Who prefers going to art exhibitions with other people?/Who has some artistic skills?/Who prefers seeing exhibitions by themselves?/Who thinks seeing exhibitions is a boring activity?/Who has a good knowledge of art?/Who thinks visitors should focus on the art?/Who has been going to art exhibitions all their life?",
       answers: [
-        ["has some artistic skills", "seeing exhibitions is a boring activity"],
+        ["Who has some artistic skills?", "Who thinks seeing exhibitions is a boring activity?"],
         [
-          "prefers seeing exhibitions by themselves",
-          "visitors should focus on the art",
+          "Who prefers seeing exhibitions by themselves?",
+          "Who thinks visitors should focus on the art?",
         ],
-        ["has a good knowledge of art"],
+        ["Who has a good knowledge of art?"],
         [
-          "prefers going to art exhibitions with other people",
-          "has been going to art exhibitions all their life",
+          "Who prefers going to art exhibitions with other people?",
+          "Who has been going to art exhibitions all their life?",
         ],
       ],
     },
@@ -838,71 +838,71 @@ export const data = {
       main: "volunteering to clean a local park",
       subQuestions: [
         {
-          text: "I feel very lucky the park is a beautiful place to relax. Ask for others to help.",
+          text: "I feel very lucky to have this park here. My family and I often go to the park because of the natural landscape here. It's different from the city, which is very busy and full of dust. Unfortunately, I am away this weekend so I cannot help with the cleaning. However, I know my brother and his friends will be very interested in this cleanup so I will ask them if they can help.",
           expectedAnswers: 2,
         },
         {
-          text: "I'm a very busy can't clean the park because of their busy work. Volunteering will help with future employment.",
+          text: "I'm a very busy person and I have to spend this weekend with my family because I only have the weekend as free time. I think young people who don't have families should help. Besides, students and schools also have days off on weekends. I think this volunteering will be very helpful for students' future careers.",
           expectedAnswers: 2,
         },
         {
-          text: "I think this volunteering local areas need cleaning. The cleaning needs to be done regularly.",
+          text: "I think this volunteering is a good idea but it doesn't have a long-term vision. When volunteers clean up the park, it will be clean, but it will become busy again after about a month when tourist season arrives. I think we should clean this park regularly about once a month. Surrounding areas such as the lake and local forest should also be cleaned up. We should also have signs telling visitors to clean up their trash. I am very upset when I see a lot of trash on both sides of the road.",
           expectedAnswers: 2,
         },
         {
-          text: "My family and I often volunteering is important for students.",
+          text: "My family and I often spend time at the park. My children love going to the park and they find the park a very interesting place to visit. My son has a dream of becoming a biologist so I think cleaning up this park will be very helpful for my son. I think we should pique children's interest in cleaning. They will be more willing to volunteer and help others.",
           expectedAnswers: 1,
         },
       ],
       options:
-        "the park is a beautiful place to relax/ask for others to help/can't clean the park because of their busy work/volunteering will help with future employment/local areas need cleaning/the cleaning needs to be done regularly/volunteering is important for students",
+        "Who thinks volunteering is important for students?/Who thinks the park is a beautiful place to relax?/Who asks for others to help?/Who thinks the cleaning needs to be done regularly?/Who can't clean the park because of their busy work?/Who thinks volunteering will help with future employment?/Who thinks local areas need cleaning?",
       answers: [
-        ["the park is a beautiful place to relax", "ask for others to help"],
+        ["Who thinks the park is a beautiful place to relax?", "Who asks for others to help?"],
         [
-          "can't clean the park because of their busy work",
-          "volunteering will help with future employment",
+          "Who can't clean the park because of their busy work?",
+          "Who thinks volunteering will help with future employment?",
         ],
         [
-          "local areas need cleaning",
-          "the cleaning needs to be done regularly",
+          "Who thinks local areas need cleaning?",
+          "Who thinks the cleaning needs to be done regularly?",
         ],
-        ["volunteering is important for students"],
+        ["Who thinks volunteering is important for students?"],
       ],
     },
     {
       main: "Going on holiday",
       subQuestions: [
         {
-          text: "Last year prefer to stay at home. Like going walking.",
+          text: "Last year, I went on a mountain climbing trip with my friends. It was the most horrible trip I have ever experienced. However, after that trip, I had a strong passion for walking. So now, every day I walk as a hobby, and it also helps my health a lot. I'm old so I'm no longer interested in traveling to far away places. Instead, I want to lie on a comfortable sofa and watch my favorite TV show.",
           expectedAnswers: 2,
         },
         {
-          text: "When I travel somewhere like seeing tourist attractions. Going to the beach is boring.",
+          text: "When I travel somewhere, I often ask for bus routes to famous tourist destinations so that I can get to those places as quickly as possible and avoid wasting time going around. Famous tourist destinations are the places I want to explore the most when traveling somewhere. I don't understand why many people just like to sit still at the beach when traveling, I find that uninteresting and time-consuming.",
           expectedAnswers: 2,
         },
         {
-          text: "My family and I often holiday requires good weather. Want to go mountaineering trip.",
+          text: "My family and I often plan to travel every time we have a vacation. If the weather is nice then our plans go ahead as usual, if not, we will postpone that vacation. For my family, light wind and warm sunlight are important when we go out. A few of my friends invited me to go climbing, but I'm afraid of heights so I refused them. However, in the future I really want to try mountain climbing once.",
           expectedAnswers: 2,
         },
         {
-          text: "Next month's trip will have never been abroad.",
+          text: "Next month's trip will be the first time I travel to another country. Normally I only travel to famous local places or in my country. These places are beautiful but I'm so excited to travel to a foreign place once in my life.",
           expectedAnswers: 1,
         },
       ],
       options:
-        "prefer to stay at home/like going walking/like seeing tourist attractions/going to the beach is boring/holiday requires good weather/want to go mountaineering trip/have never been abroad",
+        "Who prefers to stay at home?/Who likes going walking?/Who likes seeing tourist attractions?/Who thinks going to the beach is boring?/Who thinks holiday requires good weather?/Who wants to go mountaineering trip?/Who has never been abroad?",
       answers: [
-        ["prefer to stay at home", "like going walking"],
-        ["like seeing tourist attractions", "going to the beach is boring"],
-        ["holiday requires good weather", "want to go mountaineering trip"],
-        ["have never been abroad"],
+        ["Who prefers to stay at home?", "Who likes going walking?"],
+        ["Who likes seeing tourist attractions?", "Who thinks going to the beach is boring?"],
+        ["Who thinks holiday requires good weather?", "Who wants to go mountaineering trip?"],
+        ["Who has never been abroad?"],
       ],
     },
     {
       main: "sports",
       subQuestions: [
         {
-          text: "Exercising with friends can make workouts more enjoyable and motivating. It's a great way to stay accountable and push each other to do better. Plus, it's a fun social activity that strengthens bonds while improving physical health.",
+          text: "Exercising with friends is a fantastic idea, don't you think? It adds a fun element to the workout routine. It's important to fuel our bodies properly, though. After a good workout, I always make sure to have a nutritious meal to replenish energy and support muscle recovery.",
           expectedAnswers: 2,
         },
         {
@@ -919,26 +919,26 @@ export const data = {
         },
       ],
       options:
-        "work out with friends is a good idea/a proper meal is important/a routine can help us do more sport/exercise is for both the young and the elderly/competitions are not useful for everybody/experience pain is not necessary/at times we seek expert advice",
+        "Who thinks experiencing pain is not necessary?/Who thinks a routine can help us do more sport?/Who thinks exercise is for both the young and the elderly?/Who thinks a proper meal is important?/Who thinks competitions are not useful for everybody?/Who seeks expert advice at times?/Who thinks work out with friends is a good idea?",
       answers: [
-        ["work out with friends is a good idea", "a proper meal is important"],
-        ["a routine can help us do more sport"],
+        ["Who thinks work out with friends is a good idea?", "Who thinks a proper meal is important?"],
+        ["Who thinks a routine can help us do more sport?"],
         [
-          "exercise is for both the young and the elderly",
-          "competitions are not useful for everybody",
+          "Who thinks exercise is for both the young and the elderly?",
+          "Who thinks competitions are not useful for everybody?",
         ],
-        ["experience pain is not necessary", "at times we seek expert advice"],
+        ["Who thinks experiencing pain is not necessary?", "Who seeks expert advice at times?"],
       ],
     },
     {
       main: "visit an island",
       subQuestions: [
         {
-          text: "I like traveling with my family, but I didn't like the boat trip at all. It was too long and I forgot to bring food and drinks. I was hungry for the entire trip. I like being alone, so I often go for walks in the forest. I think this island is very suitable for those who want to relax in nature.",
+          text: "I like traveling to the beach. I think I have to walk quite a distance from the hotel to the beach so I think I have to bring boots. however, when I opened the suitcase I didn't see any boots. But I still completed the trip and visited many beautiful beaches. One great thing is that the beaches are in remote areas so there are very few tourists. However, it also makes finding food and drinks more difficult.",
           expectedAnswers: 2,
         },
         {
-          text: "As an architect, I always pay attention to how buildings are constructed. So when I travel, I never spend time lying on the beach or buying souvenirs. I will go around the area to see the architecture of the houses. I choose to go around by taxi, it feels great. However, it cost quite a lot of money because I went alone and had no one to share the cost with. But for me, this is still a great experience because I got to see many old houses.",
+          text: "As an architect, I have always been interested in how buildings are constructed. So when I travel, I never spend time lying on the beach or buying souvenirs. I will go around the area to see the architecture of the houses. I chose to go around by taxi, it was great. However, it cost me a lot because I traveled alone and had no one to share the costs with. But for me this was still a great experience because I got to see many old houses",
           expectedAnswers: 1,
         },
         {
@@ -951,49 +951,49 @@ export const data = {
         },
       ],
       options:
-        "forgot to bring something/liked to be alone/spent a lot of money on transport/thought public transport could be improved/liked to walk/loved eating food here/liked buying things on the island",
+        "Who loved eating food here?/Who liked to walk?/Who forgot to bring something?/Who liked to be alone?/Who liked buying things on the island?/Who thought public transport could be improved?/Who spent a lot of money on transport?",
       answers: [
-        ["forgot to bring something", "liked to be alone"],
-        ["spent a lot of money on transport"],
-        ["thought public transport could be improved", "liked to walk"],
-        ["loved eating food here", "liked buying things on the island"],
+        ["Who forgot to bring something?", "Who liked to be alone?"],
+        ["Who spent a lot of money on transport?"],
+        ["Who thought public transport could be improved?", "Who liked to walk?"],
+        ["Who loved eating food here?", "Who liked buying things on the island?"],
       ],
     },
     {
       main: "watching television",
       subQuestions: [
         {
-          text: "I know I have watch TV instead of studying. I like TV programs which continue over several weeks.",
+          text: "I know I have to spend time studying but there are so many great TV shows. especially horror tv shows, once you watch it, you will be glued to it and can't stop watching. Besides, these TV shows often last for many weeks.",
           expectedAnswers: 2,
         },
         {
-          text: "I often spend avoid watching reality TV programs. I lost interest in watching football on TV.",
+          text: "I often spend time watching news on TV in the evening when I'm free. In the past, I often watched the soccer team I like on TV, but they often lost, so I gave up watching them. Nowadays there are too many reality TV shows being shown on TV. Every time I see these shows, I turn it off and do more interesting things.",
           expectedAnswers: 2,
         },
         {
-          text: "I wasn't good get a lot of knowledge by watching TV.",
+          text: "I wasn't good when I was in school because I often spent time watching cartoons on TV. however, I now watch nature documentaries and TV shows about science, history, and business. This helps me expand my knowledge a lot compared to when I was in school.",
           expectedAnswers: 1,
         },
         {
-          text: "My husband isn't a very selective viewer. Keep up to date on cinema and music.",
+          text: "My husband usually schedules TV viewing for the weekend, he usually watches football or documentaries. I'm the opposite. I just turn on the TV and it doesn't matter what program it is, because I just need to relax. However, I also want to update news about movies. not just movies, but also songs. I also find reality TV shows very entertaining.",
           expectedAnswers: 2,
         },
       ],
       options:
-        "watch TV instead of studying/like TV programs which continue over several weeks/avoid watching reality TV programs/lost interest in watching football on TV/get a lot of knowledge by watching TV/isn't a very selective viewer/keep up to date on cinema and music",
+        "Who gets a lot of knowledge by watching TV?/Who likes TV programs which continue over several weeks?/Who avoids watching reality TV programs?/Who isn't a very selective viewer?/Who watches TV instead of studying?/Who lost interest in watching football on TV?/Who keeps up to date on cinema and music?",
       answers: [
         [
-          "watch TV instead of studying",
-          "like TV programs which continue over several weeks",
+          "Who watches TV instead of studying?",
+          "Who likes TV programs which continue over several weeks?",
         ],
         [
-          "avoid watching reality TV programs",
-          "lost interest in watching football on TV",
+          "Who avoids watching reality TV programs?",
+          "Who lost interest in watching football on TV?",
         ],
-        ["get a lot of knowledge by watching TV"],
+        ["Who gets a lot of knowledge by watching TV?"],
         [
-          "isn't a very selective viewer",
-          "keep up to date on cinema and music",
+          "Who isn't a very selective viewer?",
+          "Who keeps up to date on cinema and music?",
         ],
       ],
     },
@@ -1001,29 +1001,29 @@ export const data = {
       main: "eating and cooking",
       subQuestions: [
         {
-          text: "When I was a kid like to eat with friends.",
+          text: "When I was a kid, I was often given ready-made or junk food when I was at home, although I don't want to blame my parents. Since then, I try to eat at restaurants as much as possible. The food at the restaurant is not very diverse but for me that is not a problem. What matters to me when going out to eat is who you go with. I often eat with colleagues or close friends when I get off work, it's very fun.",
           expectedAnswers: 1,
         },
         {
-          text: "I used to often prefer to eat alone. Need to save money.",
+          text: "I used to often go to the most fashionable and luxurious restaurants to eat. However, now, I'm back to being a student and my finances won't stretch that far. Therefore, I often cook for myself and watch recipes and cooking methods on the internet. That helps me to be able to focus on my studies without losing concentration.",
           expectedAnswers: 2,
         },
         {
-          text: "Going to a restaurant like to eat a wide range of dishes. Take a cookery course.",
+          text: "Going to a restaurant is for the social atmosphere and I am not bothered to eat alone either. What's important to me is the variety of dishes. Therefore, I eat at as many places as possible even though they are a bit pricey. That's why I joined the cooking club, where I can learn many new recipes and also meet many friends.",
           expectedAnswers: 2,
         },
         {
-          text: "I don't understand only want to eat a few range of food. Like home cooked food.",
+          text: "I don't understand why so many people want to find many different recipes for one dish. I know clearly what I like and I eat exactly that food. My dad is a good cook, he knows what ingredients I don't like to eat, which obviously are a lot. I love being home and eating with my family.",
           expectedAnswers: 2,
         },
       ],
       options:
-        "like to eat with friends/prefer to eat alone/need to save money/like to eat a wide range of dishes/take a cookery course/only want to eat a few range of food/like home cooked food",
+        "Who prefers to eat alone?/Who needs to save money?/Who takes a cookery course?/Who likes to eat a few range of food?/Who likes homemade cooked?/Who likes to eat with friends?/Who likes to eat a wide range of dishes?",
       answers: [
-        ["like to eat with friends"],
-        ["prefer to eat alone", "need to save money"],
-        ["like to eat a wide range of dishes", "take a cookery course"],
-        ["only want to eat a few range of food", "like home cooked food"],
+        ["Who likes to eat with friends?"],
+        ["Who prefers to eat alone?", "Who needs to save money?"],
+        ["Who likes to eat a wide range of dishes?", "Who takes a cookery course?"],
+        ["Who likes to eat a few range of food?", "Who likes homemade cooked?"],
       ],
     },
   ],
