@@ -68,7 +68,7 @@ function WritingTest() {
       <h1>Speaking Across 4 Parts</h1>
       <div className="back-button-container">
         <Link to="/writing" className="back-button">
-          Back to Home
+          ← Trang chủ
         </Link>
       </div>
       <div className="part-section">

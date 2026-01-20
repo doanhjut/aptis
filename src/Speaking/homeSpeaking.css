@@ -1,0 +1,30 @@
+/* Aptis Speaking — overrides (base: index.css) */
+
+.app-container--speaking .game-title {
+  color: var(--color-text-heading);
+}
+
+.game-subtitle {
+  font-size: 0.95rem;
+  color: var(--color-text-muted);
+  margin: 0 0 1.75rem;
+  font-weight: 500;
+}
+
+.card--highlight {
+  position: relative;
+  border-color: rgba(244, 63, 94, 0.4);
+  --card-accent: var(--color-accent-speaking);
+  --card-accent-hover: var(--color-accent-speaking-hover);
+}
+
+.card--highlight::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 3px;
+  background: linear-gradient(90deg, var(--color-accent-speaking), #fb7185);
+  border-radius: var(--radius-xl) var(--radius-xl) 0 0;
+}

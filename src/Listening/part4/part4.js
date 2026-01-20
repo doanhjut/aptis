@@ -136,7 +136,7 @@ function Part4({ onComplete }) {
       <h1 className="game-title">Multiple Choice Game - Part 4</h1>
       <div className="back-button-container">
         <Link to="/listening" className="back-button">
-          Back to Home
+          ← Trang chủ
         </Link>
       </div>
       <p className="question-count">

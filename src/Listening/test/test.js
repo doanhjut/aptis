@@ -45,7 +45,7 @@ function ListeningTest() {
       <h1>ListeningTest Across 4 Parts</h1>
       <div className="back-button-container">
         <Link to="/listening" className="back-button">
-          Back to Home
+          ← Trang chủ
         </Link>
       </div>
       {/* Part 1 */}

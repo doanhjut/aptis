@@ -87,7 +87,7 @@ function SpeakingPart2({ questions, onComplete }) {
       {(!questions || questions.length == 0) && (
         <div className="back-button-container">
           <Link to="/speaking" className="back-button">
-            Back to Home
+            ← Trang chủ
           </Link>
         </div>
       )}

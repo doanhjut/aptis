@@ -1,19 +1,33 @@
-.back-button-container {
-  text-align: left;
-  margin-bottom: 20px;
+/* Aptis Listening — overrides (base: index.css) */
+
+.app-container--listening .game-title {
+  color: var(--color-text-heading);
+  font-size: 1.9rem;
+  font-weight: 800;
+  letter-spacing: -0.02em;
 }
 
-.back-button {
-  display: inline-block;
-  padding: 10px 20px;
-  font-size: 1em;
-  color: #fff;
-  background-color: #007bff;
-  text-decoration: none;
-  border-radius: 4px;
-  transition: background-color 0.3s;
+.game-subtitle {
+  font-size: 0.95rem;
+  color: var(--color-text-muted);
+  margin: 0 0 1.75rem;
+  font-weight: 500;
 }
 
-.back-button:hover {
-  background-color: #0056b3;
+.card--highlight {
+  position: relative;
+  border-color: rgba(16, 185, 129, 0.4);
+  --card-accent: var(--color-accent-listening);
+  --card-accent-hover: var(--color-accent-listening-hover);
+}
+
+.card--highlight::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 3px;
+  background: linear-gradient(90deg, var(--color-accent-listening), #34d399);
+  border-radius: var(--radius-xl) var(--radius-xl) 0 0;
 }
