@@ -1,26 +1,29 @@
+/* ResultsDisplay — Pro Max + Responsive */
+
 .results-container {
   min-height: 100vh;
   display: flex;
   justify-content: center;
   align-items: center;
-  padding: 20px;
-  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  padding: 1.5rem 1rem;
+  background: transparent;
 }
 
 .results-card {
-  background: white;
-  border-radius: 20px;
-  padding: 40px;
-  max-width: 600px;
+  background: var(--color-surface);
+  border-radius: var(--radius-2xl);
+  padding: 2rem;
+  max-width: 520px;
   width: 100%;
-  box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
-  animation: slideUp 0.5s ease-out;
+  box-shadow: var(--shadow-card-hover);
+  border: 1px solid var(--color-border);
+  animation: resultsSlideUp 0.4s ease-out;
 }
 
-@keyframes slideUp {
+@keyframes resultsSlideUp {
   from {
     opacity: 0;
-    transform: translateY(30px);
+    transform: translateY(20px);
   }
   to {
     opacity: 1;
@@ -30,43 +33,44 @@
 
 .results-title {
   text-align: center;
-  color: #333;
-  font-size: 2rem;
-  margin-bottom: 30px;
-  font-weight: 700;
+  color: var(--color-text-heading);
+  font-size: 1.5rem;
+  font-weight: 800;
+  margin-bottom: 1.5rem;
+  letter-spacing: -0.02em;
 }
 
 .overall-score {
   display: flex;
-  justify-content: space-around;
+  justify-content: center;
   align-items: center;
-  margin-bottom: 30px;
   flex-wrap: wrap;
-  gap: 20px;
+  gap: 1.5rem;
+  margin-bottom: 1.5rem;
 }
 
 .score-circle {
-  width: 150px;
-  height: 150px;
+  width: 120px;
+  height: 120px;
   border-radius: 50%;
-  border: 8px solid #28a745;
+  border: 4px solid #059669;
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  background: #f8f9fa;
+  background: var(--color-surface-elevated);
 }
 
 .score-value {
-  font-size: 2.5rem;
-  font-weight: 700;
-  color: #333;
+  font-size: 1.75rem;
+  font-weight: 800;
+  color: var(--color-text-heading);
 }
 
 .score-label {
-  font-size: 0.9rem;
-  color: #666;
-  margin-top: 5px;
+  font-size: 0.8rem;
+  color: var(--color-text-muted);
+  margin-top: 0.25rem;
 }
 
 .scale-score {
@@ -74,161 +78,230 @@
 }
 
 .scale-label {
-  font-size: 1rem;
-  color: #666;
-  margin-bottom: 10px;
+  font-size: 0.9rem;
+  color: var(--color-text-muted);
+  margin-bottom: 0.25rem;
 }
 
 .scale-value {
-  font-size: 3rem;
-  font-weight: 700;
-  color: #28a745;
+  font-size: 2rem;
+  font-weight: 800;
+  color: #059669;
 }
 
 .cefr-badge {
-  background: #28a745;
-  color: white;
-  padding: 20px;
-  border-radius: 15px;
+  padding: 1rem 1.25rem;
+  border-radius: var(--radius-lg);
   text-align: center;
-  margin-bottom: 30px;
+  margin-bottom: 1.5rem;
+  color: #fff;
 }
 
 .cefr-level {
-  font-size: 3rem;
-  font-weight: 700;
-  margin-bottom: 5px;
+  font-size: 1.75rem;
+  font-weight: 800;
+  margin-bottom: 0.25rem;
 }
 
 .cefr-description {
-  font-size: 1.2rem;
-  opacity: 0.9;
+  font-size: 0.95rem;
+  opacity: 0.95;
 }
 
 .progress-container {
-  margin-bottom: 30px;
+  margin-bottom: 1.5rem;
 }
 
 .progress-label {
-  font-size: 1rem;
-  color: #666;
-  margin-bottom: 10px;
-  font-weight: 500;
+  font-size: 0.9rem;
+  color: var(--color-text-muted);
+  margin-bottom: 0.5rem;
+  font-weight: 600;
 }
 
 .progress-bar {
   width: 100%;
-  height: 30px;
-  background: #e9ecef;
-  border-radius: 15px;
+  height: 10px;
+  background: var(--color-bg-soft);
+  border-radius: 999px;
   overflow: hidden;
 }
 
 .progress-fill {
   height: 100%;
-  background: #28a745;
-  transition: width 1s ease-out;
-  display: flex;
-  align-items: center;
-  justify-content: flex-end;
-  padding-right: 10px;
-  color: white;
-  font-weight: 600;
+  border-radius: 999px;
+  transition: width 0.8s ease-out;
 }
 
 .breakdown-section {
-  margin-bottom: 30px;
+  margin-bottom: 1.5rem;
 }
 
 .breakdown-section h2 {
-  font-size: 1.5rem;
-  color: #333;
-  margin-bottom: 20px;
-  font-weight: 600;
+  font-size: 1.1rem;
+  font-weight: 700;
+  color: var(--color-text-heading);
+  margin-bottom: 1rem;
 }
 
 .part-score {
-  margin-bottom: 20px;
+  margin-bottom: 0.75rem;
 }
 
 .part-header {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  margin-bottom: 8px;
+  margin-bottom: 0.35rem;
 }
 
 .part-name {
-  font-size: 1rem;
-  color: #333;
+  font-size: 0.9rem;
+  color: var(--color-text);
   font-weight: 500;
 }
 
 .part-result {
-  font-size: 1rem;
-  color: #666;
+  font-size: 0.9rem;
+  color: var(--color-text-muted);
   font-weight: 600;
 }
 
 .part-progress-bar {
   width: 100%;
-  height: 20px;
-  background: #e9ecef;
-  border-radius: 10px;
+  height: 8px;
+  background: var(--color-bg-soft);
+  border-radius: 999px;
   overflow: hidden;
 }
 
 .part-progress-fill {
   height: 100%;
-  background: linear-gradient(90deg, #667eea 0%, #764ba2 100%);
-  transition: width 0.8s ease-out;
+  background: linear-gradient(90deg, var(--color-accent-reading), var(--color-primary));
+  border-radius: 999px;
+  transition: width 0.6s ease-out;
 }
 
 .restart-button {
   width: 100%;
-  padding: 15px;
-  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-  color: white;
+  padding: 0.875rem 1.25rem;
+  background: linear-gradient(135deg, var(--color-accent-reading) 0%, var(--color-primary-hover) 100%);
+  color: #fff;
   border: none;
-  border-radius: 10px;
-  font-size: 1.1rem;
+  border-radius: var(--radius-md);
+  font-size: 1rem;
   font-weight: 600;
+  font-family: inherit;
   cursor: pointer;
-  transition: transform 0.2s, box-shadow 0.2s;
+  transition: transform var(--transition), box-shadow var(--transition);
 }
 
 .restart-button:hover {
   transform: translateY(-2px);
-  box-shadow: 0 10px 20px rgba(102, 126, 234, 0.4);
+  box-shadow: var(--shadow-card);
 }
 
 .restart-button:active {
   transform: translateY(0);
 }
 
+/* --- Tablet / Desktop: card rộng hơn, chữ to hơn --- */
+@media (min-width: 768px) {
+  .results-card { max-width: 640px; padding: 2.25rem; }
+  .results-title { font-size: 1.7rem; margin-bottom: 1.65rem; }
+  .score-circle { width: 130px; height: 130px; border-width: 4px; }
+  .score-value { font-size: 1.9rem; }
+  .scale-value { font-size: 2.2rem; }
+  .scale-label { font-size: 1rem; }
+  .cefr-level { font-size: 1.9rem; }
+  .cefr-description { font-size: 1rem; }
+  .breakdown-section h2 { font-size: 1.2rem; margin-bottom: 1.1rem; }
+  .part-name, .part-result { font-size: 1rem; }
+  .progress-label { font-size: 1rem; }
+  .restart-button { font-size: 1.05rem; padding: 0.95rem 1.35rem; }
+}
+
+@media (min-width: 1024px) {
+  .results-card { max-width: 720px; padding: 2.5rem; }
+  .results-title { font-size: 1.9rem; margin-bottom: 1.75rem; }
+  .score-circle { width: 140px; height: 140px; }
+  .score-value { font-size: 2.1rem; }
+  .scale-value { font-size: 2.4rem; }
+  .cefr-level { font-size: 2rem; }
+  .cefr-description { font-size: 1.05rem; }
+  .breakdown-section h2 { font-size: 1.3rem; margin-bottom: 1.15rem; }
+  .part-name, .part-result { font-size: 1.05rem; }
+  .restart-button { font-size: 1.1rem; padding: 1rem 1.5rem; }
+}
+
+@media (min-width: 1440px) {
+  .results-card { max-width: 800px; padding: 2.75rem; }
+  .results-title { font-size: 2rem; }
+  .score-value { font-size: 2.25rem; }
+  .scale-value { font-size: 2.5rem; }
+}
+
+/* === Responsive === */
 @media (max-width: 600px) {
+  .results-container {
+    padding: 1rem 0.75rem;
+    align-items: flex-start;
+    padding-top: 2rem;
+  }
+
   .results-card {
-    padding: 30px 20px;
+    padding: 1.5rem 1.25rem;
   }
 
   .results-title {
-    font-size: 1.5rem;
+    font-size: 1.25rem;
+    margin-bottom: 1.25rem;
+  }
+
+  .overall-score {
+    gap: 1rem;
+    margin-bottom: 1.25rem;
   }
 
   .score-circle {
-    width: 120px;
-    height: 120px;
+    width: 100px;
+    height: 100px;
+    border-width: 3px;
   }
 
   .score-value {
-    font-size: 2rem;
+    font-size: 1.5rem;
   }
 
   .scale-value {
-    font-size: 2.5rem;
+    font-size: 1.6rem;
   }
 
   .cefr-level {
-    font-size: 2.5rem;
+    font-size: 1.5rem;
+  }
+
+  .cefr-description {
+    font-size: 0.9rem;
+  }
+
+  .part-name,
+  .part-result {
+    font-size: 0.85rem;
+  }
+}
+
+@media (max-width: 380px) {
+  .score-circle {
+    width: 90px;
+    height: 90px;
+  }
+
+  .score-value {
+    font-size: 1.35rem;
+  }
+
+  .overall-score {
+    flex-direction: column;
   }
 }
