@@ -98,9 +98,7 @@ function Test() {
     <div className="test-container">
       <h1>APTIS Reading Test</h1>
       <div className="test-progress">
-        <div className="progress-indicator">
-          Part {currentPart} of 4
-        </div>
+        <div className="progress-indicator">Part {currentPart} of 4</div>
       </div>
       <div className="back-button-container">
         <Link to="/reading" className="back-button">

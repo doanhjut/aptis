@@ -12,6 +12,21 @@ const shuffleArray = (array) => {
   return shuffled;
 };
 
+/** part2: { topic, questions }; part2shorten: string[] — trả về mảng 5 câu/đoạn. */
+const getQuestionList = (item) => {
+  if (!item) return [];
+  if (Array.isArray(item)) return item.slice(0, 5);
+  if (item.questions && Array.isArray(item.questions)) return item.questions.slice(0, 5);
+  return [];
+};
+
+/** part2: item.topic; part2shorten: không có — trả về chuỗi tiêu đề. */
+const getTopic = (item) => {
+  if (!item) return "";
+  if (typeof item === "object" && item.topic) return item.topic;
+  return "Part 2 (short)";
+};
+
 function ReadingPart2({ questions, onComplete }) {
   const [dataSentences, setDataSentences] = useState([]);
   const [sentenceIndices, setSentenceIndices] = useState([]); // Thứ tự random câu hỏi chính
@@ -57,15 +72,18 @@ function ReadingPart2({ questions, onComplete }) {
     setCurrentReviewIndex(0);
     setCorrectCount(0); // Reset score
 
-    // Load câu đầu tiên
-    loadQuestion(indices[0]);
+    // Load câu đầu tiên (truyền dataSource vì dataSentences có thể chưa kịp cập nhật khi đổi Full/Shorten)
+    loadQuestion(indices[0], dataSource);
   }, [questions, selectedData]);
 
-  // Load một câu hỏi theo index gốc
-  const loadQuestion = (originalIndex) => {
-    const item = dataSentences[originalIndex];
-    if (item) {
-      setWords(shuffleArray(item.questions.slice(0, 5)));
+  // Load một câu hỏi theo index gốc (hỗ trợ part2: {topic,questions} và part2shorten: string[])
+  // source: dùng khi vừa đổi data (useEffect) để tránh đọc dataSentences cũ
+  const loadQuestion = (originalIndex, source) => {
+    const data = source ?? dataSentences;
+    const item = data[originalIndex];
+    const list = getQuestionList(item);
+    if (list.length > 0) {
+      setWords(shuffleArray(list));
       setInputValues(["", "", "", "", ""]);
       setResult(null);
       setShowCorrect(false);
@@ -78,7 +96,7 @@ function ReadingPart2({ questions, onComplete }) {
     : sentenceIndices[currentIndex];
 
   const currentTopic = dataSentences.length > 0 && currentOriginalIndex !== undefined
-    ? dataSentences[currentOriginalIndex]?.topic || "No topic"
+    ? getTopic(dataSentences[currentOriginalIndex]) || "No topic"
     : "";
 
   const handleWordClick = (word) => {
@@ -110,7 +128,7 @@ function ReadingPart2({ questions, onComplete }) {
 
   const checkAnswer = () => {
     const userAnswer = inputValues.map((val) => val.trim());
-    const correctAnswer = dataSentences[currentOriginalIndex].questions.slice(0, 5);
+    const correctAnswer = getQuestionList(dataSentences[currentOriginalIndex]);
 
     // Count how many positions are correct (partial credit)
     let correctPositions = 0;
@@ -270,15 +288,26 @@ function ReadingPart2({ questions, onComplete }) {
           ))}
         </div>
 
-        <div className="input-grid">
+        <div className="input-slots">
           {inputValues.map((value, index) => (
-            <span
+            <div
               key={index}
-              className="input-field"
+              className={`input-slot${value ? " input-slot--filled" : ""}`}
               onClick={() => handleInputClick(index)}
+              role="button"
+              tabIndex={0}
+              onKeyDown={(e) => {
+                if (e.key === "Enter" || e.key === " ") {
+                  e.preventDefault();
+                  handleInputClick(index);
+                }
+              }}
             >
-              {value || " "}
-            </span>
+              <span className="input-slot-num">{index + 1}</span>
+              <span className="input-slot-content">
+                {value || "— Chọn câu từ danh sách phía trên —"}
+              </span>
+            </div>
           ))}
         </div>
       </div>
@@ -302,9 +331,7 @@ function ReadingPart2({ questions, onComplete }) {
         <div className="correct-answer">
           <p>
             Correct answer:{" "}
-            {dataSentences[currentOriginalIndex]?.questions
-              .slice(0, 5)
-              .join(" - ")}
+            {getQuestionList(dataSentences[currentOriginalIndex]).join(" - ")}
           </p>
         </div>
       )}

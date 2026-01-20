@@ -1,42 +1,102 @@
+/* Aptis Listening Test — Pro Max + Responsive */
+
 .test-container {
-  padding: 20px;
-  /* min-height: 100vh; */
+  position: relative;
+  min-height: 100vh;
+  padding: 1rem;
+  padding-top: 4rem;
+  max-width: 720px;
   margin: 0 auto;
+}
+
+.test-container h1 {
+  font-size: 1.5rem;
+  font-weight: 800;
+  color: var(--color-text-heading);
   text-align: center;
+  margin: 0 0 0.75rem;
+  letter-spacing: -0.02em;
+}
+
+.test-progress {
+  text-align: center;
+  margin-bottom: 1.25rem;
+}
+
+.progress-indicator {
+  display: inline-block;
+  background: linear-gradient(135deg, var(--color-accent-listening) 0%, #047857 100%);
+  color: #fff;
+  padding: 0.5rem 1.25rem;
+  border-radius: 999px;
+  font-weight: 600;
+  font-size: 0.9rem;
+  box-shadow: var(--shadow-card);
+}
+
+.test-container .back-button-container {
+  position: absolute;
+  top: 1rem;
+  left: 1rem;
 }
 
 .part-section {
-  margin-bottom: 30px;
+  margin-bottom: 1.5rem;
+  width: 100%;
 }
 
 .part-section h2 {
-  font-size: 1.5rem;
-  margin-bottom: 10px;
+  font-size: 1.15rem;
+  font-weight: 700;
+  color: var(--color-text-heading);
+  margin-bottom: 0.75rem;
 }
 
-.question {
-  margin-bottom: 20px;
+/* === Responsive === */
+@media (max-width: 600px) {
+  .test-container {
+    padding: 0.75rem;
+    padding-top: 3.5rem;
+  }
+
+  .test-container h1 {
+    font-size: 1.25rem;
+  }
+
+  .progress-indicator {
+    padding: 0.4rem 1rem;
+    font-size: 0.85rem;
+  }
+
+  .test-container .back-button-container {
+    top: 0.75rem;
+    left: 0.75rem;
+  }
 }
 
-.question p {
-  font-size: 1.1rem;
-  margin-bottom: 10px;
+@media (max-width: 400px) {
+  .test-container h1 {
+    font-size: 1.1rem;
+  }
 }
 
-.options {
-  display: flex;
-  flex-direction: column;
-  gap: 5px;
+/* --- Tablet / Desktop: nội dung rộng hơn, chữ to hơn --- */
+@media (min-width: 768px) {
+  .test-container { max-width: 800px; padding: 1.25rem 1.5rem; padding-top: 4rem; }
+  .test-container h1 { font-size: 1.7rem; }
+  .progress-indicator { font-size: 1rem; padding: 0.55rem 1.35rem; }
+  .part-section h2 { font-size: 1.25rem; margin-bottom: 0.85rem; }
 }
 
-.options button {
-  padding: 8px 12px;
-  border: 1px solid #ccc;
-  border-radius: 4px;
-  background-color: #fff;
-  cursor: pointer;
+@media (min-width: 1024px) {
+  .test-container { max-width: 920px; padding: 1.5rem 2rem; padding-top: 4.5rem; }
+  .test-container h1 { font-size: 1.9rem; }
+  .progress-indicator { font-size: 1.05rem; padding: 0.6rem 1.5rem; }
+  .part-section { margin-bottom: 1.75rem; }
+  .part-section h2 { font-size: 1.35rem; margin-bottom: 0.9rem; }
 }
 
-.options button:hover {
-  background-color: #f0f0f0;
+@media (min-width: 1440px) {
+  .test-container { max-width: 1000px; padding: 1.75rem 2.25rem; }
+  .test-container h1 { font-size: 2rem; }
 }

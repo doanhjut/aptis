@@ -1,31 +1,52 @@
+/* Listening Part 1 — Pro Max + Responsive */
+
 .app-container {
-  /* min-height: 100vh; */
+  min-height: 100vh;
   display: flex;
   flex-direction: column;
   align-items: center;
-  padding: 20px;
-  background-color: #f3f4f6;
+  justify-content: flex-start;
+  padding: 1.5rem 1rem;
+  padding-top: 3.5rem;
+  background: transparent;
 }
 
 .game-title {
-  font-size: 2rem;
-  font-weight: bold;
+  font-size: 1.4rem;
+  font-weight: 800;
+  color: var(--color-text-heading);
+  margin-bottom: 0.5rem;
+  letter-spacing: -0.02em;
+}
+
+.question-count {
+  font-size: 0.95rem;
+  color: var(--color-text-muted);
+  margin-bottom: 0.25rem;
+}
+
+.score-count {
+  font-size: 0.9rem;
+  color: var(--color-text-muted);
   margin-bottom: 1rem;
 }
 
 .question-section {
-  padding: 1rem;
-  background-color: white;
-  border-radius: 0.375rem;
-  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
-  width: 80%;
-  text-align: center;
+  width: 100%;
+  max-width: 560px;
+  padding: 1.5rem;
+  background: var(--color-surface);
+  border-radius: var(--radius-xl);
+  box-shadow: var(--shadow-card);
+  border: 1px solid var(--color-border);
 }
 
 .question-text {
-  font-size: 1.25rem;
+  font-size: 1rem;
+  color: var(--color-text);
   margin-bottom: 1rem;
-  color: #333;
+  line-height: 1.5;
+  text-align: center;
 }
 
 .options {
@@ -35,44 +56,105 @@
 }
 
 .option-btn {
-  padding: 0.75rem;
-  border: 1px solid #d1d5db;
-  border-radius: 0.375rem;
-  font-size: 1rem;
-  background-color: #ffffff;
+  padding: 0.75rem 1rem;
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-md);
+  font-size: 0.95rem;
+  font-family: inherit;
+  background: var(--color-surface);
+  color: var(--color-text);
   cursor: pointer;
-  transition: background-color 0.2s;
+  transition: border-color var(--transition), background var(--transition);
+  text-align: left;
 }
 
 .option-btn:hover:not(:disabled) {
-  background-color: #f3f4f6;
-}
-
-.option-btn:disabled {
-  cursor: not-allowed;
+  border-color: var(--color-accent-listening);
+  background: rgba(5, 150, 105, 0.06);
 }
 
 .option-btn.correct {
-  background-color: #10b981;
-  color: black;
-  border-color: #10b981;
+  background: #d1fae5;
+  border-color: #059669;
+  color: #065f46;
 }
 
 .option-btn.incorrect {
-  background-color: #ef4444;
-  color: white;
-  border-color: #ef4444;
+  background: #fee2e2;
+  border-color: #dc2626;
+  color: #991b1b;
 }
 
 .result {
-  margin-top: 1rem;
-  font-size: 1.125rem;
+  margin-top: 0.75rem;
+  font-size: 0.95rem;
+  font-weight: 500;
 }
 
 .result.correct {
-  color: #10b981;
+  color: #059669;
 }
 
 .result.incorrect {
-  color: #ef4444;
+  color: #dc2626;
+}
+
+.correct-answer {
+  margin-top: 0.5rem;
+  padding: 0.5rem;
+  background: #f0fdf4;
+  border-radius: var(--radius-sm);
+  border: 1px solid #bbf7d0;
+}
+
+.correct-answer p {
+  font-size: 0.9rem;
+  color: #166534;
+  margin: 0;
+}
+
+@media (min-width: 768px) {
+  .game-title { font-size: 1.6rem; }
+  .question-count, .score-count { font-size: 1.05rem; }
+  .question-section { max-width: 720px; padding: 1.75rem; }
+  .question-text { font-size: 1.05rem; line-height: 1.55; }
+  .option-btn { font-size: 1.05rem; padding: 0.85rem 1.15rem; }
+  .result { font-size: 1rem; }
+  .correct-answer p { font-size: 0.95rem; }
+}
+
+@media (min-width: 1024px) {
+  .game-title { font-size: 1.85rem; }
+  .question-count, .score-count { font-size: 1.1rem; }
+  .question-section { max-width: 900px; padding: 2rem; }
+  .question-text { font-size: 1.1rem; line-height: 1.6; }
+  .option-btn { font-size: 1.1rem; padding: 0.9rem 1.25rem; }
+  .options { gap: 0.6rem; }
+  .result { font-size: 1.05rem; }
+}
+
+@media (min-width: 1440px) {
+  .question-section { max-width: 1000px; padding: 2.25rem; }
+  .game-title { font-size: 2rem; }
+}
+
+/* === Responsive === */
+@media (max-width: 600px) {
+  .app-container {
+    padding: 1rem 0.75rem;
+    padding-top: 3.5rem;
+  }
+
+  .game-title {
+    font-size: 1.2rem;
+  }
+
+  .question-section {
+    padding: 1rem;
+  }
+
+  .option-btn {
+    padding: 0.65rem 0.9rem;
+    font-size: 0.9rem;
+  }
 }

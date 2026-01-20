@@ -42,7 +42,10 @@ function ListeningTest() {
 
   return (
     <div className="test-container">
-      <h1>ListeningTest Across 4 Parts</h1>
+      <h1>Aptis Listening Test</h1>
+      <div className="test-progress">
+        <div className="progress-indicator">Part {currentPart} of 4</div>
+      </div>
       <div className="back-button-container">
         <Link to="/listening" className="back-button">
           ← Trang chủ
