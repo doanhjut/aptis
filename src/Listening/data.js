@@ -1272,30 +1272,6 @@ export const data = {
       options: "1/2/B",
     },
     {
-      main: "politics",
-      dialogue: `Have you heard about the upcoming presidential election? A lot of young people have already voted, which shows that they're becoming more interested in politics.`,
-      subQuestions: [
-        {
-          text: "Young people are becoming more interested in politics",
-          expectedAnswers: 1,
-        },
-        {
-          text: "Social media has changed political activism",
-          expectedAnswers: 1,
-        },
-        {
-          text: "People are better informed on political issues",
-          expectedAnswers: 1,
-        },
-        {
-          text: "More women are likely to participate in politics",
-          expectedAnswers: 1,
-        },
-      ],
-      answers: [["B"], ["1"], ["2"], ["B"]],
-      options: "1/2/B",
-    },
-    {
       main: "information and technology",
       dialogue: `Hi, what have you been studying lately?`,
       subQuestions: [
@@ -1317,30 +1293,6 @@ export const data = {
         },
       ],
       answers: [["1"], ["2"], ["2"], ["B"]],
-      options: "1/2/B",
-    },
-    {
-      main: "politics",
-      dialogue: `Have you heard about the upcoming presidential election? A lot of young people have already voted, which shows that they're becoming more interested in politics.`,
-      subQuestions: [
-        {
-          text: "Young people are becoming more interested in politics",
-          expectedAnswers: 1,
-        },
-        {
-          text: "Social media has changed political activism",
-          expectedAnswers: 1,
-        },
-        {
-          text: "People are better informed about political issues",
-          expectedAnswers: 1,
-        },
-        {
-          text: "More women are likely to participate in politics",
-          expectedAnswers: 1,
-        },
-      ],
-      answers: [["B"], ["1"], ["2"], ["B"]],
       options: "1/2/B",
     },
   ],

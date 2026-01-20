@@ -68,9 +68,9 @@
 /* ---- Lưới 4 card kỹ năng ---- */
 .card-container--skills {
   display: grid;
-  grid-template-columns: repeat(2, 1fr);
+  grid-template-columns: repeat(4, 1fr);
   gap: 1.25rem;
-  max-width: 580px;
+  /* max-width: 580px; */
   margin-bottom: 2rem;
 }
 
