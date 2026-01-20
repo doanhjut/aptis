@@ -9,6 +9,7 @@ function ReadingPart1({ questions, onComplete }) {
   const [results, setResults] = useState({});
   const [showCorrect, setShowCorrect] = useState({});
   const [shuffledTopics, setShuffledTopics] = useState([]);
+  const [correctCount, setCorrectCount] = useState(0); // Track total correct answers
 
   useEffect(() => {
     const topicList = questions && questions.length > 0 ? questions : data.part1;
@@ -18,6 +19,7 @@ function ReadingPart1({ questions, onComplete }) {
     setSelectedOptions({});
     setResults({});
     setShowCorrect({});
+    setCorrectCount(0); // Reset score
   }, [questions]);
 
   const handleOptionClick = (questionIndex, option) => {
@@ -32,11 +34,13 @@ function ReadingPart1({ questions, onComplete }) {
     let allCorrect = true;
     const newResults = {};
     const newShowCorrect = {};
+    let topicCorrectCount = 0;
 
     currentTopic.questions.forEach((question, index) => {
       const selected = selectedOptions[index];
       if (selected === question.answer) {
         newResults[index] = "Correct!";
+        topicCorrectCount++;
       } else {
         newResults[index] = "Incorrect, try again or show correct answer.";
         newShowCorrect[index] = true;
@@ -48,6 +52,9 @@ function ReadingPart1({ questions, onComplete }) {
     setShowCorrect(newShowCorrect);
 
     if (allCorrect) {
+      const newCorrectCount = correctCount + topicCorrectCount;
+      setCorrectCount(newCorrectCount);
+      
       setTimeout(() => {
         if (currentTopicIndex < shuffledTopics.length - 1) {
           setCurrentTopicIndex(currentTopicIndex + 1);
@@ -56,7 +63,10 @@ function ReadingPart1({ questions, onComplete }) {
           setShowCorrect({});
         } else {
           setResults({ final: "Congratulations! You completed all topics!" });
-          onComplete();
+          // Pass total correct count to parent
+          if (onComplete) {
+            onComplete(newCorrectCount);
+          }
         }
       }, 1000);
     }

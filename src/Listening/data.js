@@ -1356,13 +1356,26 @@ export const data = {
           text: "The new industry demands are negatively influencing script production",
           answer: true,
         },
-        { text: "The script production is highly profitable", answer: false },
         {
-          text: "Writers are fully satisfied with current trends",
+          text: "The script production process is becoming highly profitable for studios",
           answer: false,
         },
-        { text: "Scripts are becoming shorter due to demand", answer: false },
-        { text: "The quality of scripts has improved recently", answer: false },
+        {
+          text: "Most writers feel fully satisfied with the current industry trends",
+          answer: false,
+        },
+        {
+          text: "Modern scripts are becoming significantly shorter due to market demand",
+          answer: false,
+        },
+        {
+          text: "The overall quality of scripts has improved significantly in recent times",
+          answer: false,
+        },
+        { text: "Writers have full creative control over scripts", answer: false },
+        { text: "The industry ignores all new trends", answer: false },
+        { text: "Script production is cheaper than ever", answer: false },
+        { text: "Audiences prefer older script styles", answer: false },
       ],
     },
     {
@@ -1376,10 +1389,26 @@ export const data = {
           text: "The plan is not making efficient use of existing land",
           answer: true,
         },
-        { text: "The plan supports more public transportation", answer: false },
-        { text: "Land usage is optimized for future growth", answer: false },
-        { text: "The plan includes new parks", answer: false },
-        { text: "It focuses on reducing traffic congestion", answer: false },
+        {
+          text: "The plan actively supports the expansion of public transportation systems",
+          answer: false,
+        },
+        {
+          text: "The current land usage is fully optimized for future urban growth",
+          answer: false,
+        },
+        {
+          text: "The development plan includes the creation of several new public parks",
+          answer: false,
+        },
+        {
+          text: "The main focus is on reducing traffic congestion in the city center",
+          answer: false,
+        },
+        { text: "It prioritizes pedestrian walkways", answer: false },
+        { text: "Local residents fully support the plan", answer: false },
+        { text: "It bans all private vehicles", answer: false },
+        { text: "The budget is completely unlimited", answer: false },
       ],
     },
     {
@@ -1391,6 +1420,10 @@ export const data = {
         { text: "It reduces academic performance", answer: false },
         { text: "Sports are only for professionals", answer: false },
         { text: "It increases stress levels", answer: false },
+        { text: "It guarantees academic success", answer: false },
+        { text: "Students dislike all sports", answer: false },
+        { text: "It is a waste of time", answer: false },
+        { text: "Only team sports count", answer: false },
       ],
     },
     {
@@ -1398,10 +1431,26 @@ export const data = {
       subQuestions: [
         { text: "It wasn't as good as she had expected", answer: true },
         { text: "It depends on your situation and personality", answer: true },
-        { text: "It always improves productivity", answer: false },
-        { text: "Everyone prefers working from home", answer: false },
-        { text: "It eliminates all distractions", answer: false },
-        { text: "It requires no special equipment", answer: false },
+        {
+          text: "It always improves productivity for everyone",
+          answer: false,
+        },
+        {
+          text: "Everyone prefers working from home over the office",
+          answer: false,
+        },
+        {
+          text: "It completely eliminates all distractions",
+          answer: false,
+        },
+        {
+          text: "It requires no special equipment at all",
+          answer: false,
+        },
+        { text: "Companies dislike remote work", answer: false },
+        { text: "It causes isolation for all", answer: false },
+        { text: "Commuting is always better", answer: false },
+        { text: "Productivity always drops", answer: false },
       ],
     },
     {
@@ -1409,10 +1458,26 @@ export const data = {
       subQuestions: [
         { text: "Employees probably worry unnecessarily", answer: true },
         { text: "People should feel reassured", answer: true },
-        { text: "CCTV is always invasive", answer: false },
-        { text: "It reduces all security concerns", answer: false },
-        { text: "Cameras are expensive to maintain", answer: false },
-        { text: "It monitors every activity perfectly", answer: false },
+        {
+          text: "CCTV is always considered invasive to privacy",
+          answer: false,
+        },
+        {
+          text: "Cameras completely reduce all security concerns",
+          answer: false,
+        },
+        {
+          text: "The cameras are expensive to maintain",
+          answer: false,
+        },
+        {
+          text: "It monitors every activity perfectly",
+          answer: false,
+        },
+        { text: "Privacy is not a concern", answer: false },
+        { text: "It prevents all crimes", answer: false },
+        { text: "Employees demand more cameras", answer: false },
+        { text: "It replaces security guards", answer: false },
       ],
     },
     {
@@ -1420,10 +1485,26 @@ export const data = {
       subQuestions: [
         { text: "Create dedicated periods", answer: true },
         { text: "Refusing to seek the advice of other people", answer: true },
-        { text: "Writing becomes easier with time", answer: false },
-        { text: "Isolation helps overcome it", answer: false },
-        { text: "It affects all writers equally", answer: false },
-        { text: "Taking breaks worsens the block", answer: false },
+        {
+          text: "Writing becomes much easier with time",
+          answer: false,
+        },
+        {
+          text: "Isolation helps writers overcome their block",
+          answer: false,
+        },
+        {
+          text: "It affects all writers equally",
+          answer: false,
+        },
+        {
+          text: "Taking breaks worsens the block",
+          answer: false,
+        },
+        { text: "It is a myth invented by writers", answer: false },
+        { text: "Reading helps cure the block", answer: false },
+        { text: "Only poets experience this", answer: false },
+        { text: "It never lasts long", answer: false },
       ],
     },
     {
@@ -1434,10 +1515,26 @@ export const data = {
           text: "Viewer habits influence the way that series are made",
           answer: true,
         },
-        { text: "All series are of high quality", answer: false },
-        { text: "Production costs are always low", answer: false },
-        { text: "Series length is fixed", answer: false },
-        { text: "Viewers have no impact on content", answer: false },
+        {
+          text: "All series are of exceptionally high quality",
+          answer: false,
+        },
+        {
+          text: "Production costs are always kept low",
+          answer: false,
+        },
+        {
+          text: "Series length is always fixed",
+          answer: false,
+        },
+        {
+          text: "Viewers have no impact on content",
+          answer: false,
+        },
+        { text: "All series are cancelled quickly", answer: false },
+        { text: "Streaming services are failing", answer: false },
+        { text: "Actors dislike TV roles", answer: false },
+        { text: "Scripts are written by AI", answer: false },
       ],
     },
     {
@@ -1448,10 +1545,26 @@ export const data = {
           text: "They can generate negative publicity for the sport",
           answer: true,
         },
-        { text: "Advertising always boosts sales", answer: false },
-        { text: "Sponsorships are always positive", answer: false },
-        { text: "It has no effect on sports", answer: false },
-        { text: "Costs are negligible", answer: false },
+        {
+          text: "Advertising always significantly boosts the sales of the product",
+          answer: false,
+        },
+        {
+          text: "Sponsorship deals are always positive for both parties involved",
+          answer: false,
+        },
+        {
+          text: "It has absolutely no effect on the popularity of the sports",
+          answer: false,
+        },
+        {
+          text: "The costs involved in advertising are negligible for the company",
+          answer: false,
+        },
+        { text: "Sports need no funding", answer: false },
+        { text: "Ads are always truthful", answer: false },
+        { text: "Fans ignore all sponsors", answer: false },
+        { text: "It only benefits athletes", answer: false },
       ],
     },
     {
@@ -1462,10 +1575,26 @@ export const data = {
           text: "It requires you to set yourself certain limits",
           answer: true,
         },
-        { text: "Plans are always successful", answer: false },
-        { text: "No effort is needed to make plans", answer: false },
-        { text: "Plans restrict creativity", answer: false },
-        { text: "They are unnecessary for success", answer: false },
+        {
+          text: "Plans ensure that they are always successful",
+          answer: false,
+        },
+        {
+          text: "No effort is needed to make plans",
+          answer: false,
+        },
+        {
+          text: "Strict plans restrict creativity",
+          answer: false,
+        },
+        {
+          text: "They are unnecessary for success",
+          answer: false,
+        },
+        { text: "Plans are always flexible", answer: false },
+        { text: "Spontaneity is always bad", answer: false },
+        { text: "Everyone plans their day", answer: false },
+        { text: "Planning wastes valuable time", answer: false },
       ],
     },
     {
@@ -1476,10 +1605,26 @@ export const data = {
           text: "It is only suitable for a particular generation",
           answer: true,
         },
-        { text: "It appeals to all ages", answer: false },
-        { text: "The guide is overly complex", answer: false },
-        { text: "It lacks detailed information", answer: false },
-        { text: "It is universally popular", answer: false },
+        {
+          text: "It appeals to people of all ages",
+          answer: false,
+        },
+        {
+          text: "The guide is considered overly complex",
+          answer: false,
+        },
+        {
+          text: "It lacks detailed information about attractions",
+          answer: false,
+        },
+        {
+          text: "The guide is universally popular",
+          answer: false,
+        },
+        { text: "It is free for everyone", answer: false },
+        { text: "Locals wrote the guide", answer: false },
+        { text: "It covers every country", answer: false },
+        { text: "Maps are not included", answer: false },
       ],
     },
     {
@@ -1487,10 +1632,26 @@ export const data = {
       subQuestions: [
         { text: "Be flexible and open-minded", answer: true },
         { text: "They are becoming more competitive", answer: true },
-        { text: "Jobs are easy to find", answer: false },
-        { text: "Flexibility is not important", answer: false },
-        { text: "Competition is decreasing", answer: false },
-        { text: "All graduates succeed immediately", answer: false },
+        {
+          text: "Good jobs are always easy to find immediately after graduation",
+          answer: false,
+        },
+        {
+          text: "Flexibility is not considered important for career success",
+          answer: false,
+        },
+        {
+          text: "Competition in the job market is decreasing significantly",
+          answer: false,
+        },
+        {
+          text: "All university graduates succeed in their careers immediately",
+          answer: false,
+        },
+        { text: "Degrees guarantee high salaries", answer: false },
+        { text: "Universities prepare you perfectly", answer: false },
+        { text: "No one wants to hire graduates", answer: false },
+        { text: "Career paths are always straight", answer: false },
       ],
     },
     {
@@ -1501,10 +1662,26 @@ export const data = {
           text: "They need to make the customers feel valued and welcome",
           answer: true,
         },
-        { text: "The food is always excellent", answer: false },
-        { text: "Service is consistently perfect", answer: false },
-        { text: "Customers are never satisfied", answer: false },
-        { text: "It requires no improvement", answer: false },
+        {
+          text: "The quality of the food served there is always excellent",
+          answer: false,
+        },
+        {
+          text: "The service provided is consistently perfect and professional",
+          answer: false,
+        },
+        {
+          text: "The customers are never satisfied with the dining experience",
+          answer: false,
+        },
+        {
+          text: "The restaurant requires absolutely no improvement at this time",
+          answer: false,
+        },
+        { text: "The location is inconvenient", answer: false },
+        { text: "Prices are incredibly low", answer: false },
+        { text: "The menu never changes", answer: false },
+        { text: "Reservations are not needed", answer: false },
       ],
     },
     {
@@ -1512,10 +1689,26 @@ export const data = {
       subQuestions: [
         { text: "They are difficult to relate to", answer: true },
         { text: "It lacks originality", answer: true },
-        { text: "The novel is highly innovative", answer: false },
-        { text: "Characters are easy to connect with", answer: false },
-        { text: "It has unique storytelling", answer: false },
-        { text: "Readers love it universally", answer: false },
+        {
+          text: "The novel is considered highly innovative and groundbreaking",
+          answer: false,
+        },
+        {
+          text: "The main characters are very easy for readers to connect with",
+          answer: false,
+        },
+        {
+          text: "It features a unique storytelling style never seen before",
+          answer: false,
+        },
+        {
+          text: "Readers from all demographics love the novel universally",
+          answer: false,
+        },
+        { text: "The ending is predictable", answer: false },
+        { text: "It is a historical biography", answer: false },
+        { text: "Critics hated the book", answer: false },
+        { text: "It is too short to enjoy", answer: false },
       ],
     },
     {
@@ -1529,10 +1722,26 @@ export const data = {
           text: "The research is unlikely to find a conclusive answer",
           answer: true,
         },
-        { text: "Media always reports accurately", answer: false },
-        { text: "Research provides clear solutions", answer: false },
-        { text: "It is widely accepted", answer: false },
-        { text: "Findings are definitive", answer: false },
+        {
+          text: "The media always reports scientific findings completely accurately",
+          answer: false,
+        },
+        {
+          text: "This research provides clear and immediate solutions to happiness",
+          answer: false,
+        },
+        {
+          text: "The findings of the research are widely accepted by everyone",
+          answer: false,
+        },
+        {
+          text: "The findings of the study are considered definitive and final",
+          answer: false,
+        },
+        { text: "Money buys true happiness", answer: false },
+        { text: "Happiness is genetic only", answer: false },
+        { text: "The sample size was too small", answer: false },
+        { text: "Scientists ignored the data", answer: false },
       ],
     },
     {
@@ -1540,10 +1749,26 @@ export const data = {
       subQuestions: [
         { text: "The characters were interesting", answer: true },
         { text: "It will establish the author's popularity", answer: true },
-        { text: "The plot is boring", answer: false },
-        { text: "It will ruin the author's reputation", answer: false },
-        { text: "Characters lack depth", answer: false },
-        { text: "It has no impact", answer: false },
+        {
+          text: "The plot of the novel is considered boring and predictable",
+          answer: false,
+        },
+        {
+          text: "The publication will likely ruin the author's reputation",
+          answer: false,
+        },
+        {
+          text: "The characters in the story lack significant emotional depth",
+          answer: false,
+        },
+        {
+          text: "The novel has absolutely no impact on the literary world",
+          answer: false,
+        },
+        { text: "The setting was unrealistic", answer: false },
+        { text: "Dialogues were poorly written", answer: false },
+        { text: "It copies another book", answer: false },
+        { text: "The pacing was too slow", answer: false },
       ],
     },
     {
@@ -1555,6 +1780,10 @@ export const data = {
         { text: "It remains unchanged", answer: false },
         { text: "It requires no effort", answer: false },
         { text: "It is irrelevant", answer: false },
+        { text: "Appearance matters most", answer: false },
+        { text: "Skills are less important", answer: false },
+        { text: "Punctuality is optional", answer: false },
+        { text: "It depends on the boss", answer: false },
       ],
     },
     {
@@ -1562,10 +1791,26 @@ export const data = {
       subQuestions: [
         { text: "He will probably retire from singing", answer: true },
         { text: "He could have been more successful", answer: true },
-        { text: "He will continue performing", answer: false },
-        { text: "His career is at its peak", answer: false },
-        { text: "He has no regrets", answer: false },
-        { text: "Success is guaranteed", answer: false },
+        {
+          text: "He will definitely continue performing for many years",
+          answer: false,
+        },
+        {
+          text: "His musical career is currently at its absolute peak",
+          answer: false,
+        },
+        {
+          text: "He has absolutely no regrets about his career choices",
+          answer: false,
+        },
+        {
+          text: "Success in the music industry is guaranteed for him",
+          answer: false,
+        },
+        { text: "He plans to tour forever", answer: false },
+        { text: "His voice is improving", answer: false },
+        { text: "Fans want a new album", answer: false },
+        { text: "He writes his own songs", answer: false },
       ],
     },
     {
@@ -1579,10 +1824,26 @@ export const data = {
           text: "It is similar to the previous book about the scientist",
           answer: true,
         },
-        { text: "It uses technical jargon", answer: false },
-        { text: "It is completely different", answer: false },
-        { text: "It lacks clarity", answer: false },
-        { text: "It is too advanced", answer: false },
+        {
+          text: "It uses too much technical jargon for the average reader",
+          answer: false,
+        },
+        {
+          text: "It is completely different from any other biography written",
+          answer: false,
+        },
+        {
+          text: "The book lacks clarity when explaining the theories",
+          answer: false,
+        },
+        {
+          text: "The content is too advanced for a general audience",
+          answer: false,
+        },
+        { text: "It ignores his personal life", answer: false },
+        { text: "Photographs are not included", answer: false },
+        { text: "The author is a scientist", answer: false },
+        { text: "It is a fictional story", answer: false },
       ],
     },
     {
@@ -1590,10 +1851,26 @@ export const data = {
       subQuestions: [
         { text: "He wasn’t ready to start higher education", answer: true },
         { text: "To be more independent", answer: true },
-        { text: "He was fully prepared", answer: false },
-        { text: "It hinders independence", answer: false },
-        { text: "It delays progress", answer: false },
-        { text: "It is unnecessary", answer: false },
+        {
+          text: "He felt he was fully prepared to start university immediately",
+          answer: false,
+        },
+        {
+          text: "Taking a break hinders the development of independence",
+          answer: false,
+        },
+        {
+          text: "A gap year significantly delays academic progress",
+          answer: false,
+        },
+        {
+          text: "Taking a break is considered completely unnecessary",
+          answer: false,
+        },
+        { text: "It saves money for students", answer: false },
+        { text: "Universities forbid gap years", answer: false },
+        { text: "Parents always support it", answer: false },
+        { text: "It is a new trend", answer: false },
       ],
     },
     {
@@ -1601,10 +1878,26 @@ export const data = {
       subQuestions: [
         { text: "It is making exaggerated claims", answer: true },
         { text: "It costs too much to make to be profitable", answer: true },
-        { text: "It guarantees high profits", answer: false },
-        { text: "Claims are always accurate", answer: false },
-        { text: "It is cost-effective", answer: false },
-        { text: "It attracts all customers", answer: false },
+        {
+          text: "The campaign guarantees high profits for the company",
+          answer: false,
+        },
+        {
+          text: "The claims made in the campaign are always accurate",
+          answer: false,
+        },
+        {
+          text: "The promotional campaign is highly cost-effective",
+          answer: false,
+        },
+        {
+          text: "The campaign successfully attracts all potential customers",
+          answer: false,
+        },
+        { text: "The product is eco-friendly", answer: false },
+        { text: "Social media is ignored", answer: false },
+        { text: "Sales dropped after launch", answer: false },
+        { text: "It targets only teenagers", answer: false },
       ],
     },
     {
@@ -1612,10 +1905,26 @@ export const data = {
       subQuestions: [
         { text: "Monitor your spending for a weekly plan", answer: true },
         { text: "Seek advice from someone who has experience", answer: true },
-        { text: "Spending requires no planning", answer: false },
-        { text: "Advice is unnecessary", answer: false },
-        { text: "It is easy to manage without help", answer: false },
-        { text: "Monitoring is irrelevant", answer: false },
+        {
+          text: "Managing daily spending requires absolutely no planning",
+          answer: false,
+        },
+        {
+          text: "Seeking financial advice is considered unnecessary",
+          answer: false,
+        },
+        {
+          text: "It is easy to manage finances without any external help",
+          answer: false,
+        },
+        {
+          text: "Monitoring your weekly spending is considered irrelevant",
+          answer: false,
+        },
+        { text: "Banks manage it for you", answer: false },
+        { text: "Credit cards are banned", answer: false },
+        { text: "Budgets restrict freedom", answer: false },
+        { text: "Saving is impossible", answer: false },
       ],
     },
     {
@@ -1626,10 +1935,26 @@ export const data = {
           text: "People can’t always recognize the symptoms of tiredness",
           answer: true,
         },
-        { text: "Noise enhances sleep quality", answer: false },
-        { text: "Tiredness is always obvious", answer: false },
-        { text: "Sleep needs no preparation", answer: false },
-        { text: "It has no health benefits", answer: false },
+        {
+          text: "Background noise always enhances the quality of sleep",
+          answer: false,
+        },
+        {
+          text: "The symptoms of tiredness are always obvious to everyone",
+          answer: false,
+        },
+        {
+          text: "A good night's sleep needs no preparation whatsoever",
+          answer: false,
+        },
+        {
+          text: "Sleep has absolutely no significant health benefits",
+          answer: false,
+        },
+        { text: "4 hours is enough for all", answer: false },
+        { text: "Napping is harmful", answer: false },
+        { text: "Dreams predict the future", answer: false },
+        { text: "Diet affects sleep most", answer: false },
       ],
     },
     {
@@ -1643,10 +1968,26 @@ export const data = {
           text: "The meaning of their work is not always easily identified",
           answer: true,
         },
-        { text: "Their work is always clear", answer: false },
-        { text: "They never influence each other", answer: false },
-        { text: "Their meanings are straightforward", answer: false },
-        { text: "All works are well-understood", answer: false },
+        {
+          text: "The meaning of their work is always clear to readers",
+          answer: false,
+        },
+        {
+          text: "They never influence each other in their writing styles",
+          answer: false,
+        },
+        {
+          text: "The meanings behind their stories are always straightforward",
+          answer: false,
+        },
+        {
+          text: "All their literary works are well-understood by everyone",
+          answer: false,
+        },
+        { text: "They lived in the same city", answer: false },
+        { text: "One copied the other", answer: false },
+        { text: "They wrote for children", answer: false },
+        { text: "Their books are banned", answer: false },
       ],
     },
   ],

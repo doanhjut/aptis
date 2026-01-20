@@ -3,7 +3,7 @@ import "./part4.css";
 import { data } from "../data";
 import { Link } from "react-router-dom";
 
-function ReadingPart4({ questions }) {
+function ReadingPart4({ questions, onComplete }) {
   const [inputValues, setInputValues] = useState(Array(7).fill(""));
   const [disabledOptions, setDisabledOptions] = useState(new Set());
   const [result, setResult] = useState(null);
@@ -23,6 +23,9 @@ function ReadingPart4({ questions }) {
 
   // NEW: Lưu thứ tự options đã shuffle cho câu hỏi hiện tại
   const [shuffledOptions, setShuffledOptions] = useState([]);
+  
+  // Score tracking - count correct sub-questions (7 total)
+  const [correctCount, setCorrectCount] = useState(0);
 
   // Khởi tạo dữ liệu
   useEffect(() => {
@@ -108,6 +111,11 @@ function ReadingPart4({ questions }) {
 
     if (isCorrect) {
       setResult("Correct!");
+      
+      // Count correct answers only in main mode
+      if (!isReviewMode) {
+        setCorrectCount(correctCount + 7); // All 7 sub-questions correct
+      }
 
       setTimeout(() => {
         if (isReviewMode) {
@@ -116,6 +124,12 @@ function ReadingPart4({ questions }) {
           } else {
             setResult("Congratulations! You completed reviewing wrong questions!");
             setIsReviewMode(false);
+            // Pass score to parent
+            if (onComplete) {
+              setTimeout(() => {
+                onComplete(correctCount);
+              }, 1500);
+            }
           }
         } else {
           if (currentQuestionIdxInShuffle < dataSentences.length - 1) {
@@ -129,6 +143,12 @@ function ReadingPart4({ questions }) {
               setResult("Now reviewing wrong questions...");
             } else {
               setResult("Congratulations! You completed all questions with no mistakes!");
+              // Pass score to parent
+              if (onComplete) {
+                setTimeout(() => {
+                  onComplete(correctCount + 7); // Include current correct answers
+                }, 1500);
+              }
             }
           }
         }

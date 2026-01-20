@@ -69,6 +69,12 @@
   border-color: #ef4444;
 }
 
+.option-btn.selected {
+  background-color: #3b82f6;
+  color: white;
+  border-color: #3b82f6;
+}
+
 .result {
   margin-top: 1rem;
   font-size: 1.125rem;

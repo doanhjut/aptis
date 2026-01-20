@@ -24,6 +24,9 @@ function ReadingPart3({ questions, onComplete }) {
   const [shuffledSubQuestions, setShuffledSubQuestions] = useState([]); // Thứ tự câu hỏi con đã trộn
   const [result, setResult] = useState(null);
   const [showCorrect, setShowCorrect] = useState(false);
+  
+  // Score tracking - count individual sub-questions (7 total)
+  const [correctCount, setCorrectCount] = useState(0);
 
   // Khởi tạo dữ liệu và random câu hỏi
   useEffect(() => {
@@ -118,59 +121,81 @@ function ReadingPart3({ questions, onComplete }) {
 
   const checkAnswer = () => {
     let isCorrect = true;
+    let subQuestionsCorrect = 0;
 
+    // Count how many sub-questions are correct
     for (let i = 0; i < 4; i++) {
       const userAnswer = [...userAnswers[i]].sort();
       const correctAnswer = [...currentQuestion.answers[i]].sort();
 
       if (
-        userAnswer.length !== correctAnswer.length ||
-        !userAnswer.every((ans, idx) => ans === correctAnswer[idx])
+        userAnswer.length === correctAnswer.length &&
+        userAnswer.every((ans, idx) => ans === correctAnswer[idx])
       ) {
+        subQuestionsCorrect++;
+      } else {
         isCorrect = false;
-        break;
       }
     }
 
     if (isCorrect) {
       setResult("Đúng rồi!");
+    } else {
+      setResult(`Sai rồi (${subQuestionsCorrect}/4 đúng), hãy thử lại hoặc xem đáp án đúng.`);
+      setShowCorrect(true);
+    }
+    
+    // Calculate new total score
+    const newTotalScore = !isReviewMode ? correctCount + subQuestionsCorrect : correctCount;
+    
+    // Count correct sub-questions only in main mode (partial credit)
+    if (!isReviewMode) {
+      setCorrectCount(newTotalScore);
+    }
 
-      setTimeout(() => {
-        if (isReviewMode) {
-          // Ôn lại: chuyển câu tiếp
-          if (currentReviewIdx < reviewIndices.length - 1) {
-            setCurrentReviewIdx(currentReviewIdx + 1);
-          } else {
-            setResult("Tuyệt vời! Bạn đã làm đúng hết các câu sai trước đó!");
-            setIsReviewMode(false);
-          }
+    setTimeout(() => {
+      if (isReviewMode) {
+        // Ôn lại: chuyển câu tiếp
+        if (currentReviewIdx < reviewIndices.length - 1) {
+          setCurrentReviewIdx(currentReviewIdx + 1);
         } else {
-          // Chế độ chính: chuyển câu tiếp
-          if (currentIdxInShuffle < dataSentences.length - 1) {
-            setCurrentIdxInShuffle(currentIdxInShuffle + 1);
+          setResult("Tuyệt vời! Bạn đã làm đúng hết các câu sai trước đó!");
+          setIsReviewMode(false);
+          // Gọi onComplete để chuyển sang Part 4
+          if (onComplete) {
+            setTimeout(() => {
+              onComplete(correctCount); // Use current count in review mode
+            }, 2000);
+          }
+        }
+      } else {
+        // Chế độ chính: chuyển câu tiếp
+        if (currentIdxInShuffle < dataSentences.length - 1) {
+          setCurrentIdxInShuffle(currentIdxInShuffle + 1);
+        } else {
+          // Hoàn thành vòng chính
+          if (wrongIndices.length > 0) {
+            const shuffledWrong = [...wrongIndices].sort(() => Math.random() - 0.5);
+            setReviewIndices(shuffledWrong);
+            setCurrentReviewIdx(0);
+            setIsReviewMode(true);
+            setResult("Bây giờ ôn lại các câu bạn làm sai...");
           } else {
-            // Hoàn thành vòng chính
-            if (wrongIndices.length > 0) {
-              const shuffledWrong = [...wrongIndices].sort(() => Math.random() - 0.5);
-              setReviewIndices(shuffledWrong);
-              setCurrentReviewIdx(0);
-              setIsReviewMode(true);
-              setResult("Bây giờ ôn lại các câu bạn làm sai...");
-            } else {
-              setResult("Hoàn hảo! Bạn làm đúng hết mà không sai câu nào!");
-              // Có thể thêm vòng mới nếu muốn
+            setResult("Hoàn hảo! Bạn làm đúng hết mà không sai câu nào!");
+            // Gọi onComplete để chuyển sang Part 4 - use NEW total score
+            if (onComplete) {
+              setTimeout(() => {
+                onComplete(newTotalScore);
+              }, 2000);
             }
           }
         }
-      }, 1500);
-    } else {
-      setResult("Sai rồi, hãy thử lại hoặc xem đáp án đúng.");
-      setShowCorrect(true);
-
-      // Chỉ ghi nhận sai ở chế độ chính
-      if (!isReviewMode && !wrongIndices.includes(currentOriginalIndex)) {
-        setWrongIndices([...wrongIndices, currentOriginalIndex]);
       }
+    }, 1500);
+
+    // Chỉ ghi nhận sai ở chế độ chính nếu không đúng hoàn toàn
+    if (!isReviewMode && !isCorrect && !wrongIndices.includes(currentOriginalIndex)) {
+      setWrongIndices([...wrongIndices, currentOriginalIndex]);
     }
   };
 
