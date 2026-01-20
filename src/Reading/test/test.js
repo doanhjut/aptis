@@ -104,7 +104,7 @@ function Test() {
       </div>
       <div className="back-button-container">
         <Link to="/reading" className="back-button">
-          Back to Home
+          ← Trang chủ
         </Link>
       </div>
       {/* Part 1 */}

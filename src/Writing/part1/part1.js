@@ -43,7 +43,7 @@ function WritingPart1({ questions, onComplete }) {
       {(!questions || questions.length == 0) && (
         <div className="back-button-container">
           <Link to="/writing" className="back-button">
-            Back to Home
+            ← Trang chủ
           </Link>
         </div>
       )}

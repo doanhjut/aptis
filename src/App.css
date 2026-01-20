@@ -1,66 +1,141 @@
-.app-container {
-  min-height: 100vh;
+/* ============================================
+   Aptis — Trang chủ (Home)
+   ============================================ */
+
+.app-container--home {
+  padding: 2.5rem 1.5rem 2rem;
+  overflow: hidden;
+}
+
+/* ---- Nền gradient / mesh (nhẹ trên nền kem) ---- */
+.home-bg {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  background:
+    radial-gradient(ellipse 80% 50% at 50% -20%, rgba(37, 99, 235, 0.07), transparent),
+    radial-gradient(ellipse 60% 40% at 100% 50%, rgba(5, 150, 105, 0.05), transparent),
+    radial-gradient(ellipse 50% 30% at 0% 80%, rgba(220, 38, 38, 0.04), transparent),
+    radial-gradient(ellipse 70% 50% at 50% 100%, rgba(217, 119, 6, 0.05), transparent);
+}
+
+.app-container--home .game-title,
+.app-container--home .game-tagline,
+.app-container--home .home-badge,
+.app-container--home .home-footer {
+  position: relative;
+  z-index: 1;
+}
+
+/* ---- Header ---- */
+.home-header {
+  text-align: center;
+  margin-bottom: 2.5rem;
+  max-width: 480px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.home-badge {
+  font-size: 0.8rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.12em;
+  color: var(--color-primary);
+  margin: 0 0 0.5rem;
+  opacity: 0.95;
+}
+
+.app-container--home .game-title {
+  font-size: 3rem;
+  font-weight: 800;
+  letter-spacing: -0.04em;
+  margin-bottom: 0.35rem;
+  background: linear-gradient(135deg, #1c1917 0%, #44403c 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+.game-tagline {
+  font-size: 1.05rem;
+  font-weight: 500;
+  color: var(--color-text-muted);
+  margin: 0;
+  line-height: 1.5;
+}
+
+/* ---- Lưới 4 card kỹ năng ---- */
+.card-container--skills {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 1.25rem;
+  max-width: 580px;
+  margin-bottom: 2rem;
+}
+
+@media (max-width: 560px) {
+  .card-container--skills {
+    grid-template-columns: 1fr;
+    max-width: 340px;
+  }
+}
+
+/* Accent từng kỹ năng */
+.card--speaking {
+  --card-accent: var(--color-accent-speaking);
+  --card-accent-hover: var(--color-accent-speaking-hover);
+}
+
+.card--reading {
+  --card-accent: var(--color-accent-reading);
+  --card-accent-hover: var(--color-accent-reading-hover);
+}
+
+.card--listening {
+  --card-accent: var(--color-accent-listening);
+  --card-accent-hover: var(--color-accent-listening-hover);
+}
+
+.card--writing {
+  --card-accent: var(--color-accent-writing);
+  --card-accent-hover: var(--color-accent-writing-hover);
+}
+
+/* Viền trái accent (desktop) */
+@media (min-width: 561px) {
+  .card--speaking { border-left: 4px solid var(--color-accent-speaking); }
+  .card--reading  { border-left: 4px solid var(--color-accent-reading); }
+  .card--listening{ border-left: 4px solid var(--color-accent-listening); }
+  .card--writing  { border-left: 4px solid var(--color-accent-writing); }
+}
+
+.card-icon {
   display: flex;
-  flex-direction: column;
   align-items: center;
   justify-content: center;
-  padding: 20px;
-  background-color: #f3f4f6;
-}
-
-.game-title {
-  font-size: 2.5rem;
-  font-weight: bold;
-  margin-bottom: 2rem;
-  color: #2d3748;
-}
-
-.card-container {
-  display: flex;
-  gap: 2rem;
-  flex-wrap: wrap;
-  justify-content: center;
-}
-
-.card {
-  background-color: white;
-  border-radius: 0.5rem;
-  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-  padding: 1.5rem;
-  width: 300px;
-  text-align: center;
-  text-decoration: none;
-  color: #2d3748;
-  transition: transform 0.2s;
-}
-
-.card:hover {
-  transform: translateY(-5px);
-}
-
-.card h2 {
-  font-size: 1.5rem;
+  width: 56px;
+  height: 56px;
+  border-radius: var(--radius-lg);
   margin-bottom: 1rem;
-  color: #4a5568;
+  color: var(--card-accent);
+  background: rgba(0, 0, 0, 0.05);
+  transition: background var(--transition), transform var(--transition);
 }
 
-.card p {
-  font-size: 1rem;
-  color: #718096;
-  margin-bottom: 1.5rem;
+.card:hover .card-icon {
+  background: rgba(0, 0, 0, 0.07);
+  transform: scale(1.05);
 }
 
-.start-button {
-  background-color: #48bb78;
-  color: white;
-  padding: 0.75rem 1.5rem;
-  border: none;
-  border-radius: 0.375rem;
-  cursor: pointer;
-  font-size: 1rem;
-  transition: background-color 0.2s;
+/* ---- Footer ---- */
+.home-footer {
+  font-size: 0.8rem;
+  font-weight: 500;
+  color: var(--color-text-muted);
+  opacity: 0.7;
 }
 
-.start-button:hover {
-  background-color: #38a169;
+.home-footer-text {
+  letter-spacing: 0.05em;
 }

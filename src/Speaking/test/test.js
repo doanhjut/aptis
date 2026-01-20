@@ -45,7 +45,7 @@ function SpeakingTest() {
       <h1> SpeakingTest Across 4 Parts</h1>
       <div className="back-button-container">
         <Link to="/speaking" className="back-button">
-          Back to Home
+          ← Trang chủ
         </Link>
       </div>
 
