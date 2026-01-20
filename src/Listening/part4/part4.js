@@ -120,7 +120,9 @@ function Part4({ onComplete }) {
       prepareSubQuestions(shuffledTopics[nextIndex].subQuestions);
     } else {
       setResult("Congratulations! You completed all topics!");
-      onComplete();
+      if (typeof onComplete === "function") {
+        onComplete();
+      }
     }
   };
 
