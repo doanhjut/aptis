@@ -78,17 +78,16 @@ function SpeakingPart1({ questions, onComplete }) {
       </p>
       <div className="question-section">
         <h2>{currentTopic.name}</h2>
+        <p className="question-text">
+          Question {currentQuestionIndex + 1}:{" "}
+          {currentTopic.questions[currentQuestionIndex] ||
+            "No question available"}
+        </p>
+        
         {displayTime > 0 ? (
           <p className="display-text">Chuẩn bị: {displayTime} seconds</p>
         ) : (
-          <>
-            <p className="question-text">
-              Question {currentQuestionIndex + 1}:{" "}
-              {currentTopic.questions[currentQuestionIndex] ||
-                "No question available"}
-            </p>
-            <p className="timer">Thời gian nói: {timeLeft} seconds</p>
-          </>
+          <p className="timer">Thời gian nói: {timeLeft} seconds</p>
         )}
       </div>
     </div>

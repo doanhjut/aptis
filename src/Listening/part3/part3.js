@@ -143,6 +143,7 @@ function ListeningPart3({ questions, onComplete }) {
           } else {
             setResult("Tuyệt vời! Bạn đã làm đúng hết các câu sai trước đó!");
             setIsReviewMode(false);
+            if(onComplete) onComplete();
           }
         } else {
           if (currentIdxInShuffle < dataSentences.length - 1) {
@@ -158,6 +159,7 @@ function ListeningPart3({ questions, onComplete }) {
               setResult("Bây giờ ôn lại các câu bạn làm sai...");
             } else {
               setResult("Hoàn hảo! Bạn làm đúng hết mà không sai câu nào!");
+              if(onComplete) onComplete();
             }
           }
         }

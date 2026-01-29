@@ -69,7 +69,7 @@ function ListeningTest() {
           )} */}
           {currentPart === 2 && (
             <ListeningPart3
-              questions={Array.isArray(part3Topic) ? part3Topic : []}
+              questions={part3Topic ? [part3Topic] : []}
               onComplete={handleComplete}
             />
           )}

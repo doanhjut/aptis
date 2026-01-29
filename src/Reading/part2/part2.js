@@ -45,6 +45,13 @@ function ReadingPart2({ questions, onComplete }) {
   const [reviewIndices, setReviewIndices] = useState([]); // Thứ tự random cho ôn lại
   const [currentReviewIndex, setCurrentReviewIndex] = useState(0);
   
+  // State to ensure consistency between visual and logical data
+  const [currentInfo, setCurrentInfo] = useState({
+    originalIndex: null,
+    topic: "",
+    correctAnswer: [],
+  });
+  
   // Score tracking - only count first attempts
   const [correctCount, setCorrectCount] = useState(0);
 
@@ -82,22 +89,25 @@ function ReadingPart2({ questions, onComplete }) {
     const data = source ?? dataSentences;
     const item = data[originalIndex];
     const list = getQuestionList(item);
+    const topic = getTopic(item);
+
     if (list.length > 0) {
       setWords(shuffleArray(list));
       setInputValues(["", "", "", "", ""]);
       setResult(null);
       setShowCorrect(false);
+      
+      // Store current question details to ensure consistency
+      setCurrentInfo({
+        originalIndex: originalIndex,
+        topic: topic || "No topic",
+        correctAnswer: list
+      });
     }
   };
 
-  // Xác định index hiện tại (chính hoặc review)
-  const currentOriginalIndex = isReviewMode
-    ? reviewIndices[currentReviewIndex]
-    : sentenceIndices[currentIndex];
-
-  const currentTopic = dataSentences.length > 0 && currentOriginalIndex !== undefined
-    ? getTopic(dataSentences[currentOriginalIndex]) || "No topic"
-    : "";
+  // Removed derived currentOriginalIndex and currentTopic to avoid desync
+  // Use currentInfo instead
 
   const handleWordClick = (word) => {
     const firstEmptyIndex = inputValues.indexOf("");
@@ -128,7 +138,7 @@ function ReadingPart2({ questions, onComplete }) {
 
   const checkAnswer = () => {
     const userAnswer = inputValues.map((val) => val.trim());
-    const correctAnswer = getQuestionList(dataSentences[currentOriginalIndex]);
+    const correctAnswer = currentInfo.correctAnswer; // Use stable state
 
     // Count how many positions are correct (partial credit)
     let correctPositions = 0;
@@ -155,58 +165,61 @@ function ReadingPart2({ questions, onComplete }) {
       setCorrectCount(newTotalScore);
     }
 
-    setTimeout(() => {
-      if (isReviewMode) {
-        // Trong chế độ ôn lại
-        if (currentReviewIndex < reviewIndices.length - 1) {
-          setCurrentReviewIndex(currentReviewIndex + 1);
-          loadQuestion(reviewIndices[currentReviewIndex + 1]);
-        } else {
-          setResult("Congratulations! You mastered all wrong questions!");
-          setIsReviewMode(false);
-          // Chuyển sang Part 3
-          if (onComplete) {
-            setTimeout(() => {
-              onComplete(correctCount); // Use current count in review mode
-            }, 1500);
-          }
-        }
-      } else {
-        // Chế độ chính
-        if (currentIndex < sentenceIndices.length - 1) {
-          setCurrentIndex(currentIndex + 1);
-          loadQuestion(sentenceIndices[currentIndex + 1]);
-        } else {
-          // Hoàn thành vòng chính
-          if (wrongIndices.length > 0) {
-            // Tự động vào chế độ ôn lại
-            const shuffledWrong = shuffleArray([...wrongIndices]);
-            setReviewIndices(shuffledWrong);
-            setCurrentReviewIndex(0);
-            setIsReviewMode(true);
-            loadQuestion(shuffledWrong[0]);
-            setResult("Now reviewing the questions you got wrong...");
+    if (isCorrect) {
+      setTimeout(() => {
+        if (isReviewMode) {
+          // Trong chế độ ôn lại
+          if (currentReviewIndex < reviewIndices.length - 1) {
+            setCurrentReviewIndex(currentReviewIndex + 1);
+            loadQuestion(reviewIndices[currentReviewIndex + 1]);
           } else {
-            setResult("Perfect! You got everything correct!");
-            // Chuyển sang Part 3 - use NEW total score
+            setResult("Congratulations! You mastered all wrong questions!");
+            setIsReviewMode(false);
+            // Chuyển sang Part 3
             if (onComplete) {
               setTimeout(() => {
-                onComplete(newTotalScore);
+                onComplete(correctCount); // Use current count in review mode
               }, 1500);
             }
           }
+        } else {
+          // Chế độ chính
+          if (currentIndex < sentenceIndices.length - 1) {
+            setCurrentIndex(currentIndex + 1);
+            loadQuestion(sentenceIndices[currentIndex + 1]);
+          } else {
+            // Hoàn thành vòng chính
+            if (wrongIndices.length > 0) {
+              // Tự động vào chế độ ôn lại
+              const shuffledWrong = shuffleArray([...wrongIndices]);
+              setReviewIndices(shuffledWrong);
+              setCurrentReviewIndex(0);
+              setIsReviewMode(true);
+              loadQuestion(shuffledWrong[0]);
+              setResult("Now reviewing the questions you got wrong...");
+            } else {
+              setResult("Perfect! You got everything correct!");
+              // Chuyển sang Part 3 - use NEW total score
+              if (onComplete) {
+                setTimeout(() => {
+                  onComplete(newTotalScore);
+                }, 1500);
+              }
+            }
+          }
         }
-      }
-    }, 1000);
+      }, 1000);
+    }
 
     // Chỉ ghi nhận câu sai ở chế độ chính nếu không đúng hoàn toàn
-    if (!isReviewMode && !isCorrect && !wrongIndices.includes(currentOriginalIndex)) {
-      setWrongIndices([...wrongIndices, currentOriginalIndex]);
+    // Use currentInfo.originalIndex to ensure we track the actual displayed question
+    if (!isReviewMode && !isCorrect && !wrongIndices.includes(currentInfo.originalIndex)) {
+      setWrongIndices([...wrongIndices, currentInfo.originalIndex]);
     }
   };
 
   const resetSentence = () => {
-    loadQuestion(currentOriginalIndex);
+    loadQuestion(currentInfo.originalIndex);
   };
 
   const startNewRound = () => {
@@ -266,7 +279,7 @@ function ReadingPart2({ questions, onComplete }) {
       )}
 
       <div className="topic-display">
-        <strong>{currentTopic}</strong>
+        <strong>{currentInfo.topic}</strong>
       </div>
 
       <p className="sentence-info">
@@ -331,7 +344,7 @@ function ReadingPart2({ questions, onComplete }) {
         <div className="correct-answer">
           <p>
             Correct answer:{" "}
-            {getQuestionList(dataSentences[currentOriginalIndex]).join(" - ")}
+            {currentInfo.correctAnswer.join(" - ")}
           </p>
         </div>
       )}

@@ -28,7 +28,7 @@ function Part4({ onComplete }) {
   }, []);
 
   const shuffleTopics = () => {
-    const shuffled = [...data.part4].sort(() => Math.random() - 0.5);
+    const shuffled = [...data.part4].sort(() => Math.random() - 0.5).slice(0, 2);
     setShuffledTopics(shuffled);
     setCurrentTopicIndex(0);
     resetQuestionState();
