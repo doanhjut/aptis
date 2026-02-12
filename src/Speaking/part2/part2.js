@@ -17,15 +17,17 @@ function SpeakingPart2({ questions, onComplete }) {
   const [timeLeft, setTimeLeft] = useState(45);
   const [displayTime, setDisplayTime] = useState(5);
   const [shuffledImages, setShuffledImages] = useState([]);
+  const [subStep, setSubStep] = useState(0); // 0, 1, 2 for the 3 turns
 
   useEffect(() => {
     const dataQuestions =
       questions && questions.length > 0 ? questions : data.part2;
-    const shuffled = [...dataQuestions].sort(() => Math.random() - 0.5);
+    const shuffled = [...dataQuestions].sort(() => Math.random() - 0.5).slice(0, 3);
     setShuffledImages(shuffled);
     setCurrentImageIndex(0);
+    setSubStep(0);
     setTimeLeft(45);
-    setDisplayTime(5);
+    setDisplayTime(10);
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
@@ -37,12 +39,22 @@ function SpeakingPart2({ questions, onComplete }) {
       const timer = setInterval(() => setTimeLeft(timeLeft - 1), 1000);
       return () => clearInterval(timer);
     } else {
-      if (currentImageIndex < shuffledImages.length - 1) {
-        setCurrentImageIndex(currentImageIndex + 1);
+      // Time left reached 0 (Speaking finished for this sub-step)
+      if (subStep < 2) {
+        // Move to next sub-step (question 2 or 3 for same image)
+        setSubStep(prev => prev + 1);
         setTimeLeft(45);
-        setDisplayTime(5);
+        setDisplayTime(10); // 10s break before next question
       } else {
-        onComplete();
+        // Finished all 3 sub-steps for current image
+        if (currentImageIndex < shuffledImages.length - 1) {
+          setCurrentImageIndex(currentImageIndex + 1);
+          setSubStep(0);
+          setTimeLeft(45);
+          setDisplayTime(10);
+        } else {
+          onComplete();
+        }
       }
     }
     return () => clearTimeout(displayTimer);
@@ -52,6 +64,7 @@ function SpeakingPart2({ questions, onComplete }) {
     currentImageIndex,
     onComplete,
     shuffledImages.length,
+    subStep
   ]);
 
   const currentImage = () => {
@@ -92,21 +105,21 @@ function SpeakingPart2({ questions, onComplete }) {
         </div>
       )}
       <p className="question-count">
-        {currentImageIndex + 1}/{shuffledImages.length}
+        Image {currentImageIndex + 1}/{shuffledImages.length} - Question {subStep + 1}/3
       </p>
       <div className="question-section">
         <h2>Image Description</h2>
+        <img
+          src={currentImage()}
+          alt={`Image ${currentImageIndex + 1}`}
+          className="image-display"
+        />
         {displayTime > 0 ? (
           <p className="display-text">
             Prepare to describe: {displayTime} seconds
           </p>
         ) : (
           <>
-            <img
-              src={currentImage()}
-              alt={`Image ${currentImageIndex + 1}`}
-              className="image-display"
-            />
             <p className="timer">Time left: {timeLeft} seconds</p>
           </>
         )}
