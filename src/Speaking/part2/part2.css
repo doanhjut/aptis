@@ -34,7 +34,8 @@
 }
 
 .image-display {
-  max-width: 100%;
+  max-width: 600px;
+  width: 100%;
   height: auto;
   margin-bottom: 1rem;
 }

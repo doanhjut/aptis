@@ -75,7 +75,7 @@ function ListeningTest() {
           )}
           {currentPart === 3 && (
             <Part4
-              questions={Array.isArray(part4Topic) ? part4Topic : []}
+              isTest={true}
               onComplete={handleComplete}
             />
           )}
