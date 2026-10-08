@@ -31,6 +31,18 @@
   margin-bottom: 1rem;
 }
 
+.review-now-button {
+  margin: 0 0 1rem;
+  padding: 0.65rem 1rem;
+  border: 1px solid #d97706;
+  border-radius: var(--radius-md);
+  background: #f59e0b;
+  color: white;
+  font: inherit;
+  font-weight: 700;
+  cursor: pointer;
+}
+
 .question-section {
   width: 100%;
   max-width: 560px;

@@ -16,11 +16,17 @@ import ReadingPart4 from "./Reading/part4/part4";
 import ReadingTest from "./Reading/test/test";
 
 // Listening Components
-import HomeListening from "./Listening/homeListening";
+import HomeListening, {
+  NewListeningHome,
+  OldListeningHome,
+} from "./Listening/homeListening";
 import ListeningPart1 from "./Listening/part1/part1";
+import ListeningPart2 from "./Listening/part2/part2";
 import ListeningPart3 from "./Listening/part3/part3";
 import ListeningPart4 from "./Listening/part4/part4";
 import ListeningTest from "./Listening/test/test";
+import ListeningTestNew from "./Listening/test/testNew";
+import { newListeningData } from "./Listening/dataNew";
 
 // Speaking Components
 import HomeSpeaking from "./Speaking/homeSpeaking";
@@ -55,10 +61,67 @@ root.render(
 
       {/* Listening Routes */}
       <Route path="/listening" element={<HomeListening />} />
-      <Route path="/listening/part1" element={<ListeningPart1 />} />
-      <Route path="/listening/part3" element={<ListeningPart3 />} />
-      <Route path="/listening/part4" element={<ListeningPart4 />} />
+      <Route path="/listening/old" element={<OldListeningHome />} />
+      <Route path="/listening/new" element={<NewListeningHome />} />
+      <Route
+        path="/listening/part1"
+        element={<ListeningPart1 backPath="/listening/old" />}
+      />
+      <Route
+        path="/listening/part3"
+        element={<ListeningPart3 backPath="/listening/old" />}
+      />
+      <Route
+        path="/listening/part3-short"
+        element={<ListeningPart3 mode="short" backPath="/listening/old" />}
+      />
+      <Route
+        path="/listening/part4"
+        element={<ListeningPart4 backPath="/listening/old" />}
+      />
       <Route path="/listening/test" element={<ListeningTest />} />
+      <Route
+        path="/listening/new/part1"
+        element={
+          <ListeningPart1
+            questions={newListeningData.part1}
+            backPath="/listening/new"
+          />
+        }
+      />
+      <Route
+        path="/listening/new/part2"
+        element={<ListeningPart2 backPath="/listening/new" />}
+      />
+      <Route
+        path="/listening/new/part3"
+        element={
+          <ListeningPart3
+            questions={newListeningData.part3}
+            backPath="/listening/new"
+          />
+        }
+      />
+      <Route
+        path="/listening/new/part3-short"
+        element={
+          <ListeningPart3
+            mode="short"
+            questions={newListeningData.part3}
+            backPath="/listening/new"
+          />
+        }
+      />
+      <Route
+        path="/listening/new/part4"
+        element={
+          <ListeningPart4
+            questions={newListeningData.part4}
+            backPath="/listening/new"
+          />
+        }
+      />
+      <Route path="/listening/new/test" element={<ListeningTestNew />} />
 
       {/* Speaking Routes */}
       <Route path="/speaking" element={<HomeSpeaking />} />

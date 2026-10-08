@@ -166,6 +166,7 @@ export const data = {
   part2: [
     {
       topic: "Topic: Films",
+      intro: "The first film was shown in 1895 in Paris, France.",
       questions: [
         "Old movies were very different from today's movies.",
         "That's because the movies were only in black and white, and sometimes without sound.",
@@ -176,6 +177,7 @@ export const data = {
     },
     {
       topic: "Topic: Weekend activities",
+      intro: "The weather was great last week, there was family sports in town.",
       questions: [
         "It was held on Saturday morning, there was a 10 mile race for adults.",
         "There were 60 participants, in which Ms. Kamur kept the fastest speed and won.",
@@ -186,6 +188,7 @@ export const data = {
     },
     {
       topic: "Topic: Homework next week",
+      intro: "Our homework next week will be about places in town.",
       questions: [
         "Before writing, we need to find out some information about the place.",
         "That information can revolve around the aspects: people, culture and history.",
@@ -196,6 +199,7 @@ export const data = {
     },
     {
       topic: "Topic: Travel",
+      intro: "In the early 1800s, traveling is quite difficult",
       questions: [
         "At that time, only the very wealthy could afford to travel.",
         "Thanks to the invention of cars and trains, it became easier for people to travel.",
@@ -206,6 +210,7 @@ export const data = {
     },
     {
       topic: "Topic: Music festivals",
+      intro: "Last Saturday, a live music show was held in town park.",
       questions: [
         "The local government planned, funded and paid for everything.",
         "Because it was free, more than 5,000 people attended.",
@@ -216,8 +221,9 @@ export const data = {
     },
     {
       topic: "Topic: End of term project",
+      intro: "This semester we have studied several chapters about local history in the class",
       questions: [
-        "The end of term project will focus on at least two of these.",
+        "The end of term project will focus on at least two of these chapters.",
         "It will have relevant pictures, and your own writing on the topic.",
         "You will then need to use these pictures and written work to create a presentation for the class.",
         "This talk will point out the key points, and should last about 5 minutes in total.",
@@ -236,6 +242,7 @@ export const data = {
     },
     {
       topic: "Topic: African American woman in space",
+      intro: "Mae Jemison’s father is a skilled worker, her mother is a teacher",
       questions: [
         "With the support of her parents, she went to university and studied science.",
         "Her degree in the subject enabled her to take a training course in the USA.",
@@ -246,6 +253,7 @@ export const data = {
     },
     {
       topic: "Topic: A new café",
+      intro: "Yesterday I went to a new café named Corner Cafe on High Street.",
       questions: [
         "When I was there it was very crowded and the staff were very busy on the first day.",
         "Although it was busy the staff still arranged a table for me.",
@@ -256,6 +264,7 @@ export const data = {
     },
     {
       topic: "Topic: Famous singer",
+      intro: "Jaden Nobelton is only 18 years old and he is a famous singer",
       questions: [
         "Before becoming famous at his age, he studied art and music in high school.",
         "During his studies, he studied creativity and singing on stage.",
@@ -332,7 +341,7 @@ export const data = {
           expectedAnswers: 1,
         },
         {
-          text: "My dream job is becoming a teacher, and I have never thought about changing to another career. Teaching has always been my goal because I enjoy working with students and helping them learn new things. At the moment, I am studying hard to become a good teacher in the future. While I am still in training, I also work part-time at a school so that I can gain real teaching experience. I really enjoy working while studying because it helps me improve my skills and become more confident in the classroom.",
+          text: "My dream job is becoming a teacher, and I have never thought about changing to another career. Teaching has always been my goal because I enjoy working with students and helping them learn new things. At the moment, I am studying hard to become a good teacher in the future. While I am still in training, I also work part-time at a school so that I can gain real teaching experience. I really enjoy working while studying because it helps me improve my skills and become more confident in the classroom. Even though it can be challenging sometimes, I believe this experience is very valuable, and I am happy to continue on this career path without changing my job plans.",
           expectedAnswers: 2,
         },
         {
@@ -432,7 +441,7 @@ export const data = {
           text: "Mount Everest, once a symbol of human courage, has now become a worrying example of how adventure can harm nature. Every climbing season, long lines of climbers crowd the narrow paths to the summit, leaving behind waste and pollution on the fragile slopes. What used to be a personal challenge has turned into a commercial race, where success is measured by photos and fame rather than respect for the mountain. This situation is disturbing because it shows how our desire to conquer the world's highest peak has created serious environmental and moral concerns.",
         },
         {
-          text: "As the number of climbers on Mount Everest continues to rise, the need to focus on sustainability has become urgent. Local authorities and environmental groups are now introducing stricter waste management rules, encouraging climbers to bring back what they carry, and limiting the number of expeditions each season. Some teams have even started \"clean-up climbs\" to remove rubbish left behind on the slopes. These efforts remind us that protecting the mountain is just as important as reaching its peak.",
+          text: "As the number of climbers on Mount Everest continues to rise, the need to focus on sustainability has become urgent. Local authorities and environmental groups are now introducing stricter waste management rules, encouraging climbers to bring back what they carry, and limiting the number of expeditions each season. Some teams have even started \"clean-up climbs\" to remove rubbish left behind on the slopes. These efforts remind us that protecting the mountain is just as important as reaching its peak. True success on Everest should mean leaving the mountain cleaner and safer for future generations.",
         },
         {
           text: "Shared experiences in challenging environments, like mountains, can deepen intimacy in relationships. Couples or friends who navigate the challenges of climbing together often find their bonds strengthened through mutual support and understanding.",
@@ -511,19 +520,19 @@ export const data = {
           text: "Supporters of the four-day workweek argue that this model brings many obvious benefits to employees. They feel more satisfied with their jobs, more relaxed and more motivated to contribute. Having an extra day off helps them balance work and personal life, giving them the opportunity to care for their family, relax or pursue personal interests. This not only improves mental health but also contributes to increased productivity when they return to work.",
         },
         {
-          text: "Despite its positive potential, the adoption of a four-day workweek also comes with its fair share of concerns, particularly financial ones. In Japan in 1988, when several technology firms experimented with shorter work schedules, they reported a slight drop in productivity during the initial months and a noticeable rise in operational expenses. Businesses in the service or retail sectors may struggle to maintain continuous operations with reduced staffing.",
+          text: "Despite its positive potential, the adoption of a four-day workweek also comes with its fair share of concerns, particularly financial ones. In Japan in 1988, when several technology firms experimented with shorter work schedules, they reported a slight drop in productivity during the initial months and a noticeable rise in operational expenses. Businesses in the service or retail sectors may struggle to maintain continuous operations with reduced staffing. To compensate, they may have to hire more people, leading to increased costs in salaries, training and management. For smaller companies, this can easily become a major challenge in terms of budgets and ability to maintain operations.",
         },
         {
-          text: "A shortened workweek does not always bring a sense of relief. In fact, many employees worry that the workload will be compressed, making the four-day workday more stressful than usual. The compressed schedule can increase psychological and physical pressure, causing work efficiency to decline rather than improve.",
+          text: "A shortened workweek does not always bring a sense of relief. In fact, many employees worry that the workload will be compressed, making the four-day workday more stressful than usual. The compressed schedule can increase psychological and physical pressure, causing work efficiency to decline rather than improve. Concerns that “compressing work into shorter hours” may be counterproductive to the original goal.",
         },
         {
-          text: "One of the biggest barriers to changing working patterns is the stability of long-standing habits. The five-day workday structure affects not only the office workers but is also closely linked to the education system, public services and many other social activities. In France in 2000, when the government introduced a nationwide reduction of working hours, numerous companies discovered that employees continued to follow their old patterns.",
+          text: "One of the biggest barriers to changing working patterns is the stability of long-standing habits. The five-day workday structure affects not only the office workers but is also closely linked to the education system, public services and many other social activities. From schools, government agencies to shopping or entertainment centers – all are operating on this time frame. Adjusting the entire system like this will not be easy and is likely to face opposition from many sides. In France in 2000, when the government introduced a nationwide reduction of working hours, numerous companies discovered that employees continued to follow their old patterns, such as staying late or taking work home.",
         },
         {
-          text: "Another issue raised is fairness between labor groups. While office workers may benefit from the new work schedule, professions that require physical presence such as police, fire or emergency services have few options. They cannot simply reduce the working day without ensuring continuity in work. This could widen the gap between occupational classes and create divisions in society.",
+          text: "Another issue raised is fairness between labor groups. While office workers may benefit from the new work schedule, professions that require physical presence such as police, fire or emergency services have few options. They cannot simply reduce the working day without ensuring continuity in work. This is also true for teachers, as the number of students and teaching hours does not decrease. This could widen the gap between occupational classes and create divisions in society.",
         },
         {
-          text: "Given the potential difficulties, some experts suggest more flexible approaches instead of shortening the work week. Models such as remote working, job sharing or flexible working hours are considered more suitable in some cases. These solutions give employees more control over their time without putting pressure on businesses to change the entire operating structure.",
+          text: "Given the potential difficulties, some experts suggest more flexible approaches instead of shortening the work week. Models such as remote working, job sharing or flexible working hours are considered more suitable in some cases. These solutions give employees more control over their time without putting pressure on businesses to change the entire operating structure. Thereby, the goal of work-life balance can still be achieved without creating many barriers.",
         },
       ],
       options: [
@@ -549,25 +558,25 @@ export const data = {
       main: "Frozen Land",
       subQuestions: [
         {
-          text: "Although Antarctica is not claimed as a country, several nations have laid territorial claims over parts of the continent. However, under the Antarctic Treaty System signed in 1959, no single country has full ownership. Instead, the region is governed collectively by over 50 countries that have agreed to preserve it for peaceful and scientific purposes. No military activity is allowed, and scientific cooperation is encouraged.",
+          text: "Although Antarctica is not claimed as a country, several nations have laid territorial claims over parts of the continent. However, under the Antarctic Treaty System signed in 1959, no single country has full ownership. Instead, the region is governed collectively by over 50 countries that have agreed to preserve it for peaceful and scientific purposes. No military activity is allowed, and scientific cooperation is encouraged. This unique model of international governance helps protect the fragile environment of the frozen land and ensures that its resources are not exploited for commercial gain.",
         },
         {
-          text: "The first known landing on Antarctica took place in the early 19th century when a group of seal hunters unintentionally arrived at the icy coastline. Later, exploratory missions were organized specifically to set foot on the continent. In 1895, a Norwegian expedition became the first officially recognized landing. These early steps were dangerous and uncertain, with little knowledge of the terrain or weather.",
+          text: "The first known landing on Antarctica took place in the early 19th century when a group of seal hunters unintentionally arrived at the icy coastline. Later, exploratory missions were organized specifically to set foot on the continent. In 1895, a Norwegian expedition became the first officially recognized landing. These early steps were dangerous and uncertain, with little knowledge of the terrain or weather. Still, the achievement marked a turning point in human exploration, showing that even the most remote and inhospitable places on Earth could be reached with courage and persistence.",
         },
         {
-          text: "Antarctica has often been described as the end of the Earth. Located at the southernmost point of the planet, it remains one of the most mysterious and least accessible places for humans. It's surrounded by the Southern Ocean and sits opposite the Arctic in the global geography. For centuries, explorers speculated whether such a place existed at all.",
+          text: "Antarctica has often been described as the end of the Earth. Located at the southernmost point of the planet, it remains one of the most mysterious and least accessible places for humans. It's surrounded by the Southern Ocean and sits opposite the Arctic in the global geography. For centuries, explorers speculated whether such a place existed at all. Today, while satellite images and scientific missions provide more data, the continent still retains an aura of the unknown, attracting adventurers and scientists who want to experience the planet’s final frontier.",
         },
         {
-          text: "Despite being covered in thick sheets of ice, Antarctica has a surprisingly diverse and dramatic landscape hidden beneath its surface. Using ground-penetrating radar and satellite imaging, scientists have discovered vast mountain ranges, deep valleys, and even ancient lakes buried under kilometers of ice. These findings suggest that Antarctica was once a very different environment.",
+          text: "Despite being covered in thick sheets of ice, Antarctica has a surprisingly diverse and dramatic landscape hidden beneath its surface. Using ground-penetrating radar and satellite imaging, scientists have discovered vast mountain ranges, deep valleys, and even ancient lakes buried under kilometers of ice. These findings suggest that Antarctica was once a very different environment. Studying this hidden geography helps researchers understand the Earth's geological past, as well as how changes in climate may affect the region’s ice coverage in the future.",
         },
         {
-          text: "The early 20th century saw a dramatic competition between nations to reach the South Pole. Most famously, British explorer Robert Falcon Scott and Norwegian Roald Amundsen led rival expeditions. Amundsen reached the Pole first in 1911, using dog sleds and careful planning. Scott arrived weeks later, only to perish on the return journey with his team.",
+          text: "The early 20th century saw a dramatic competition between nations to reach the South Pole. Most famously, British explorer Robert Falcon Scott and Norwegian Roald Amundsen led rival expeditions. Amundsen reached the Pole first in 1911, using dog sleds and careful planning. Scott arrived weeks later, only to perish on the return journey with his team. The race to the pole was one of the most extreme tests of human endurance and remains one of the most iconic chapters in the history of polar exploration.",
         },
         {
-          text: "Travel across Antarctica remains one of the most difficult journeys on Earth. However, modern technology has significantly reduced the physical effort required. In the past, explorers dragged heavy sleds by hand or used animals, often in dangerous and freezing conditions. Today, snowmobiles, tracked vehicles, and even aircraft allow researchers to move equipment and people more easily.",
+          text: "Travel across Antarctica remains one of the most difficult journeys on Earth. However, modern technology has significantly reduced the physical effort required. In the past, explorers dragged heavy sleds by hand or used animals, often in dangerous and freezing conditions. Today, snowmobiles, tracked vehicles, and even aircraft allow researchers to move equipment and people more easily. While the environment is still harsh, advances in transportation and survival gear make scientific missions more efficient and less life-threatening than those of early explorers.",
         },
         {
-          text: "Antarctica is the coldest place on Earth, with temperatures regularly dropping below –60°C in winter. The continent's high altitude, its position near the South Pole, and the fact that sunlight is absent for months all contribute to its extreme chill. Its white ice surface also reflects most of the sun's heat back into the atmosphere.",
+          text: "Antarctica is the coldest place on Earth, with temperatures regularly dropping below –60°C in winter. The continent's high altitude, its position near the South Pole, and the fact that sunlight is absent for months all contribute to its extreme chill. Its white ice surface also reflects most of the sun's heat back into the atmosphere. These unique features make it difficult for heat to accumulate, and as a result, the region remains frozen even in summer. Understanding these conditions helps scientists study global weather patterns and climate change.",
         },
       ],
       options: [
@@ -593,22 +602,22 @@ export const data = {
       main: "Women Mathematicians",
       subQuestions: [
         {
-          text: "In 2014, Iranian mathematician Maryam Mirzakhani received the prestigious Fields Prize, the highest honor in mathematics, and the first time in its 70 years that a woman has won it. However, many newspapers at the time emphasised that the prize winner was a woman. For centuries, the achievements of women in mathematics were either omitted from historical records or attributed to male colleagues. Such erasure has been a recurring theme in the history of women in this field.",
+          text: "In 2014, Iranian mathematician Maryam Mirzakhani received the prestigious Fields Prize, the highest honor in mathematics, and the first time in its 70 years that a woman has won it. However, many newspapers at the time emphasised that the prize winner was a woman. For centuries, the achievements of women in mathematics were either omitted from historical records or attributed to male colleagues. Many of their contributions were later credited to male scholars. Such erasure has been a recurring theme in the history of women in this field.",
         },
         {
-          text: "Maria Agnesi is widely recognised for her important contributions to mathematics. In 1748, she published a major mathematics textbook that was used throughout Europe, becoming the first woman to produce such a comprehensive work in this field. Her book helped explain complex mathematical ideas in a clear and systematic way. Later, in 1750, she was appointed professor of mathematics at a university, making her the first woman to hold this position.",
+          text: "Maria Agnesi is widely recognised for her important contributions to mathematics. In 1748, she published a major mathematics textbook that was used throughout Europe, becoming the first woman to produce such a comprehensive work in this field. Her book helped explain complex mathematical ideas in a clear and systematic way. Later, in 1750, she was appointed professor of mathematics at a university, making her the first woman to hold this position. These achievements marked a significant moment in the history of mathematics and highlighted her lasting influence on future generations.",
         },
         {
-          text: "Sophie Germain made remarkable contributions to mathematics, particularly in number theory and elasticity. In 1816, she submitted work on number theory under a male pseudonym because women were not taken seriously in mathematics at that time. Later, in 1821, she won a prize from the Paris Academy of Sciences for her research on elasticity, but her achievements were often published or credited to male colleagues instead of her.",
+          text: "Sophie Germain made remarkable contributions to mathematics, particularly in number theory and elasticity. In 1816, she submitted work on number theory under a male pseudonym because women were not taken seriously in mathematics at that time. Later, in 1821, she won a prize from the Paris Academy of Sciences for her research on elasticity, but her achievements were often published or credited to male colleagues instead of her. Despite these challenges, her work was highly influential, and later generations recognised her contributions, proving that her talent had been overlooked for many years.",
         },
         {
-          text: "Millicent Fawcett demonstrated remarkable intellectual ability from a young age. At just 19, she delivered a public lecture on Sir Isaac Newton at a time when women rarely spoke in academic settings. Although she did not pursue a professional career in mathematics, her early accomplishments in the subject reflected a sharp analytical mind. Over the decades, Fawcett dedicated herself to advocating for women's education and suffrage.",
+          text: "Millicent Fawcett demonstrated remarkable intellectual ability from a young age. At just 19, she delivered a public lecture on Sir Isaac Newton at a time when women rarely spoke in academic settings. Although she did not pursue a professional career in mathematics, her early accomplishments in the subject reflected a sharp analytical mind. Over the decades, Fawcett dedicated herself to advocating for women's education and suffrage, tirelessly working to open academic and political doors for future generations. Her lifelong commitment to intellectual and social progress stands as a testament to her exceptional capabilities and enduring influence.",
         },
         {
           text: "When female mathematicians are described as \"women geniuses\" or \"female prodigies,\" the gender label, while well-intended, often implies that excellence is rare among women. Such terms, though celebratory, can unintentionally reinforce the idea that women's success in mathematics is unusual, rather than simply the result of talent and hard work.",
         },
         {
-          text: "To address the gender imbalance in mathematics, many universities and organizations now run outreach programs, offer scholarships specifically for women, and encourage female mentorship in STEM fields. Some universities are required to arrange places where female mathematicians can work and research. These efforts aim not to give unfair advantage, but to create equal opportunities.",
+          text: "To address the gender imbalance in mathematics, many universities and organizations now run outreach programs, offer scholarships specifically for women, and encourage female mentorship in STEM fields. Some universities are required to arrange places where female mathematicians can work and research. These efforts aim not to give unfair advantage, but to create equal opportunities in a domain where women have historically been underrepresented.",
         },
         {
           text: "In efforts to level the playing field, some institutions have implemented standardized criteria for admissions or research evaluation. However, such uniform methods can sometimes ignore the diverse paths and challenges faced by individuals, particularly women balancing academic and societal expectations. A one-size-fits-all approach may not always foster true equity.",

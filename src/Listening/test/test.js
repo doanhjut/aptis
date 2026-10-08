@@ -6,7 +6,7 @@ import Part4 from "../part4/part4.js";
 import { Link } from "react-router-dom";
 import ListeningPart3 from "../part3/part3.js";
 
-function ListeningTest() {
+function ListeningTest({ backPath = "/listening/old" }) {
   const [part1QuestionsSelected, setPart1QuestionsSelected] = useState([]);
   // const [part2Items, setPart2Items] = useState([]);
   const [part3Topic, setPart3Topic] = useState([]);
@@ -47,7 +47,7 @@ function ListeningTest() {
         <div className="progress-indicator">Part {currentPart} of 4</div>
       </div>
       <div className="back-button-container">
-        <Link to="/listening" className="back-button">
+        <Link to={backPath} className="back-button">
           ← Trang chủ
         </Link>
       </div>
@@ -59,6 +59,7 @@ function ListeningTest() {
             <Part1
               questions={part1QuestionsSelected}
               onComplete={handleComplete}
+              backPath={backPath}
             />
           )}
           {/* {currentPart === 2 && (
@@ -71,12 +72,14 @@ function ListeningTest() {
             <ListeningPart3
               questions={part3Topic ? [part3Topic] : []}
               onComplete={handleComplete}
+              backPath={backPath}
             />
           )}
           {currentPart === 3 && (
             <Part4
               isTest={true}
               onComplete={handleComplete}
+              backPath={backPath}
             />
           )}
         </div>

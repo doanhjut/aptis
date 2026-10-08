@@ -27,6 +27,12 @@ const getTopic = (item) => {
   return "Part 2 (short)";
 };
 
+/** part2: optional item.intro; part2shorten / custom props: không có. */
+const getIntro = (item) => {
+  if (!item || Array.isArray(item)) return "";
+  return typeof item.intro === "string" ? item.intro : "";
+};
+
 function ReadingPart2({ questions, onComplete }) {
   const [dataSentences, setDataSentences] = useState([]);
   const [sentenceIndices, setSentenceIndices] = useState([]); // Thứ tự random câu hỏi chính
@@ -49,6 +55,7 @@ function ReadingPart2({ questions, onComplete }) {
   const [currentInfo, setCurrentInfo] = useState({
     originalIndex: null,
     topic: "",
+    intro: "",
     correctAnswer: [],
   });
   
@@ -90,6 +97,7 @@ function ReadingPart2({ questions, onComplete }) {
     const item = data[originalIndex];
     const list = getQuestionList(item);
     const topic = getTopic(item);
+    const intro = getIntro(item);
 
     if (list.length > 0) {
       setWords(shuffleArray(list));
@@ -101,6 +109,7 @@ function ReadingPart2({ questions, onComplete }) {
       setCurrentInfo({
         originalIndex: originalIndex,
         topic: topic || "No topic",
+        intro,
         correctAnswer: list
       });
     }
@@ -302,6 +311,15 @@ function ReadingPart2({ questions, onComplete }) {
         </div>
 
         <div className="input-slots">
+          {currentInfo.intro ? (
+            <div className="input-slot input-slot--filled input-slot--intro">
+              <span className="input-slot-num">0</span>
+              <span className="input-slot-content">
+                <span className="input-slot-label">Câu mở đầu</span>
+                {currentInfo.intro}
+              </span>
+            </div>
+          ) : null}
           {inputValues.map((value, index) => (
             <div
               key={index}

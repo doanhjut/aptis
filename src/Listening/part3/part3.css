@@ -123,6 +123,41 @@
   background: rgba(5, 150, 105, 0.06);
 }
 
+.both-choice {
+  display: block;
+  width: 100%;
+  text-align: left;
+  background: var(--color-surface);
+  font: inherit;
+  cursor: pointer;
+}
+
+.both-choice.selected {
+  border-color: var(--color-accent-listening);
+  background: rgba(5, 150, 105, 0.12);
+}
+
+.both-choice.both-correct {
+  border-color: #059669;
+  background: #ecfdf5;
+}
+
+.both-choice.both-missed {
+  border-color: #d97706;
+  background: #fffbeb;
+}
+
+.both-choice.both-extra {
+  border-color: #dc2626;
+  background: #fef2f2;
+}
+
+.both-note {
+  margin-top: 0.35rem;
+  font-size: 0.85rem;
+  font-weight: 700;
+}
+
 .sub-question-text {
   font-weight: 600;
   color: var(--color-text);

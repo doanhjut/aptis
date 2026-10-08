@@ -25,13 +25,19 @@ function ReadingPart3({ questions, onComplete }) {
   const [result, setResult] = useState(null);
   const [showCorrect, setShowCorrect] = useState(false);
   const [waitingNext, setWaitingNext] = useState(false); // Chờ user bấm Next sau khi sai
+  const [selectedData, setSelectedData] = useState("part3");
   
   // Score tracking - count individual sub-questions (7 total)
   const [correctCount, setCorrectCount] = useState(0);
 
   // Khởi tạo dữ liệu và random câu hỏi
   useEffect(() => {
-    const sourceData = Array.isArray(questions) && questions.length > 0 ? questions : data.part3;
+    const sourceData =
+      Array.isArray(questions) && questions.length > 0
+        ? questions
+        : selectedData === "part3shorten"
+        ? data.part3shorten
+        : data.part3;
     setDataSentences(sourceData);
 
     const indices = Array.from({ length: sourceData.length }, (_, i) => i);
@@ -44,7 +50,8 @@ function ReadingPart3({ questions, onComplete }) {
     setIsReviewMode(false);
     setReviewIndices([]);
     setCurrentReviewIdx(0);
-  }, [questions]);
+    setCorrectCount(0);
+  }, [questions, selectedData]);
 
   // Khi chuyển câu hỏi (chính hoặc ôn lại) → load và shuffle options một lần
   useEffect(() => {
@@ -223,6 +230,10 @@ function ReadingPart3({ questions, onComplete }) {
     setWaitingNext(false);
   };
 
+  const handleDataChange = (e) => {
+    setSelectedData(e.target.value);
+  };
+
   const startReviewManually = () => {
     if (wrongIndices.length === 0) {
       setResult("Chưa có câu nào sai để ôn lại!");
@@ -244,6 +255,21 @@ function ReadingPart3({ questions, onComplete }) {
           <Link to="/reading" className="back-button">
             ← Trang chủ
           </Link>
+        </div>
+      )}
+
+      {!questions && (
+        <div className="data-selector">
+          <label htmlFor="data-select">Choose data set: </label>
+          <select
+            id="data-select"
+            value={selectedData}
+            onChange={handleDataChange}
+            className="data-select"
+          >
+            <option value="part3">Full Data (part3)</option>
+            <option value="part3shorten">Shortened Data (part3shorten)</option>
+          </select>
         </div>
       )}
 

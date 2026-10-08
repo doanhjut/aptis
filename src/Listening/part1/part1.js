@@ -1,9 +1,13 @@
-import { useState, useEffect } from "react";
+import { useState, useEffect, useRef } from "react";
 import "./part1.css";
 import { data } from "../data.js";
 import { Link } from "react-router-dom";
 
-function ListeningPart1({ questions, onComplete }) {
+function ListeningPart1({
+  questions,
+  onComplete,
+  backPath = "/listening",
+}) {
   const [currentQuestionIndex, setCurrentQuestionIndex] = useState(0);
   const [selectedOption, setSelectedOption] = useState("");
   const [result, setResult] = useState(null);
@@ -17,10 +21,16 @@ function ListeningPart1({ questions, onComplete }) {
   // Review Mode State
   const [wrongQuestions, setWrongQuestions] = useState([]); // Stores objects of wrong questions
   const [isReviewMode, setIsReviewMode] = useState(false);
+  const [reviewQuestions, setReviewQuestions] = useState([]);
+  const [reviewIndex, setReviewIndex] = useState(0);
+  const [resumeIndex, setResumeIndex] = useState(null);
+  const [canReturnToMain, setCanReturnToMain] = useState(false);
   const [isFinished, setIsFinished] = useState(false); // New state to show summary screen
+  const advanceTimer = useRef(null);
 
   useEffect(() => {
     shuffleQuestions();
+    return () => clearTimeout(advanceTimer.current);
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
@@ -42,6 +52,10 @@ function ListeningPart1({ questions, onComplete }) {
     setIncorrectCount(0);
     setWrongQuestions([]);
     setIsReviewMode(false);
+    setReviewQuestions([]);
+    setReviewIndex(0);
+    setResumeIndex(null);
+    setCanReturnToMain(false);
     setIsFinished(false);
   };
 
@@ -49,7 +63,9 @@ function ListeningPart1({ questions, onComplete }) {
     if (selectedOption) return; // Prevent double click
     setSelectedOption(option);
     
-    const currentQuestion = shuffledQuestions[currentQuestionIndex];
+    const currentQuestion = isReviewMode
+      ? reviewQuestions[reviewIndex]
+      : shuffledQuestions[currentQuestionIndex];
     if (option === currentQuestion.correctAnswer) {
       setResult("Correct!");
       // Only increment score if not in review mode (or do we count review score? Usually separate).
@@ -57,8 +73,9 @@ function ListeningPart1({ questions, onComplete }) {
       if (!isReviewMode) {
         setCorrectCount(prev => prev + 1);
       }
-      
-      setTimeout(() => {
+
+      clearTimeout(advanceTimer.current);
+      advanceTimer.current = setTimeout(() => {
         handleNextStep();
       }, 1000);
     } else {
@@ -75,12 +92,44 @@ function ListeningPart1({ questions, onComplete }) {
     }
   };
 
+  const returnToMainQuestion = () => {
+    clearTimeout(advanceTimer.current);
+    const nextIndex = resumeIndex ?? currentQuestionIndex;
+    setIsReviewMode(false);
+    setReviewQuestions([]);
+    setReviewIndex(0);
+    setCanReturnToMain(false);
+    setSelectedOption("");
+    setResult(null);
+    setShowCorrect(false);
+    setResumeIndex(null);
+
+    if (nextIndex >= shuffledQuestions.length) {
+      setIsFinished(true);
+      return;
+    }
+
+    setCurrentQuestionIndex(nextIndex);
+  };
+
   const handleNextStep = () => {
+    setSelectedOption("");
+    setResult(null);
+    setShowCorrect(false);
+
+    if (isReviewMode) {
+      if (reviewIndex < reviewQuestions.length - 1) {
+        setReviewIndex((index) => index + 1);
+      } else if (canReturnToMain) {
+        returnToMainQuestion();
+      } else {
+        finishSection();
+      }
+      return;
+    }
+
     if (currentQuestionIndex < shuffledQuestions.length - 1) {
       setCurrentQuestionIndex(prev => prev + 1);
-      setSelectedOption("");
-      setResult(null);
-      setShowCorrect(false);
     } else {
       finishSection();
     }
@@ -101,30 +150,40 @@ function ListeningPart1({ questions, onComplete }) {
     }
   };
 
-  const startReview = () => {
+  const startReview = ({ continueMainSet = false } = {}) => {
     if (wrongQuestions.length === 0) return;
+    clearTimeout(advanceTimer.current);
+    setResumeIndex(
+      continueMainSet && selectedOption
+        ? currentQuestionIndex + 1
+        : currentQuestionIndex,
+    );
+    setCanReturnToMain(continueMainSet);
+    setReviewQuestions([...wrongQuestions].sort(() => Math.random() - 0.5));
+    setReviewIndex(0);
     setIsReviewMode(true);
     setIsFinished(false);
-    // Shuffle wrong questions or keep order?
-    const shuffledWrong = [...wrongQuestions].sort(() => Math.random() - 0.5);
-    setShuffledQuestions(shuffledWrong);
-    setCurrentQuestionIndex(0);
     setSelectedOption("");
     setResult(null);
     setShowCorrect(false);
-    // Reset specific 'correct' count for the review session? 
-    // Or just track progress. Let's not reset global counters to keep total "session" stats visible if desired, 
-    // OR reset to focus on review. Part 3 resets counters kind of.
-    // Let's reset counters for the review session clarity.
-    setCorrectCount(0);
-    setIncorrectCount(0); // Optionally track errors during review
+    if (!continueMainSet) {
+      setCorrectCount(0);
+      setIncorrectCount(0);
+    }
   };
 
-  const currentQuestion = shuffledQuestions[currentQuestionIndex] || null;
+  const activeQuestions = isReviewMode ? reviewQuestions : shuffledQuestions;
+  const activeIndex = isReviewMode ? reviewIndex : currentQuestionIndex;
+  const currentQuestion = activeQuestions[activeIndex] || null;
 
   if (isFinished) {
     return (
       <div className="app-container">
+        <div className="back-button-container">
+          <Link to={backPath} className="back-button">
+            ← Trang chủ
+          </Link>
+        </div>
         <h1 className="game-title">Part 1 - Summary</h1>
         <div className="question-section" style={{textAlign: "center"}}>
           <h2>You completed the section!</h2>
@@ -136,7 +195,7 @@ function ListeningPart1({ questions, onComplete }) {
              <div style={{marginBottom: "20px"}}>
                <p>You have {wrongQuestions.length} incorrect answers.</p>
                <button 
-                 onClick={startReview}
+                 onClick={() => startReview()}
                  className="option-btn" 
                  style={{background: "#f59e0b", color:"white", borderColor:"#d97706", fontWeight:"bold", margin:"0 auto", display:"block", width:"auto"}}
                >
@@ -174,21 +233,31 @@ function ListeningPart1({ questions, onComplete }) {
       <h1 className="game-title">
         {isReviewMode ? "Review Mode - Part 1" : "Multiple Choice Game - Part 1"}
       </h1>
-      {(!questions || questions.length === 0) && (
-        <div className="back-button-container">
-          <Link to="/listening" className="back-button">
-            ← Trang chủ
-          </Link>
-        </div>
-      )}
+      <div className="back-button-container">
+        <Link to={backPath} className="back-button">
+          ← Trang chủ
+        </Link>
+      </div>
       <p className="question-count">
-        {isReviewMode ? "Review: " : ""}{currentQuestionIndex + 1}/{shuffledQuestions.length}
+        {isReviewMode ? "Ôn câu sai: " : ""}{activeIndex + 1}/{activeQuestions.length}
       </p>
-      {!isReviewMode && (
-        <p className="score-count">
-          Trả lời đúng: {correctCount}, Trả lời sai: {incorrectCount}
-        </p>
+      {isReviewMode && canReturnToMain && (
+        <button type="button" className="review-now-button" onClick={returnToMainQuestion}>
+          Tiếp tục bài đang làm
+        </button>
       )}
+      {!isReviewMode && wrongQuestions.length > 0 && (
+        <button
+          type="button"
+          className="review-now-button"
+          onClick={() => startReview({ continueMainSet: true })}
+        >
+          Ôn câu sai ({wrongQuestions.length})
+        </button>
+      )}
+      <p className="score-count">
+        Trả lời đúng: {correctCount}, Trả lời sai: {incorrectCount}
+      </p>
       <div className="question-section">
         <p className="question-text">{currentQuestion.question}</p>
         <div className="options">
